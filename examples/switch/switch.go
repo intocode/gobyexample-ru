@@ -1,5 +1,5 @@
-// _Switch statements_ express conditionals across many
-// branches.
+// С помощью оператора `switch` можно описывать условные
+// конструкции с несколькими ветками.
 
 package main
 
@@ -10,51 +10,53 @@ import (
 
 func main() {
 
-	// Here's a basic `switch`.
+	// Вот простой пример `switch`.
 	i := 2
-	fmt.Print("Write ", i, " as ")
+	fmt.Print("Запишем ", i, " как ")
 	switch i {
 	case 1:
-		fmt.Println("one")
+		fmt.Println("один")
 	case 2:
-		fmt.Println("two")
+		fmt.Println("два")
 	case 3:
-		fmt.Println("three")
+		fmt.Println("три")
 	}
 
-	// You can use commas to separate multiple expressions
-	// in the same `case` statement. We use the optional
-	// `default` case in this example as well.
-	switch time.Now().Weekday() {
+	// Можно перечислить несколько выражений в одном `case`,
+	// разделив их запятыми. В этом примере мы также
+	// используем необязательный вариант `default`.
+	switch time.Now().Weekday() { // день недели
 	case time.Saturday, time.Sunday:
-		fmt.Println("It's the weekend")
+		fmt.Println("Сейчас выходной")
 	default:
-		fmt.Println("It's a weekday")
+		fmt.Println("Сейчас будний день")
 	}
 
-	// `switch` without an expression is an alternate way
-	// to express if/else logic. Here we also show how the
-	// `case` expressions can be non-constants.
+	// Конструкция `switch` без выражения — это
+	// альтернативный способ записать логику if/else. Здесь
+	// мы также показываем, что в `case` можно использовать
+	// не только константы.
 	t := time.Now()
 	switch {
 	case t.Hour() < 12:
-		fmt.Println("It's before noon")
+		fmt.Println("Еще нет двенадцати")
 	default:
-		fmt.Println("It's after noon")
+		fmt.Println("Сейчас после полудня")
 	}
 
-	// A type `switch` compares types instead of values.  You
-	// can use this to discover the type of an interface
-	// value.  In this example, the variable `t` will have the
-	// type corresponding to its clause.
+	// Конструкция `type switch` сравнивает типы вместо
+	// значений. Её можно использовать, чтобы узнать
+	// конкретный тип значения интерфейса. В этом примере
+	// переменная `t` внутри ветки будет иметь тип,
+	// соответствующий этой ветке.
 	whatAmI := func(i interface{}) {
 		switch t := i.(type) {
 		case bool:
-			fmt.Println("I'm a bool")
+			fmt.Println("Я bool")
 		case int:
-			fmt.Println("I'm an int")
+			fmt.Println("Я int")
 		default:
-			fmt.Printf("Don't know type %T\n", t)
+			fmt.Printf("Неизвестный тип %T\n", t)
 		}
 	}
 	whatAmI(true)
