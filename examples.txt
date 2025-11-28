@@ -6,7 +6,7 @@ for|Цикл for
 if-else|Условие if/else
 switch|Switch
 arrays|Массивы
-slices|Slices
+slices|Срезы
 maps|Maps
 functions|Functions
 multiple-return-values|Multiple Return Values

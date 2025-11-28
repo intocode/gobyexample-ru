@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Slices</title>
+    <title>Go на примерах: Срезы</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,15 @@
   </script>
   <body>
     <div class="example" id="slices">
-      <h2><a href="./">Go на примерах</a>: Slices</h2>
+      <h2><a href="./">Go на примерах</a>: Срезы</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><em>Slices</em> are an important data type in Go, giving
-a more powerful interface to sequences than arrays.</p>
+            <p><em>Срезы</em> — важный тип данных в Go, который предоставляет
+более мощный интерфейс для работы с последовательностями,
+чем массивы.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +46,7 @@ a more powerful interface to sequences than arrays.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/9-U3-8sKQun"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/F0vmzFajqRo"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -75,10 +76,9 @@ a more powerful interface to sequences than arrays.</p>
         
         <tr>
           <td class="docs">
-            <p>Unlike arrays, slices are typed only by the
-elements they contain (not the number of elements).
-An uninitialized slice equals to nil and has
-length 0.</p>
+            <p>В отличие от массивов, тип среза определяется только
+типом элементов, которые он содержит (а не их количеством).
+Неинициализированный срез равен nil и имеет длину 0.</p>
 
           </td>
           <td class="code leading">
@@ -90,13 +90,12 @@ length 0.</p>
         
         <tr>
           <td class="docs">
-            <p>To create a slice with non-zero length, use
-the builtin <code>make</code>. Here we make a slice of
-<code>string</code>s of length <code>3</code> (initially zero-valued).
-By default a new slice&rsquo;s capacity is equal to its
-length; if we know the slice is going to grow ahead
-of time, it&rsquo;s possible to pass a capacity explicitly
-as an additional parameter to <code>make</code>.</p>
+            <p>Чтобы создать срез ненулевой длины, используй встроенную
+функцию <code>make</code>. Здесь мы создаём срез строк длиной <code>3</code>
+(у элементов будут нулевые значения). По умолчанию
+ёмкость нового среза равна его длине; если заранее известно,
+что срез будет расти, можно явно указать ёмкость
+дополнительным параметром <code>make</code>.</p>
 
           </td>
           <td class="code leading">
@@ -108,7 +107,7 @@ as an additional parameter to <code>make</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>We can set and get just like with arrays.</p>
+            <p>Устанавливать и получать значения можно так же, как в массивах.</p>
 
           </td>
           <td class="code leading">
@@ -123,7 +122,7 @@ as an additional parameter to <code>make</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>len</code> returns the length of the slice as expected.</p>
+            <p><code>len</code> возвращает длину среза, как и ожидается.</p>
 
           </td>
           <td class="code leading">
@@ -134,12 +133,12 @@ as an additional parameter to <code>make</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>In addition to these basic operations, slices
-support several more that make them richer than
-arrays. One is the builtin <code>append</code>, which
-returns a slice containing one or more new values.
-Note that we need to accept a return value from
-<code>append</code> as we may get a new slice value.</p>
+            <p>Помимо базовых операций, срезы поддерживают несколько
+дополнительных, которые делают их богаче массивов.
+Одна из них — встроенная функция <code>append</code>, которая
+возвращает срез с одним или несколькими новыми значениями.
+Обрати внимание, что нужно сохранять возвращаемое значение
+<code>append</code>, поскольку может быть возвращён новый срез.</p>
 
           </td>
           <td class="code leading">
@@ -152,9 +151,9 @@ Note that we need to accept a return value from
         
         <tr>
           <td class="docs">
-            <p>Slices can also be <code>copy</code>&rsquo;d. Here we create an
-empty slice <code>c</code> of the same length as <code>s</code> and copy
-into <code>c</code> from <code>s</code>.</p>
+            <p>Срезы также можно копировать с помощью <code>copy</code>. Здесь мы
+создаём пустой срез <code>c</code> той же длины, что и <code>s</code>, и копируем
+в <code>c</code> содержимое <code>s</code>.</p>
 
           </td>
           <td class="code leading">
@@ -167,9 +166,9 @@ into <code>c</code> from <code>s</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Slices support a &ldquo;slice&rdquo; operator with the syntax
-<code>slice[low:high]</code>. For example, this gets a slice
-of the elements <code>s[2]</code>, <code>s[3]</code>, and <code>s[4]</code>.</p>
+            <p>Срезы поддерживают оператор среза с синтаксисом
+<code>slice[low:high]</code>. Например, этот код получает срез
+из элементов <code>s[2]</code>, <code>s[3]</code> и <code>s[4]</code>.</p>
 
           </td>
           <td class="code leading">
@@ -181,7 +180,7 @@ of the elements <code>s[2]</code>, <code>s[3]</code>, and <code>s[4]</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>This slices up to (but excluding) <code>s[5]</code>.</p>
+            <p>Этот срез берёт элементы до <code>s[5]</code> (не включая его).</p>
 
           </td>
           <td class="code leading">
@@ -193,7 +192,7 @@ of the elements <code>s[2]</code>, <code>s[3]</code>, and <code>s[4]</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>And this slices up from (and including) <code>s[2]</code>.</p>
+            <p>А этот — начиная с <code>s[2]</code> (включая его).</p>
 
           </td>
           <td class="code leading">
@@ -205,8 +204,8 @@ of the elements <code>s[2]</code>, <code>s[3]</code>, and <code>s[4]</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>We can declare and initialize a variable for slice
-in a single line as well.</p>
+            <p>Объявить и инициализировать переменную для среза
+можно также в одной строке.</p>
 
           </td>
           <td class="code leading">
@@ -218,8 +217,8 @@ in a single line as well.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>slices</code> package contains a number of useful
-utility functions for slices.</p>
+            <p>Пакет <code>slices</code> содержит множество полезных
+функций для работы со срезами.</p>
 
           </td>
           <td class="code leading">
@@ -233,9 +232,9 @@ utility functions for slices.</p>
         
         <tr>
           <td class="docs">
-            <p>Slices can be composed into multi-dimensional data
-structures. The length of the inner slices can
-vary, unlike with multi-dimensional arrays.</p>
+            <p>Срезы можно объединять в многомерные структуры данных.
+Длина внутренних срезов может варьироваться,
+в отличие от многомерных массивов.</p>
 
           </td>
           <td class="code">
@@ -259,8 +258,9 @@ vary, unlike with multi-dimensional arrays.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that while slices are different types than arrays,
-they are rendered similarly by <code>fmt.Println</code>.</p>
+            <p>Обрати внимание, что хотя срезы и массивы —
+разные типы, <code>fmt.Println</code> отображает их
+похожим образом.</p>
 
           </td>
           <td class="code leading">
@@ -284,21 +284,8 @@ they are rendered similarly by <code>fmt.Println</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Check out this <a href="https://go.dev/blog/slices-intro">great blog post</a>
-by the Go team for more details on the design and
-implementation of slices in Go.</p>
-
-          </td>
-          <td class="code empty leading">
-            
-          
-          </td>
-        </tr>
-        
-        <tr>
-          <td class="docs">
-            <p>Now that we&rsquo;ve seen arrays and slices we&rsquo;ll look at
-Go&rsquo;s other key builtin data structure: maps.</p>
+            <p>Подробнее о дизайне и реализации срезов в Go читай
+в <a href="https://go.dev/blog/slices-intro">статье</a> от команды Go.</p>
 
           </td>
           <td class="code empty">
@@ -322,7 +309,7 @@ Go&rsquo;s other key builtin data structure: maps.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"slices\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    var s []string\u000A    fmt.Println(\"uninit:\", s, s \u003D\u003D nil, len(s) \u003D\u003D 0)\u000A');codeLines.push('    s \u003D make([]string, 3)\u000A    fmt.Println(\"emp:\", s, \"len:\", len(s), \"cap:\", cap(s))\u000A');codeLines.push('    s[0] \u003D \"a\"\u000A    s[1] \u003D \"b\"\u000A    s[2] \u003D \"c\"\u000A    fmt.Println(\"set:\", s)\u000A    fmt.Println(\"get:\", s[2])\u000A');codeLines.push('    fmt.Println(\"len:\", len(s))\u000A');codeLines.push('    s \u003D append(s, \"d\")\u000A    s \u003D append(s, \"e\", \"f\")\u000A    fmt.Println(\"apd:\", s)\u000A');codeLines.push('    c :\u003D make([]string, len(s))\u000A    copy(c, s)\u000A    fmt.Println(\"cpy:\", c)\u000A');codeLines.push('    l :\u003D s[2:5]\u000A    fmt.Println(\"sl1:\", l)\u000A');codeLines.push('    l \u003D s[:5]\u000A    fmt.Println(\"sl2:\", l)\u000A');codeLines.push('    l \u003D s[2:]\u000A    fmt.Println(\"sl3:\", l)\u000A');codeLines.push('    t :\u003D []string{\"g\", \"h\", \"i\"}\u000A    fmt.Println(\"dcl:\", t)\u000A');codeLines.push('    t2 :\u003D []string{\"g\", \"h\", \"i\"}\u000A    if slices.Equal(t, t2) {\u000A        fmt.Println(\"t \u003D\u003D t2\")\u000A    }\u000A');codeLines.push('    twoD :\u003D make([][]int, 3)\u000A    for i :\u003D range 3 {\u000A        innerLen :\u003D i + 1\u000A        twoD[i] \u003D make([]int, innerLen)\u000A        for j :\u003D range innerLen {\u000A            twoD[i][j] \u003D i + j\u000A        }\u000A    }\u000A    fmt.Println(\"2d: \", twoD)\u000A}\u000A');codeLines.push('');codeLines.push('');codeLines.push('');
+      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"slices\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    var s []string\u000A    fmt.Println(\"uninit:\", s, s \u003D\u003D nil, len(s) \u003D\u003D 0)\u000A');codeLines.push('    s \u003D make([]string, 3)\u000A    fmt.Println(\"emp:\", s, \"len:\", len(s), \"cap:\", cap(s))\u000A');codeLines.push('    s[0] \u003D \"a\"\u000A    s[1] \u003D \"b\"\u000A    s[2] \u003D \"c\"\u000A    fmt.Println(\"set:\", s)\u000A    fmt.Println(\"get:\", s[2])\u000A');codeLines.push('    fmt.Println(\"len:\", len(s))\u000A');codeLines.push('    s \u003D append(s, \"d\")\u000A    s \u003D append(s, \"e\", \"f\")\u000A    fmt.Println(\"apd:\", s)\u000A');codeLines.push('    c :\u003D make([]string, len(s))\u000A    copy(c, s)\u000A    fmt.Println(\"cpy:\", c)\u000A');codeLines.push('    l :\u003D s[2:5]\u000A    fmt.Println(\"sl1:\", l)\u000A');codeLines.push('    l \u003D s[:5]\u000A    fmt.Println(\"sl2:\", l)\u000A');codeLines.push('    l \u003D s[2:]\u000A    fmt.Println(\"sl3:\", l)\u000A');codeLines.push('    t :\u003D []string{\"g\", \"h\", \"i\"}\u000A    fmt.Println(\"dcl:\", t)\u000A');codeLines.push('    t2 :\u003D []string{\"g\", \"h\", \"i\"}\u000A    if slices.Equal(t, t2) {\u000A        fmt.Println(\"t \u003D\u003D t2\")\u000A    }\u000A');codeLines.push('    twoD :\u003D make([][]int, 3)\u000A    for i :\u003D range 3 {\u000A        innerLen :\u003D i + 1\u000A        twoD[i] \u003D make([]int, innerLen)\u000A        for j :\u003D range innerLen {\u000A            twoD[i][j] \u003D i + j\u000A        }\u000A    }\u000A    fmt.Println(\"2d: \", twoD)\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js" async></script>
   </body>
