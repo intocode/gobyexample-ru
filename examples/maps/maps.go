@@ -1,5 +1,5 @@
-// _Maps_ are Go's built-in [associative data type](https://en.wikipedia.org/wiki/Associative_array)
-// (sometimes called _hashes_ or _dicts_ in other languages).
+// _Map_ — это встроенный в Go [ассоциативный массив](https://ru.wikipedia.org/wiki/%D0%90%D1%81%D1%81%D0%BE%D1%86%D0%B8%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D1%8B%D0%B9_%D0%BC%D0%B0%D1%81%D1%81%D0%B8%D0%B2)
+// (в других языках их также называют _хеш-таблицами_ или _словарями_).
 
 package main
 
@@ -10,60 +10,60 @@ import (
 
 func main() {
 
-	// To create an empty map, use the builtin `make`:
-	// `make(map[key-type]val-type)`.
+	// Для создания пустого map используй встроенную функцию `make`:
+	// `make(map[тип-ключа]тип-значения)`.
 	m := make(map[string]int)
 
-	// Set key/value pairs using typical `name[key] = val`
-	// syntax.
+	// Пары ключ/значение устанавливаются с помощью
+	// стандартного синтаксиса `name[key] = val`.
 	m["k1"] = 7
 	m["k2"] = 13
 
-	// Printing a map with e.g. `fmt.Println` will show all of
-	// its key/value pairs.
+	// При выводе map с помощью `fmt.Println` отображаются
+	// все её пары ключ/значение.
 	fmt.Println("map:", m)
 
-	// Get a value for a key with `name[key]`.
+	// Значение по ключу получают с помощью `name[key]`.
 	v1 := m["k1"]
 	fmt.Println("v1:", v1)
 
-	// If the key doesn't exist, the
-	// [zero value](https://go.dev/ref/spec#The_zero_value) of the
-	// value type is returned.
+	// Если ключ не существует, возвращается
+	// [нулевое значение](https://go.dev/ref/spec#The_zero_value)
+	// типа значения.
 	v3 := m["k3"]
 	fmt.Println("v3:", v3)
 
-	// The builtin `len` returns the number of key/value
-	// pairs when called on a map.
+	// Встроенная функция `len` возвращает количество
+	// пар ключ/значение в map.
 	fmt.Println("len:", len(m))
 
-	// The builtin `delete` removes key/value pairs from
-	// a map.
+	// Встроенная функция `delete` удаляет пары
+	// ключ/значение из map.
 	delete(m, "k2")
 	fmt.Println("map:", m)
 
-	// To remove *all* key/value pairs from a map, use
-	// the `clear` builtin.
+	// Для удаления *всех* пар ключ/значение из map
+	// используй встроенную функцию `clear`.
 	clear(m)
 	fmt.Println("map:", m)
 
-	// The optional second return value when getting a
-	// value from a map indicates if the key was present
-	// in the map. This can be used to disambiguate
-	// between missing keys and keys with zero values
-	// like `0` or `""`. Here we didn't need the value
-	// itself, so we ignored it with the _blank identifier_
+	// Необязательное второе возвращаемое значение при
+	// получении значения из map показывает, присутствовал
+	// ли ключ в map. Это позволяет отличить отсутствующий
+	// ключ от ключа с нулевым значением вроде `0` или `""`.
+	// В данном случае само значение нам не нужно, поэтому
+	// мы его проигнорировали с помощью _пустого идентификатора_
 	// `_`.
 	_, prs := m["k2"]
 	fmt.Println("prs:", prs)
 
-	// You can also declare and initialize a new map in
-	// the same line with this syntax.
+	// Также можно объявить и инициализировать новый map
+	// в одной строке с помощью такого синтаксиса.
 	n := map[string]int{"foo": 1, "bar": 2}
 	fmt.Println("map:", n)
 
-	// The `maps` package contains a number of useful
-	// utility functions for maps.
+	// Пакет `maps` содержит ряд полезных вспомогательных
+	// функций для работы с map.
 	n2 := map[string]int{"foo": 1, "bar": 2}
 	if maps.Equal(n, n2) {
 		fmt.Println("n == n2")

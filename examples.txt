@@ -7,7 +7,7 @@ if-else|Условие if/else
 switch|Switch
 arrays|Массивы
 slices|Срезы
-maps|Maps
+maps|Словари (мапы, хеш-таблица)
 functions|Functions
 multiple-return-values|Multiple Return Values
 variadic-functions|Variadic Functions
