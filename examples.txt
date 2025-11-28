@@ -5,7 +5,7 @@ constants|Константы
 for|Цикл for
 if-else|Условие if/else
 switch|Switch
-arrays|Arrays
+arrays|Массивы
 slices|Slices
 maps|Maps
 functions|Functions

@@ -1,5 +1,6 @@
-# Note that arrays appear in the form `[v1 v2 v3 ...]`
-# when printed with `fmt.Println`.
+# Обрати внимание, что при выводе через 
+# `fmt.Println` массивы печатаются 
+# в виде `[v1 v2 v3 ...]`.
 $ go run arrays.go
 emp: [0 0 0 0 0]
 set: [0 0 0 0 100]
