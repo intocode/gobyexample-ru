@@ -107,7 +107,17 @@ type Seg struct {
 
 // Example is info extracted from an example file
 type Example struct {
-	ID, Name                    string
+	// ID is a stable slug used for URLs, directory names and output filenames,
+	// e.g. "hello-world", "values", "time-formatting-parsing".
+	ID string
+
+	// Title is the human-readable, potentially localized title that is
+	// rendered on the page (HTML <title>, <h2>, index list, navigation, etc.).
+	Title string
+
+	// Name is kept for backwards compatibility; it mirrors Title so existing
+	// template usages or code that still refer to .Name continue to work.
+	Name                        string
 	GoCode, GoCodeHash, URLHash string
 	Segs                        [][]*Seg
 	PrevExample                 *Example
@@ -242,26 +252,44 @@ func parseAndRenderSegs(sourcePath string) ([]*Seg, string) {
 }
 
 func parseExamples() []*Example {
-	var exampleNames []string
-	for _, line := range readLines("examples.txt") {
-		if line != "" && !strings.HasPrefix(line, "#") {
-			exampleNames = append(exampleNames, line)
-		}
+	type exampleMeta struct {
+		ID    string
+		Title string
 	}
-	examples := make([]*Example, 0)
-	for i, exampleName := range exampleNames {
-		if verbose() {
-			fmt.Printf("Processing %s [%d/%d]\n", exampleName, i+1, len(exampleNames))
+
+	metas := make([]exampleMeta, 0)
+	for _, raw := range readLines("examples.txt") {
+		line := strings.TrimSpace(raw)
+		if line == "" || strings.HasPrefix(line, "#") {
+			continue
 		}
-		example := Example{Name: exampleName}
-		exampleID := strings.ToLower(exampleName)
-		exampleID = strings.Replace(exampleID, " ", "-", -1)
-		exampleID = strings.Replace(exampleID, "/", "-", -1)
-		exampleID = strings.Replace(exampleID, "'", "", -1)
-		exampleID = dashPat.ReplaceAllString(exampleID, "-")
-		example.ID = exampleID
-		example.Segs = make([][]*Seg, 0)
-		sourcePaths := mustGlob("examples/" + exampleID + "/*")
+
+		parts := strings.SplitN(line, "|", 2)
+		if len(parts) != 2 {
+			panic("invalid examples.txt line, expected 'slug|Title': " + line)
+		}
+
+		id := strings.TrimSpace(parts[0])
+		title := strings.TrimSpace(parts[1])
+		if id == "" || title == "" {
+			panic("invalid examples.txt line, empty slug or title: " + line)
+		}
+
+		metas = append(metas, exampleMeta{ID: id, Title: title})
+	}
+
+	examples := make([]*Example, 0, len(metas))
+	for i, meta := range metas {
+		if verbose() {
+			fmt.Printf("Processing %s [%d/%d]\n", meta.ID, i+1, len(metas))
+		}
+		example := &Example{
+			ID:    meta.ID,
+			Title: meta.Title,
+			Name:  meta.Title,
+			Segs:  make([][]*Seg, 0),
+		}
+		sourcePaths := mustGlob("examples/" + example.ID + "/*")
 		for _, sourcePath := range sourcePaths {
 			if !isDir(sourcePath) {
 				if strings.HasSuffix(sourcePath, ".hash") {
@@ -279,7 +307,7 @@ func parseExamples() []*Example {
 		if example.GoCodeHash != newCodeHash {
 			example.URLHash = resetURLHashFile(newCodeHash, example.GoCode, "examples/"+example.ID+"/"+example.ID+".hash")
 		}
-		examples = append(examples, &example)
+		examples = append(examples, example)
 	}
 	for i, example := range examples {
 		if i > 0 {
