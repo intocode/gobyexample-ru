@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Values</title>
+    <title>Go на примерах: Значения</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="values">
-      <h2><a href="./">Go на примерах</a>: Values</h2>
+      <h2><a href="./">Go на примерах</a>: Значения</h2>
       
       <table>
         

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: {{.Name}}</title>
+    <title>Go на примерах: {{.Title}}</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,7 +24,7 @@
   </script>
   <body>
     <div class="example" id="{{.ID}}">
-      <h2><a href="./">Go на примерах</a>: {{.Name}}</h2>
+      <h2><a href="./">Go на примерах</a>: {{.Title}}</h2>
       {{range .Segs}}
       <table>
         {{range .}}
@@ -42,7 +42,7 @@
       {{end}}
       {{if .NextExample}}
       <p class="next">
-        Далее: <a href="{{.NextExample.ID}}" rel="next">{{.NextExample.Name}}</a>.
+        Далее: <a href="{{.NextExample.ID}}" rel="next">{{.NextExample.Title}}</a>.
       </p>
       {{end}}
 {{ template "footer" }}
