@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Constants</title>
+    <title>Go на примерах: Константы</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,14 @@
   </script>
   <body>
     <div class="example" id="constants">
-      <h2><a href="./">Go на примерах</a>: Constants</h2>
+      <h2><a href="./">Go на примерах</a>: Константы</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go supports <em>constants</em> of character, string, boolean,
-and numeric values.</p>
+            <p>Go поддерживает <em>константы</em> символьных, строковых,
+булевых и числовых типов.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@ and numeric values.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/LfvIxHlpomp"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/uiQ1rLx4e8r"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -65,7 +65,7 @@ and numeric values.</p>
         
         <tr>
           <td class="docs">
-            <p><code>const</code> declares a constant value.</p>
+            <p><code>const</code> объявляет константу.</p>
 
           </td>
           <td class="code leading">
@@ -87,8 +87,8 @@ and numeric values.</p>
         
         <tr>
           <td class="docs">
-            <p>A <code>const</code> statement can also appear inside a
-function body.</p>
+            <p>Объявление <code>const</code> может также находиться внутри
+тела функции.</p>
 
           </td>
           <td class="code leading">
@@ -99,8 +99,8 @@ function body.</p>
         
         <tr>
           <td class="docs">
-            <p>Constant expressions perform arithmetic with
-arbitrary precision.</p>
+            <p>Константные выражения вычисляются с
+произвольной точностью.</p>
 
           </td>
           <td class="code leading">
@@ -112,8 +112,8 @@ arbitrary precision.</p>
         
         <tr>
           <td class="docs">
-            <p>A numeric constant has no type until it&rsquo;s given
-one, such as by an explicit conversion.</p>
+            <p>Числовая константа не имеет типа, пока он
+не будет задан, например, явным преобразованием.</p>
 
           </td>
           <td class="code leading">
@@ -124,10 +124,10 @@ one, such as by an explicit conversion.</p>
         
         <tr>
           <td class="docs">
-            <p>A number can be given a type by using it in a
-context that requires one, such as a variable
-assignment or function call. For example, here
-<code>math.Sin</code> expects a <code>float64</code>.</p>
+            <p>Числу можно задать тип, использовав его в контексте,
+где он требуется, например при присваивании
+переменной или при вызове функции. Например, здесь
+<code>math.Sin</code> ожидает значение типа <code>float64</code>.</p>
 
           </td>
           <td class="code">

@@ -1,7 +1,7 @@
 hello-world|Hello World
 values|Значения
 variables|Variables
-constants|Constants
+constants|Константы
 for|For
 if-else|If/Else
 switch|Switch
