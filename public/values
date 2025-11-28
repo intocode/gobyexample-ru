@@ -30,9 +30,9 @@
         
         <tr>
           <td class="docs">
-            <p>Go has various value types including strings,
-integers, floats, booleans, etc. Here are a few
-basic examples.</p>
+            <p>В Go есть разные типы значений: строки, целые числа,
+числа с плавающей запятой, булевы значения и т.д.
+Вот несколько простых примеров.</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +46,7 @@ basic examples.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/YnVS3LZr8pk"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/cIEN3W2SSzr"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -73,7 +73,7 @@ basic examples.</p>
         
         <tr>
           <td class="docs">
-            <p>Strings, which can be added together with <code>+</code>.</p>
+            <p>Строки, которые можно склеивать оператором <code>+</code>.</p>
 
           </td>
           <td class="code leading">
@@ -84,7 +84,7 @@ basic examples.</p>
         
         <tr>
           <td class="docs">
-            <p>Integers and floats.</p>
+            <p>Целые числа и числа с плавающей запятой.</p>
 
           </td>
           <td class="code leading">
@@ -96,7 +96,7 @@ basic examples.</p>
         
         <tr>
           <td class="docs">
-            <p>Booleans, with boolean operators as you&rsquo;d expect.</p>
+            <p>Булевы значения с логическими операторами</p>
 
           </td>
           <td class="code">
