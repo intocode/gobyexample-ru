@@ -9,7 +9,7 @@ arrays|Массивы
 slices|Срезы
 maps|Словари (мапы, хеш-таблица)
 functions|Функции
-multiple-return-values|Multiple Return Values
+multiple-return-values|Множественные возвращаемые значения
 variadic-functions|Variadic Functions
 closures|Closures
 recursion|Recursion
