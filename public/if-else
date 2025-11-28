@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: If/Else</title>
+    <title>Go на примерах: Условие if/else</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,13 @@
   </script>
   <body>
     <div class="example" id="if-else">
-      <h2><a href="./">Go на примерах</a>: If/Else</h2>
+      <h2><a href="./">Go на примерах</a>: Условие if/else</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Branching with <code>if</code> and <code>else</code> in Go is
-straight-forward.</p>
+            <p>В Go ветвление с помощью <code>if</code> и <code>else</code> достаточно простое.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +44,7 @@ straight-forward.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/RKgKzCe7qcF"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/3U-UyuDRjqH"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -72,7 +71,7 @@ straight-forward.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a basic example.</p>
+            <p>Вот простой пример.</p>
 
           </td>
           <td class="code leading">
@@ -87,7 +86,7 @@ straight-forward.</p>
         
         <tr>
           <td class="docs">
-            <p>You can have an <code>if</code> statement without an else.</p>
+            <p>У <code>if</code> может не быть ветки <code>else</code>.</p>
 
           </td>
           <td class="code leading">
@@ -100,8 +99,7 @@ straight-forward.</p>
         
         <tr>
           <td class="docs">
-            <p>Logical operators like <code>&amp;&amp;</code> and <code>||</code> are often
-useful in conditions.</p>
+            <p>В условиях часто используются логические операторы вроде <code>&amp;&amp;</code> и <code>||</code>.</p>
 
           </td>
           <td class="code leading">
@@ -114,9 +112,9 @@ useful in conditions.</p>
         
         <tr>
           <td class="docs">
-            <p>A statement can precede conditionals; any variables
-declared in this statement are available in the current
-and all subsequent branches.</p>
+            <p>Перед условием в <code>if</code> можно писать выражения; любые
+переменные, объявленные в нём, будут доступны в текущем <code>if</code>
+и всех последующих ветках (то есть в связанных <code>else</code>).</p>
 
           </td>
           <td class="code leading">
@@ -134,8 +132,8 @@ and all subsequent branches.</p>
         
         <tr>
           <td class="docs">
-            <p>Note that you don&rsquo;t need parentheses around conditions
-in Go, but that the braces are required.</p>
+            <p>Обрати внимание: в Go вокруг условия не нужны скобки,
+но фигурные скобки обязательны.</p>
 
           </td>
           <td class="code empty">
@@ -164,9 +162,9 @@ in Go, but that the braces are required.</p>
         
         <tr>
           <td class="docs">
-            <p>There is no <a href="https://en.wikipedia.org/wiki/%3F:">ternary if</a>
-in Go, so you&rsquo;ll need to use a full <code>if</code> statement even
-for basic conditions.</p>
+            <p>В Go нет <a href="https://ru.wikipedia.org/wiki/%D0%A2%D0%B5%D1%80%D0%BD%D0%B0%D1%80%D0%BD%D0%B0%D1%8F_%D1%83%D1%81%D0%BB%D0%BE%D0%B2%D0%BD%D0%B0%D1%8F_%D0%BE%D0%BF%D0%B5%D1%80%D0%B0%D1%86%D0%B8%D1%8F">тернарного оператора if</a>
+поэтому даже для простых условий придётся писать
+полноценный оператор <code>if</code>.</p>
 
           </td>
           <td class="code empty">

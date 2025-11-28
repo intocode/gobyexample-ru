@@ -3,7 +3,7 @@ values|Значения
 variables|Переменные
 constants|Константы
 for|Цикл for
-if-else|If/Else
+if-else|Условие if/else
 switch|Switch
 arrays|Arrays
 slices|Slices
