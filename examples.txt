@@ -2,7 +2,7 @@ hello-world|Hello World
 values|Значения
 variables|Переменные
 constants|Константы
-for|For
+for|Цикл for
 if-else|If/Else
 switch|Switch
 arrays|Arrays
