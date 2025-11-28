@@ -10,7 +10,7 @@ slices|Срезы
 maps|Словари (мапы, хеш-таблица)
 functions|Функции
 multiple-return-values|Множественные возвращаемые значения
-variadic-functions|Variadic Functions
+variadic-functions|Вариативные функции
 closures|Closures
 recursion|Recursion
 range-over-built-in-types|Range over Built-in Types

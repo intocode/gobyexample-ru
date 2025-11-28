@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Variadic Functions</title>
+    <title>Go на примерах: Вариативные функции</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,16 @@
   </script>
   <body>
     <div class="example" id="variadic-functions">
-      <h2><a href="./">Go на примерах</a>: Variadic Functions</h2>
+      <h2><a href="./">Go на примерах</a>: Вариативные функции</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><a href="https://en.wikipedia.org/wiki/Variadic_function"><em>Variadic functions</em></a>
-can be called with any number of trailing arguments.
-For example, <code>fmt.Println</code> is a common variadic
-function.</p>
+            <p><a href="https://ru.wikipedia.org/wiki/%D0%92%D0%B0%D1%80%D0%B8%D0%B0%D1%82%D0%B8%D0%B2%D0%BD%D0%B0%D1%8F_%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D1%8F"><em>Вариативные функции</em></a>
+могут вызываться с произвольным числом конечных аргументов.
+Например, <code>fmt.Println</code> — распространённая вариативная
+функция.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +47,7 @@ function.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/glNdE8aKPNq"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/RI4vkohvdbI"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -64,8 +64,8 @@ function.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a function that will take an arbitrary number
-of <code>int</code>s as arguments.</p>
+            <p>Вот функция, которая принимает произвольное число
+<code>int</code> в качестве аргументов.</p>
 
           </td>
           <td class="code leading">
@@ -78,9 +78,9 @@ of <code>int</code>s as arguments.</p>
         
         <tr>
           <td class="docs">
-            <p>Within the function, the type of <code>nums</code> is
-equivalent to <code>[]int</code>. We can call <code>len(nums)</code>,
-iterate over it with <code>range</code>, etc.</p>
+            <p>Внутри функции тип <code>nums</code> эквивалентен <code>[]int</code>.
+Мы можем вызывать <code>len(nums)</code>, и итерироваться по нему
+с помощью <code>range</code> и т.д.</p>
 
           </td>
           <td class="code leading">
@@ -105,8 +105,8 @@ iterate over it with <code>range</code>, etc.</p>
         
         <tr>
           <td class="docs">
-            <p>Variadic functions can be called in the usual way
-with individual arguments.</p>
+            <p>Вариативные функции можно вызывать обычным способом —
+с отдельными аргументами.</p>
 
           </td>
           <td class="code leading">
@@ -118,9 +118,9 @@ with individual arguments.</p>
         
         <tr>
           <td class="docs">
-            <p>If you already have multiple args in a slice,
-apply them to a variadic function using
-<code>func(slice...)</code> like this.</p>
+            <p>Если у тебя уже есть несколько аргументов в слайсе,
+передай их в вариативную функцию с помощью
+синтаксиса <code>func(slice...)</code>.</p>
 
           </td>
           <td class="code">
@@ -150,8 +150,8 @@ apply them to a variadic function using
         
         <tr>
           <td class="docs">
-            <p>Another key aspect of functions in Go is their ability
-to form closures, which we&rsquo;ll look at next.</p>
+            <p>Ещё одна важная особенность функций в Go — возможность
+создавать замыкания. Рассмотрим это далее.</p>
 
           </td>
           <td class="code empty">
