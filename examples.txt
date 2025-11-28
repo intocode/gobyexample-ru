@@ -1,6 +1,6 @@
 hello-world|Hello World
 values|Значения
-variables|Variables
+variables|Переменные
 constants|Константы
 for|For
 if-else|If/Else

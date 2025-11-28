@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Variables</title>
+    <title>Go на примерах: Переменные</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,15 +24,14 @@
   </script>
   <body>
     <div class="example" id="variables">
-      <h2><a href="./">Go на примерах</a>: Variables</h2>
+      <h2><a href="./">Go на примерах</a>: Переменные</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>In Go, <em>variables</em> are explicitly declared and used by
-the compiler to e.g. check type-correctness of function
-calls.</p>
+            <p>В Go переменные объявляются явно, а компилятор использует их,
+например, чтобы проверять корректность типов в вызовах функций.</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +45,7 @@ calls.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/N5rWndIliJW"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/xoa-TeH8deD"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -73,7 +72,7 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p><code>var</code> declares 1 or more variables.</p>
+            <p><code>var</code> объявляет одну или несколько переменных.</p>
 
           </td>
           <td class="code leading">
@@ -85,7 +84,7 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p>You can declare multiple variables at once.</p>
+            <p>Можно объявить несколько переменных за один раз.</p>
 
           </td>
           <td class="code leading">
@@ -97,7 +96,7 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p>Go will infer the type of initialized variables.</p>
+            <p>Go сам выведет тип инициализированных переменных.</p>
 
           </td>
           <td class="code leading">
@@ -109,9 +108,9 @@ calls.</p>
         
         <tr>
           <td class="docs">
-            <p>Variables declared without a corresponding
-initialization are <em>zero-valued</em>. For example, the
-zero value for an <code>int</code> is <code>0</code>.</p>
+            <p>Переменные, объявленные без инициализации, получают
+<em>нулевое значение</em> (zero value). Например,
+нулевое значение для <code>int</code> — <code>0</code>.</p>
 
           </td>
           <td class="code leading">
@@ -123,10 +122,10 @@ zero value for an <code>int</code> is <code>0</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>:=</code> syntax is shorthand for declaring and
-initializing a variable, e.g. for
-<code>var f string = &quot;apple&quot;</code> in this case.
-This syntax is only available inside functions.</p>
+            <p>Есть сокращённая форма объявления и
+инициализации переменной с помощью <code>:=</code>, пример
+справа эквивалентен <code>var f string = &quot;apple&quot;</code>.
+Такой синтаксис доступен только внутри функций.</p>
 
           </td>
           <td class="code">
