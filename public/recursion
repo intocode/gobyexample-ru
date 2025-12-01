@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Recursion</title>
+    <title>Go на примерах: Рекурсия</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,15 +24,15 @@
   </script>
   <body>
     <div class="example" id="recursion">
-      <h2><a href="./">Go на примерах</a>: Recursion</h2>
+      <h2><a href="./">Go на примерах</a>: Рекурсия</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go supports
-<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)"><em>recursive functions</em></a>.
-Here&rsquo;s a classic example.</p>
+            <p>Go поддерживает
+<a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)"><em>рекурсивные функции</em></a>.
+Вот классический пример.</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +46,7 @@ Here&rsquo;s a classic example.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/k4IRATLn9cE"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/AA01U9biaXq"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -63,8 +63,8 @@ Here&rsquo;s a classic example.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>fact</code> function calls itself until it reaches the
-base case of <code>fact(0)</code>.</p>
+            <p>Эта функция <code>fact</code> вызывает саму себя, пока
+не дойдёт до конечного сценария <code>fact(0)</code>.</p>
 
           </td>
           <td class="code leading">
@@ -91,9 +91,9 @@ base case of <code>fact(0)</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Anonymous functions can also be recursive, but this requires
-explicitly declaring a variable with <code>var</code> to store
-the function before it&rsquo;s defined.</p>
+            <p>Анонимные функции могут быть также рекурсивными, но они требуют
+явного объявления переменной с <code>var</code> для хранения
+функции до её объявления.</p>
 
           </td>
           <td class="code leading">
@@ -117,8 +117,8 @@ the function before it&rsquo;s defined.</p>
         
         <tr>
           <td class="docs">
-            <p>Since <code>fib</code> was previously declared in <code>main</code>, Go
-knows which function to call with <code>fib</code> here.</p>
+            <p>Учитывая, что <code>fib</code> была ранее объявлена в <code>main</code>, Go
+знает к какой функции обратиться для вызова <code>fib</code> здесь.</p>
 
           </td>
           <td class="code leading">
@@ -164,7 +164,7 @@ knows which function to call with <code>fib</code> here.</p>
       
 
     <p class="footer">
-      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a>, <a href="https://eli.thegreenplace.net">Eli Bendersky</a> and <a href="https://github.com/kuduzow">kuduzow</a>  | <a href="https://github.com/intocode/gobyexample-ru">source</a> | <a href="https://github.com/intocode/gobyexample-ru">license</a>
+      by <a href="https://markmcgranaghan.com">Mark McGranaghan</a>, <a href="https://eli.thegreenplace.net">Eli Bendersky</a> и <a href="https://github.com/kuduzow">kuduzow</a>  | <a href="https://github.com/intocode/gobyexample-ru">источник</a> | <a href="https://github.com/intocode/gobyexample-ru">лицензия</a>
     </p>
 
     </div>
