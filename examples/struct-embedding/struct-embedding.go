@@ -1,8 +1,8 @@
-// Go supports _embedding_ of structs and interfaces
-// to express a more seamless _composition_ of types.
-// This is not to be confused with [`//go:embed`](embed-directive) which is
-// a go directive introduced in Go version 1.16+ to embed
-// files and folders into the application binary.
+// Go поддерживает _встраивание_ структур и интерфейсов
+// для более удобной _композиции_ типов.
+// Не путай это с [`//go:embed`](embed-directive) — директивой Go,
+// появившейся в версии 1.16+ для встраивания файлов и папок
+// в бинарный файл приложения.
 
 package main
 
@@ -16,8 +16,8 @@ func (b base) describe() string {
 	return fmt.Sprintf("base with num=%v", b.num)
 }
 
-// A `container` _embeds_ a `base`. An embedding looks
-// like a field without a name.
+// `container` _встраивает_ `base`. Встраивание выглядит
+// как поле без имени.
 type container struct {
 	base
 	str string
@@ -25,9 +25,9 @@ type container struct {
 
 func main() {
 
-	// When creating structs with literals, we have to
-	// initialize the embedding explicitly; here the
-	// embedded type serves as the field name.
+	// При создании структур с помощью литералов нужно
+	// явно инициализировать встраивание; здесь встроенный
+	// тип служит именем поля.
 	co := container{
 		base: base{
 			num: 1,
@@ -35,28 +35,27 @@ func main() {
 		str: "some name",
 	}
 
-	// We can access the base's fields directly on `co`,
-	// e.g. `co.num`.
+	// Мы можем обращаться к полям `base` напрямую через `co`,
+	// например, `co.num`.
 	fmt.Printf("co={num: %v, str: %v}\n", co.num, co.str)
 
-	// Alternatively, we can spell out the full path using
-	// the embedded type name.
+	// Также можно указать полный путь, используя
+	// имя встроенного типа.
 	fmt.Println("also num:", co.base.num)
 
-	// Since `container` embeds `base`, the methods of
-	// `base` also become methods of a `container`. Here
-	// we invoke a method that was embedded from `base`
-	// directly on `co`.
+	// Поскольку `container` встраивает `base`, методы `base`
+	// также становятся методами `container`. Здесь мы вызываем
+	// метод, унаследованный от `base`, напрямую через `co`.
 	fmt.Println("describe:", co.describe())
 
 	type describer interface {
 		describe() string
 	}
 
-	// Embedding structs with methods may be used to bestow
-	// interface implementations onto other structs. Here
-	// we see that a `container` now implements the
-	// `describer` interface because it embeds `base`.
+	// Встраивание структур с методами можно использовать
+	// для передачи реализации интерфейсов другим структурам.
+	// Здесь `container` теперь реализует интерфейс `describer`,
+	// потому что встраивает `base`.
 	var d describer = co
 	fmt.Println("describer:", d.describe())
 }

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Pointers</title>
+    <title>Go на примерах: Указатели</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,15 +24,15 @@
   </script>
   <body>
     <div class="example" id="pointers">
-      <h2><a href="./">Go на примерах</a>: Pointers</h2>
+      <h2><a href="./">Go на примерах</a>: Указатели</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go supports <em><a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)">pointers</a></em>,
-allowing you to pass references to values and records
-within your program.</p>
+            <p>Go поддерживает <em><a href="https://ru.wikipedia.org/wiki/%D0%A3%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)">указатели</a></em>,
+позволяющие передавать ссылки на значения и записи
+в программе.</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +46,7 @@ within your program.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/OlWCLpxAyBz"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/laQNpi9Y3Qr"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -63,11 +63,11 @@ within your program.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll show how pointers work in contrast to values with
-2 functions: <code>zeroval</code> and <code>zeroptr</code>. <code>zeroval</code> has an
-<code>int</code> parameter, so arguments will be passed to it by
-value. <code>zeroval</code> will get a copy of <code>ival</code> distinct
-from the one in the calling function.</p>
+            <p>Мы покажем, как работают указатели в сравнении со
+значениями, на примере двух функций: <code>zeroval</code> и <code>zeroptr</code>.
+<code>zeroval</code> имеет параметр типа <code>int</code>, поэтому аргументы
+передаются ей по значению. <code>zeroval</code> получит копию <code>ival</code>,
+отличную от той, что в вызывающей функции.</p>
 
           </td>
           <td class="code leading">
@@ -80,12 +80,11 @@ from the one in the calling function.</p>
         
         <tr>
           <td class="docs">
-            <p><code>zeroptr</code> in contrast has an <code>*int</code> parameter, meaning
-that it takes an <code>int</code> pointer. The <code>*iptr</code> code in the
-function body then <em>dereferences</em> the pointer from its
-memory address to the current value at that address.
-Assigning a value to a dereferenced pointer changes the
-value at the referenced address.</p>
+            <p><code>zeroptr</code>, напротив, имеет параметр типа <code>*int</code>, что означает,
+что она принимает указатель на <code>int</code>. Код <code>*iptr</code> в теле
+функции <em>разыменовывает</em> указатель, получая текущее значение
+по этому адресу памяти. Присвоение значения разыменованному
+указателю изменяет значение по указанному адресу.</p>
 
           </td>
           <td class="code leading">
@@ -121,8 +120,8 @@ value at the referenced address.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>&amp;i</code> syntax gives the memory address of <code>i</code>,
-i.e. a pointer to <code>i</code>.</p>
+            <p>Синтаксис <code>&amp;i</code> возвращает адрес памяти переменной <code>i</code>,
+то есть указатель на <code>i</code>.</p>
 
           </td>
           <td class="code leading">
@@ -134,7 +133,7 @@ i.e. a pointer to <code>i</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Pointers can be printed too.</p>
+            <p>Указатели тоже можно выводить на печать.</p>
 
           </td>
           <td class="code">
@@ -150,9 +149,9 @@ i.e. a pointer to <code>i</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>zeroval</code> doesn&rsquo;t change the <code>i</code> in <code>main</code>, but
-<code>zeroptr</code> does because it has a reference to
-the memory address for that variable.</p>
+            <p><code>zeroval</code> не изменяет <code>i</code> в <code>main</code>,
+а <code>zeroptr</code> изменяет, потому что имеет
+ссылку на адрес памяти этой переменной.</p>
 
           </td>
           <td class="code">
@@ -169,7 +168,7 @@ the memory address for that variable.</p>
       
       
       <p class="next">
-        Далее: <a href="strings-and-runes" rel="next">Strings and Runes</a>.
+        Далее: <a href="strings-and-runes" rel="next">Строки и руны</a>.
       </p>
       
 

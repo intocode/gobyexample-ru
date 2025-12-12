@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Range over Built-in Types</title>
+    <title>Go на примерах: Range по встроенным типам</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,16 @@
   </script>
   <body>
     <div class="example" id="range-over-built-in-types">
-      <h2><a href="./">Go на примерах</a>: Range over Built-in Types</h2>
+      <h2><a href="./">Go на примерах</a>: Range по встроенным типам</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><em>range</em> iterates over elements in a variety of
-built-in data structures. Let&rsquo;s see how to
-use <code>range</code> with some of the data structures
-we&rsquo;ve already learned.</p>
+            <p><em>range</em> позволяет итерироваться по элементам различных
+встроенных структур данных. Посмотрим, как использовать
+<code>range</code> с некоторыми структурами данных, которые мы
+уже изучили.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +47,7 @@ we&rsquo;ve already learned.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/S171w0PjgsD"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/mNOhfxM3eD6"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -74,8 +74,8 @@ we&rsquo;ve already learned.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we use <code>range</code> to sum the numbers in a slice.
-Arrays work like this too.</p>
+            <p>Здесь мы используем <code>range</code> для суммирования чисел
+в слайсе. С массивами это тоже работает.</p>
 
           </td>
           <td class="code leading">
@@ -91,11 +91,11 @@ Arrays work like this too.</p>
         
         <tr>
           <td class="docs">
-            <p><code>range</code> on arrays and slices provides both the
-index and value for each entry. Above we didn&rsquo;t
-need the index, so we ignored it with the
-blank identifier <code>_</code>. Sometimes we actually want
-the indexes though.</p>
+            <p><code>range</code> для массивов и слайсов возвращает и индекс,
+и значение для каждого элемента. Выше нам не нужен
+был индекс, поэтому мы проигнорировали его с помощью
+пустого идентификатора <code>_</code>. Но иногда нам действительно
+нужны индексы.</p>
 
           </td>
           <td class="code leading">
@@ -110,7 +110,7 @@ the indexes though.</p>
         
         <tr>
           <td class="docs">
-            <p><code>range</code> on map iterates over key/value pairs.</p>
+            <p><code>range</code> для map итерируется по парам ключ/значение.</p>
 
           </td>
           <td class="code leading">
@@ -124,7 +124,7 @@ the indexes though.</p>
         
         <tr>
           <td class="docs">
-            <p><code>range</code> can also iterate over just the keys of a map.</p>
+            <p><code>range</code> также может итерироваться только по ключам map.</p>
 
           </td>
           <td class="code leading">
@@ -137,11 +137,10 @@ the indexes though.</p>
         
         <tr>
           <td class="docs">
-            <p><code>range</code> on strings iterates over Unicode code
-points. The first value is the starting byte index
-of the <code>rune</code> and the second the <code>rune</code> itself.
-See <a href="strings-and-runes">Strings and Runes</a> for more
-details.</p>
+            <p><code>range</code> для строк итерируется по кодовым точкам Unicode.
+Первое значение — это начальный байтовый индекс <code>rune</code>,
+а второе — сама <code>rune</code>. Подробнее см. в статье
+<a href="strings-and-runes">Строки и руны</a>.</p>
 
           </td>
           <td class="code">
@@ -179,7 +178,7 @@ details.</p>
       
       
       <p class="next">
-        Далее: <a href="pointers" rel="next">Pointers</a>.
+        Далее: <a href="pointers" rel="next">Указатели</a>.
       </p>
       
 

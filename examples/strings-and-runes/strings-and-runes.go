@@ -1,11 +1,11 @@
-// A Go string is a read-only slice of bytes. The language
-// and the standard library treat strings specially - as
-// containers of text encoded in [UTF-8](https://en.wikipedia.org/wiki/UTF-8).
-// In other languages, strings are made of "characters".
-// In Go, the concept of a character is called a `rune` - it's
-// an integer that represents a Unicode code point.
-// [This Go blog post](https://go.dev/blog/strings) is a good
-// introduction to the topic.
+// Строка в Go — это неизменяемый слайс байтов. Язык и
+// стандартная библиотека обрабатывают строки особым образом —
+// как контейнеры текста в кодировке [UTF-8](https://ru.wikipedia.org/wiki/UTF-8).
+// В других языках строки состоят из «символов».
+// В Go понятие символа называется `rune` — это целое число,
+// представляющее кодовую точку Unicode.
+// [Эта статья в блоге Go](https://go.dev/blog/strings) —
+// хорошее введение в тему.
 
 package main
 
@@ -16,56 +16,57 @@ import (
 
 func main() {
 
-	// `s` is a `string` assigned a literal value
-	// representing the word "hello" in the Thai
-	// language. Go string literals are UTF-8
-	// encoded text.
+	// `s` — это строка (`string`), которой присвоено
+	// литеральное значение, представляющее слово «привет»
+	// на тайском языке. Строковые литералы в Go
+	// кодируются в UTF-8.
 	const s = "สวัสดี"
 
-	// Since strings are equivalent to `[]byte`, this
-	// will produce the length of the raw bytes stored within.
+	// Поскольку строки эквивалентны `[]byte`, эта операция
+	// вернёт длину хранящихся сырых байтов.
 	fmt.Println("Len:", len(s))
 
-	// Indexing into a string produces the raw byte values at
-	// each index. This loop generates the hex values of all
-	// the bytes that constitute the code points in `s`.
+	// Индексация строки возвращает сырые байтовые значения
+	// по каждому индексу. Этот цикл выводит шестнадцатеричные
+	// значения всех байтов, составляющих кодовые точки в `s`.
 	for i := 0; i < len(s); i++ {
 		fmt.Printf("%x ", s[i])
 	}
 	fmt.Println()
 
-	// To count how many _runes_ are in a string, we can use
-	// the `utf8` package. Note that the run-time of
-	// `RuneCountInString` depends on the size of the string,
-	// because it has to decode each UTF-8 rune sequentially.
-	// Some Thai characters are represented by UTF-8 code points
-	// that can span multiple bytes, so the result of this count
-	// may be surprising.
+	// Чтобы подсчитать количество _рун_ в строке, можно
+	// использовать пакет `utf8`. Обрати внимание, что время
+	// выполнения `RuneCountInString` зависит от размера строки,
+	// потому что функция должна декодировать каждую руну UTF-8
+	// последовательно. Некоторые тайские символы представлены
+	// кодовыми точками UTF-8, занимающими несколько байтов,
+	// поэтому результат подсчёта может быть неожиданным.
 	fmt.Println("Rune count:", utf8.RuneCountInString(s))
 
-	// A `range` loop handles strings specially and decodes
-	// each `rune` along with its offset in the string.
+	// Цикл `range` обрабатывает строки особым образом и
+	// декодирует каждую `rune` вместе с её смещением в строке.
 	for idx, runeValue := range s {
 		fmt.Printf("%#U starts at %d\n", runeValue, idx)
 	}
 
-	// We can achieve the same iteration by using the
-	// `utf8.DecodeRuneInString` function explicitly.
+	// Того же результата можно достичь, явно используя
+	// функцию `utf8.DecodeRuneInString`.
 	fmt.Println("\nUsing DecodeRuneInString")
 	for i, w := 0, 0; i < len(s); i += w {
 		runeValue, width := utf8.DecodeRuneInString(s[i:])
 		fmt.Printf("%#U starts at %d\n", runeValue, i)
 		w = width
 
-		// This demonstrates passing a `rune` value to a function.
+		// Это демонстрирует передачу значения `rune` в функцию.
 		examineRune(runeValue)
 	}
 }
 
 func examineRune(r rune) {
 
-	// Values enclosed in single quotes are _rune literals_. We
-	// can compare a `rune` value to a rune literal directly.
+	// Значения в одинарных кавычках — это _руновые литералы_.
+	// Мы можем напрямую сравнивать значение `rune` с руновым
+	// литералом.
 	if r == 't' {
 		fmt.Println("found tee")
 	} else if r == 'ส' {

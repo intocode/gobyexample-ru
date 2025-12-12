@@ -11,17 +11,17 @@ maps|Словари (мапы, хеш-таблица)
 functions|Функции
 multiple-return-values|Множественные возвращаемые значения
 variadic-functions|Вариативные функции
-closures|Closures
-recursion|Recursion
-range-over-built-in-types|Range over Built-in Types
-pointers|Pointers
-strings-and-runes|Strings and Runes
-structs|Structs
-methods|Methods
-interfaces|Interfaces
-enums|Enums
-struct-embedding|Struct Embedding
-generics|Generics
+closures|Замыкания
+recursion|Рекурсия
+range-over-built-in-types|Range по встроенным типам
+pointers|Указатели
+strings-and-runes|Строки и руны
+structs|Структуры
+methods|Методы
+interfaces|Интерфейсы
+enums|Перечисления (enum)
+struct-embedding|Встраивание структур
+generics|Дженерики
 range-over-iterators|Range over Iterators
 errors|Errors
 custom-errors|Custom Errors

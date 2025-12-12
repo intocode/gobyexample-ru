@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Generics</title>
+    <title>Go на примерах: Дженерики</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,14 @@
   </script>
   <body>
     <div class="example" id="generics">
-      <h2><a href="./">Go на примерах</a>: Generics</h2>
+      <h2><a href="./">Go на примерах</a>: Дженерики</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Starting with version 1.18, Go has added support for
-<em>generics</em>, also known as <em>type parameters</em>.</p>
+            <p>Начиная с версии 1.18, в Go добавлена поддержка
+<em>дженериков</em>, также известных как <em>параметры типов</em>.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/7v7vElzhAeO"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/uMPhUib3X-V"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -62,15 +62,15 @@
         
         <tr>
           <td class="docs">
-            <p>As an example of a generic function, <code>SlicesIndex</code> takes
-a slice of any <code>comparable</code> type and an element of that
-type and returns the index of the first occurrence of
-v in s, or -1 if not present. The <code>comparable</code> constraint
-means that we can compare values of this type with the
-<code>==</code> and <code>!=</code> operators. For a more thorough explanation
-of this type signature, see <a href="https://go.dev/blog/deconstructing-type-parameters">this blog post</a>.
-Note that this function exists in the standard library
-as <a href="https://pkg.go.dev/slices#Index">slices.Index</a>.</p>
+            <p>В качестве примера обобщённой функции <code>SlicesIndex</code> принимает
+слайс любого <code>comparable</code> типа и элемент этого типа,
+возвращая индекс первого вхождения v в s, или -1, если
+элемент отсутствует. Ограничение <code>comparable</code> означает,
+что мы можем сравнивать значения этого типа операторами
+<code>==</code> и <code>!=</code>. Подробное объяснение этой сигнатуры типа
+см. в <a href="https://go.dev/blog/deconstructing-type-parameters">этой статье</a>.
+Обрати внимание, что эта функция существует в стандартной
+библиотеке как <a href="https://pkg.go.dev/slices#Index">slices.Index</a>.</p>
 
           </td>
           <td class="code leading">
@@ -88,8 +88,8 @@ as <a href="https://pkg.go.dev/slices#Index">slices.Index</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>As an example of a generic type, <code>List</code> is a
-singly-linked list with values of any type.</p>
+            <p>В качестве примера обобщённого типа <code>List</code> — это
+односвязный список со значениями любого типа.</p>
 
           </td>
           <td class="code leading">
@@ -115,9 +115,9 @@ singly-linked list with values of any type.</p>
         
         <tr>
           <td class="docs">
-            <p>We can define methods on generic types just like we
-do on regular types, but we have to keep the type
-parameters in place. The type is <code>List[T]</code>, not <code>List</code>.</p>
+            <p>Мы можем определять методы для обобщённых типов так же,
+как и для обычных, но нужно сохранять параметры типов.
+Тип — это <code>List[T]</code>, а не <code>List</code>.</p>
 
           </td>
           <td class="code leading">
@@ -136,9 +136,9 @@ parameters in place. The type is <code>List[T]</code>, not <code>List</code>.</p
         
         <tr>
           <td class="docs">
-            <p>AllElements returns all the List elements as a slice.
-In the next example we&rsquo;ll see a more idiomatic way
-of iterating over all elements of custom types.</p>
+            <p>AllElements возвращает все элементы List в виде слайса.
+В следующем примере мы увидим более идиоматичный способ
+итерации по всем элементам пользовательских типов.</p>
 
           </td>
           <td class="code leading">
@@ -166,11 +166,10 @@ of iterating over all elements of custom types.</p>
         
         <tr>
           <td class="docs">
-            <p>When invoking generic functions, we can often rely
-on <em>type inference</em>. Note that we don&rsquo;t have to
-specify the types for <code>S</code> and <code>E</code> when
-calling <code>SlicesIndex</code> - the compiler infers them
-automatically.</p>
+            <p>При вызове обобщённых функций часто можно положиться
+на <em>вывод типов</em>. Обрати внимание, что нам не нужно
+указывать типы для <code>S</code> и <code>E</code> при вызове <code>SlicesIndex</code> —
+компилятор выводит их автоматически.</p>
 
           </td>
           <td class="code leading">
@@ -181,7 +180,7 @@ automatically.</p>
         
         <tr>
           <td class="docs">
-            <p>&hellip; though we could also specify them explicitly.</p>
+            <p>&hellip;хотя мы могли бы указать их явно.</p>
 
           </td>
           <td class="code leading">
