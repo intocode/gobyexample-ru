@@ -1,13 +1,13 @@
-// Go supports
-// <a href="https://en.wikipedia.org/wiki/Recursion_(computer_science)"><em>recursive functions</em></a>.
-// Here's a classic example.
+// Go поддерживает
+// <a href="https://ru.wikipedia.org/wiki/%D0%A0%D0%B5%D0%BA%D1%83%D1%80%D1%81%D0%B8%D1%8F"><em>рекурсивные функции</em></a>.
+// Вот классический пример.
 
 package main
 
 import "fmt"
 
-// This `fact` function calls itself until it reaches the
-// base case of `fact(0)`.
+// Эта функция `fact` вызывает сама себя до тех пор,
+// пока не достигнет базового случая `fact(0)`.
 func fact(n int) int {
 	if n == 0 {
 		return 1
@@ -18,9 +18,9 @@ func fact(n int) int {
 func main() {
 	fmt.Println(fact(7))
 
-	// Anonymous functions can also be recursive, but this requires
-	// explicitly declaring a variable with `var` to store
-	// the function before it's defined.
+	// Анонимные функции тоже могут быть рекурсивными, но для
+	// этого нужно явно объявить переменную через `var` для
+	// хранения функции до её определения.
 	var fib func(n int) int
 
 	fib = func(n int) int {
@@ -28,8 +28,8 @@ func main() {
 			return n
 		}
 
-		// Since `fib` was previously declared in `main`, Go
-		// knows which function to call with `fib` here.
+		// Поскольку `fib` была объявлена ранее в `main`,
+		// Go знает, какую функцию вызывать через `fib`.
 		return fib(n-1) + fib(n-2)
 	}
 

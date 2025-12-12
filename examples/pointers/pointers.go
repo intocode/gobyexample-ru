@@ -1,26 +1,25 @@
-// Go supports <em><a href="https://en.wikipedia.org/wiki/Pointer_(computer_programming)">pointers</a></em>,
-// allowing you to pass references to values and records
-// within your program.
+// Go поддерживает <em><a href="https://ru.wikipedia.org/wiki/%D0%A3%D0%BA%D0%B0%D0%B7%D0%B0%D1%82%D0%B5%D0%BB%D1%8C_(%D0%BF%D1%80%D0%BE%D0%B3%D1%80%D0%B0%D0%BC%D0%BC%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D0%BD%D0%B8%D0%B5)">указатели</a></em>,
+// позволяющие передавать ссылки на значения и записи
+// в программе.
 
 package main
 
 import "fmt"
 
-// We'll show how pointers work in contrast to values with
-// 2 functions: `zeroval` and `zeroptr`. `zeroval` has an
-// `int` parameter, so arguments will be passed to it by
-// value. `zeroval` will get a copy of `ival` distinct
-// from the one in the calling function.
+// Мы покажем, как работают указатели в сравнении со
+// значениями, на примере двух функций: `zeroval` и `zeroptr`.
+// `zeroval` имеет параметр типа `int`, поэтому аргументы
+// передаются ей по значению. `zeroval` получит копию `ival`,
+// отличную от той, что в вызывающей функции.
 func zeroval(ival int) {
 	ival = 0
 }
 
-// `zeroptr` in contrast has an `*int` parameter, meaning
-// that it takes an `int` pointer. The `*iptr` code in the
-// function body then _dereferences_ the pointer from its
-// memory address to the current value at that address.
-// Assigning a value to a dereferenced pointer changes the
-// value at the referenced address.
+// `zeroptr`, напротив, имеет параметр типа `*int`, что означает,
+// что она принимает указатель на `int`. Код `*iptr` в теле
+// функции _разыменовывает_ указатель, получая текущее значение
+// по этому адресу памяти. Присвоение значения разыменованному
+// указателю изменяет значение по указанному адресу.
 func zeroptr(iptr *int) {
 	*iptr = 0
 }
@@ -32,11 +31,11 @@ func main() {
 	zeroval(i)
 	fmt.Println("zeroval:", i)
 
-	// The `&i` syntax gives the memory address of `i`,
-	// i.e. a pointer to `i`.
+	// Синтаксис `&i` возвращает адрес памяти переменной `i`,
+	// то есть указатель на `i`.
 	zeroptr(&i)
 	fmt.Println("zeroptr:", i)
 
-	// Pointers can be printed too.
+	// Указатели тоже можно выводить на печать.
 	fmt.Println("pointer:", &i)
 }

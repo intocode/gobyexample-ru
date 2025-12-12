@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Errors</title>
+    <title>Go на примерах: Ошибки</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,24 +24,23 @@
   </script>
   <body>
     <div class="example" id="errors">
-      <h2><a href="./">Go на примерах</a>: Errors</h2>
+      <h2><a href="./">Go на примерах</a>: Ошибки</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>In Go it&rsquo;s idiomatic to communicate errors via an
-explicit, separate return value. This contrasts with
-the exceptions used in languages like Java, Python and
-Ruby and the overloaded single result / error value
-sometimes used in C. Go&rsquo;s approach makes it easy to
-see which functions return errors and to handle them
-using the same language constructs employed for other,
-non-error tasks.</p>
+            <p>В Go идиоматично передавать ошибки через явное,
+отдельное возвращаемое значение. Это отличается от
+исключений в языках вроде Java, Python и Ruby,
+а также от перегруженного единственного значения
+результат/ошибка, которое иногда используется в C.
+Подход Go позволяет легко видеть, какие функции
+возвращают ошибки, и обрабатывать их с помощью тех же
+языковых конструкций, что и для других задач.</p>
 
-<p>See the documentation of the <a href="https://pkg.go.dev/errors">errors package</a>
-and <a href="https://go.dev/blog/go1.13-errors">this blog post</a> for additional
-details.</p>
+<p>Подробнее см. в документации <a href="https://pkg.go.dev/errors">пакета errors</a>
+и в <a href="https://go.dev/blog/go1.13-errors">этой статье в блоге</a>.</p>
 
           </td>
           <td class="code empty leading">
@@ -55,7 +54,7 @@ details.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/H-SmHpaHY3v"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/tsSUAFsReKU"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -75,8 +74,8 @@ details.</p>
         
         <tr>
           <td class="docs">
-            <p>By convention, errors are the last return value and
-have type <code>error</code>, a built-in interface.</p>
+            <p>По соглашению ошибки идут последним возвращаемым
+значением и имеют тип <code>error</code> — встроенный интерфейс.</p>
 
           </td>
           <td class="code leading">
@@ -88,8 +87,8 @@ have type <code>error</code>, a built-in interface.</p>
         
         <tr>
           <td class="docs">
-            <p><code>errors.New</code> constructs a basic <code>error</code> value
-with the given error message.</p>
+            <p><code>errors.New</code> создаёт базовое значение <code>error</code>
+с заданным сообщением об ошибке.</p>
 
           </td>
           <td class="code leading">
@@ -101,8 +100,8 @@ with the given error message.</p>
         
         <tr>
           <td class="docs">
-            <p>A <code>nil</code> value in the error position indicates that
-there was no error.</p>
+            <p>Значение <code>nil</code> в позиции ошибки означает,
+что ошибки не было.</p>
 
           </td>
           <td class="code leading">
@@ -114,8 +113,8 @@ there was no error.</p>
         
         <tr>
           <td class="docs">
-            <p>A sentinel error is a predeclared variable that is used to
-signify a specific error condition.</p>
+            <p>Sentinel-ошибка — это заранее объявленная переменная,
+используемая для обозначения определённого состояния ошибки.</p>
 
           </td>
           <td class="code leading">
@@ -140,12 +139,13 @@ signify a specific error condition.</p>
         
         <tr>
           <td class="docs">
-            <p>We can wrap errors with higher-level errors to add
-context. The simplest way to do this is with the
-<code>%w</code> verb in <code>fmt.Errorf</code>. Wrapped errors
-create a logical chain (A wraps B, which wraps C, etc.)
-that can be queried with functions like <code>errors.Is</code>
-and <code>errors.As</code>.</p>
+            <p>Мы можем оборачивать ошибки в ошибки более
+высокого уровня для добавления контекста.
+Самый простой способ — использовать глагол
+<code>%w</code> в <code>fmt.Errorf</code>. Обёрнутые ошибки образуют
+логическую цепочку (A оборачивает B, которая
+оборачивает C и т.д.), которую можно исследовать
+с помощью функций вроде <code>errors.Is</code> и <code>errors.As</code>.</p>
 
           </td>
           <td class="code leading">
@@ -170,8 +170,8 @@ and <code>errors.As</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>It&rsquo;s idiomatic to use an inline error check in the <code>if</code>
-line.</p>
+            <p>Идиоматично использовать встроенную проверку ошибки
+в строке с <code>if</code>.</p>
 
           </td>
           <td class="code leading">
@@ -198,10 +198,11 @@ line.</p>
         
         <tr>
           <td class="docs">
-            <p><code>errors.Is</code> checks that a given error (or any error in its chain)
-matches a specific error value. This is especially useful with wrapped or
-nested errors, allowing you to identify specific error types or sentinel
-errors in a chain of errors.</p>
+            <p><code>errors.Is</code> проверяет, соответствует ли данная ошибка
+(или любая ошибка в её цепочке) конкретному значению
+ошибки. Это особенно полезно для обёрнутых или вложенных
+ошибок, позволяя идентифицировать определённые типы
+ошибок или sentinel-ошибки в цепочке ошибок.</p>
 
           </td>
           <td class="code leading">
@@ -255,7 +256,7 @@ errors in a chain of errors.</p>
       
       
       <p class="next">
-        Далее: <a href="custom-errors" rel="next">Custom Errors</a>.
+        Далее: <a href="custom-errors" rel="next">Пользовательские ошибки</a>.
       </p>
       
 

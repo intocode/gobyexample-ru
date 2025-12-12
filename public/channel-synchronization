@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Channel Synchronization</title>
+    <title>Go на примерах: Синхронизация каналов</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,17 +24,17 @@
   </script>
   <body>
     <div class="example" id="channel-synchronization">
-      <h2><a href="./">Go на примерах</a>: Channel Synchronization</h2>
+      <h2><a href="./">Go на примерах</a>: Синхронизация каналов</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>We can use channels to synchronize execution
-across goroutines. Here&rsquo;s an example of using a
-blocking receive to wait for a goroutine to finish.
-When waiting for multiple goroutines to finish,
-you may prefer to use a <a href="waitgroups">WaitGroup</a>.</p>
+            <p>Мы можем использовать каналы для синхронизации
+выполнения между goroutine. Вот пример использования
+блокирующего получения для ожидания завершения
+goroutine. При ожидании завершения нескольких
+goroutine лучше использовать <a href="waitgroups">WaitGroup</a>.</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +48,7 @@ you may prefer to use a <a href="waitgroups">WaitGroup</a>.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/Nw-1DzIGk5f"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/Oc_m1eYswyv"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -68,9 +68,9 @@ you may prefer to use a <a href="waitgroups">WaitGroup</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>This is the function we&rsquo;ll run in a goroutine. The
-<code>done</code> channel will be used to notify another
-goroutine that this function&rsquo;s work is done.</p>
+            <p>Это функция, которую мы запустим в goroutine. Канал
+<code>done</code> будет использоваться для уведомления другой
+goroutine о завершении работы этой функции.</p>
 
           </td>
           <td class="code leading">
@@ -84,7 +84,7 @@ goroutine that this function&rsquo;s work is done.</p>
         
         <tr>
           <td class="docs">
-            <p>Send a value to notify that we&rsquo;re done.</p>
+            <p>Отправляем значение, чтобы уведомить о завершении.</p>
 
           </td>
           <td class="code leading">
@@ -106,8 +106,8 @@ goroutine that this function&rsquo;s work is done.</p>
         
         <tr>
           <td class="docs">
-            <p>Start a worker goroutine, giving it the channel to
-notify on.</p>
+            <p>Запускаем worker goroutine, передавая ей канал
+для уведомления.</p>
 
           </td>
           <td class="code leading">
@@ -119,8 +119,8 @@ notify on.</p>
         
         <tr>
           <td class="docs">
-            <p>Block until we receive a notification from the
-worker on the channel.</p>
+            <p>Блокируемся, пока не получим уведомление от
+worker через канал.</p>
 
           </td>
           <td class="code">
@@ -140,16 +140,16 @@ worker on the channel.</p>
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> go run channel-synchronization.go      
-</span></span><span class="line"><span class="cl"><span class="go">working...done                  </span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> go run channel-synchronization.go
+</span></span><span class="line"><span class="cl"><span class="go">working...done</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>If you removed the <code>&lt;- done</code> line from this program,
-the program could exit before the <code>worker</code> finished
-its work, or in some cases even before it started.</p>
+            <p>Если убрать строку <code>&lt;- done</code> из этой программы,
+программа может завершиться до того, как <code>worker</code>
+закончит работу, или даже до того, как он начнёт.</p>
 
           </td>
           <td class="code empty">

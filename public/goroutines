@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Goroutines</title>
+    <title>Go на примерах: Горутины</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,13 +24,13 @@
   </script>
   <body>
     <div class="example" id="goroutines">
-      <h2><a href="./">Go на примерах</a>: Goroutines</h2>
+      <h2><a href="./">Go на примерах</a>: Горутины</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>A <em>goroutine</em> is a lightweight thread of execution.</p>
+            <p><em>Goroutine</em> — это легковесный поток выполнения.</p>
 
           </td>
           <td class="code empty leading">
@@ -44,7 +44,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/0fx_WokYVFO"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/Ne5eCGktlJn"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -88,9 +88,9 @@
         
         <tr>
           <td class="docs">
-            <p>Suppose we have a function call <code>f(s)</code>. Here&rsquo;s how
-we&rsquo;d call that in the usual way, running it
-synchronously.</p>
+            <p>Допустим, у нас есть вызов функции <code>f(s)</code>. Вот как
+мы бы вызвали её обычным способом, выполняя
+синхронно.</p>
 
           </td>
           <td class="code leading">
@@ -101,9 +101,9 @@ synchronously.</p>
         
         <tr>
           <td class="docs">
-            <p>To invoke this function in a goroutine, use
-<code>go f(s)</code>. This new goroutine will execute
-concurrently with the calling one.</p>
+            <p>Чтобы вызвать эту функцию в goroutine, используй
+<code>go f(s)</code>. Эта новая goroutine будет выполняться
+конкурентно с вызывающей.</p>
 
           </td>
           <td class="code leading">
@@ -114,8 +114,8 @@ concurrently with the calling one.</p>
         
         <tr>
           <td class="docs">
-            <p>You can also start a goroutine for an anonymous
-function call.</p>
+            <p>Также можно запустить goroutine для вызова
+анонимной функции.</p>
 
           </td>
           <td class="code leading">
@@ -128,9 +128,10 @@ function call.</p>
         
         <tr>
           <td class="docs">
-            <p>Our two function calls are running asynchronously in
-separate goroutines now. Wait for them to finish
-(for a more robust approach, use a <a href="waitgroups">WaitGroup</a>).</p>
+            <p>Оба наших вызова функций теперь выполняются
+асинхронно в отдельных goroutine. Подождём их
+завершения (для более надёжного подхода
+используй <a href="waitgroups">WaitGroup</a>).</p>
 
           </td>
           <td class="code">
@@ -147,11 +148,10 @@ separate goroutines now. Wait for them to finish
         
         <tr>
           <td class="docs">
-            <p>When we run this program, we see the output of the
-blocking call first, then the output of the two
-goroutines. The goroutines&rsquo; output may be interleaved,
-because goroutines are being run concurrently by the
-Go runtime.</p>
+            <p>При запуске этой программы сначала мы видим вывод
+блокирующего вызова, затем вывод двух goroutine.
+Вывод goroutine может чередоваться, поскольку они
+выполняются конкурентно runtime&rsquo;ом Go.</p>
 
           </td>
           <td class="code leading">
@@ -170,8 +170,8 @@ Go runtime.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at a complement to goroutines in
-concurrent Go programs: channels.</p>
+            <p>Далее мы рассмотрим дополнение к goroutine в
+конкурентных программах Go: каналы.</p>
 
           </td>
           <td class="code empty">
@@ -184,7 +184,7 @@ concurrent Go programs: channels.</p>
       
       
       <p class="next">
-        Далее: <a href="channels" rel="next">Channels</a>.
+        Далее: <a href="channels" rel="next">Каналы</a>.
       </p>
       
 

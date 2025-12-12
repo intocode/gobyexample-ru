@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Strings and Runes</title>
+    <title>Go на примерах: Строки и руны</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,20 +24,20 @@
   </script>
   <body>
     <div class="example" id="strings-and-runes">
-      <h2><a href="./">Go на примерах</a>: Strings and Runes</h2>
+      <h2><a href="./">Go на примерах</a>: Строки и руны</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>A Go string is a read-only slice of bytes. The language
-and the standard library treat strings specially - as
-containers of text encoded in <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a>.
-In other languages, strings are made of &ldquo;characters&rdquo;.
-In Go, the concept of a character is called a <code>rune</code> - it&rsquo;s
-an integer that represents a Unicode code point.
-<a href="https://go.dev/blog/strings">This Go blog post</a> is a good
-introduction to the topic.</p>
+            <p>Строка в Go — это неизменяемый слайс байтов. Язык и
+стандартная библиотека обрабатывают строки особым образом —
+как контейнеры текста в кодировке <a href="https://ru.wikipedia.org/wiki/UTF-8">UTF-8</a>.
+В других языках строки состоят из «символов».
+В Go понятие символа называется <code>rune</code> — это целое число,
+представляющее кодовую точку Unicode.
+<a href="https://go.dev/blog/strings">Эта статья в блоге Go</a> —
+хорошее введение в тему.</p>
 
           </td>
           <td class="code empty leading">
@@ -51,7 +51,7 @@ introduction to the topic.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/-iNDXZ9IM3s"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/664aoIzGXtp"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -81,10 +81,10 @@ introduction to the topic.</p>
         
         <tr>
           <td class="docs">
-            <p><code>s</code> is a <code>string</code> assigned a literal value
-representing the word &ldquo;hello&rdquo; in the Thai
-language. Go string literals are UTF-8
-encoded text.</p>
+            <p><code>s</code> — это строка (<code>string</code>), которой присвоено
+литеральное значение, представляющее слово «привет»
+на тайском языке. Строковые литералы в Go
+кодируются в UTF-8.</p>
 
           </td>
           <td class="code leading">
@@ -95,8 +95,8 @@ encoded text.</p>
         
         <tr>
           <td class="docs">
-            <p>Since strings are equivalent to <code>[]byte</code>, this
-will produce the length of the raw bytes stored within.</p>
+            <p>Поскольку строки эквивалентны <code>[]byte</code>, эта операция
+вернёт длину хранящихся сырых байтов.</p>
 
           </td>
           <td class="code leading">
@@ -107,9 +107,9 @@ will produce the length of the raw bytes stored within.</p>
         
         <tr>
           <td class="docs">
-            <p>Indexing into a string produces the raw byte values at
-each index. This loop generates the hex values of all
-the bytes that constitute the code points in <code>s</code>.</p>
+            <p>Индексация строки возвращает сырые байтовые значения
+по каждому индексу. Этот цикл выводит шестнадцатеричные
+значения всех байтов, составляющих кодовые точки в <code>s</code>.</p>
 
           </td>
           <td class="code leading">
@@ -123,13 +123,13 @@ the bytes that constitute the code points in <code>s</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>To count how many <em>runes</em> are in a string, we can use
-the <code>utf8</code> package. Note that the run-time of
-<code>RuneCountInString</code> depends on the size of the string,
-because it has to decode each UTF-8 rune sequentially.
-Some Thai characters are represented by UTF-8 code points
-that can span multiple bytes, so the result of this count
-may be surprising.</p>
+            <p>Чтобы подсчитать количество <em>рун</em> в строке, можно
+использовать пакет <code>utf8</code>. Обрати внимание, что время
+выполнения <code>RuneCountInString</code> зависит от размера строки,
+потому что функция должна декодировать каждую руну UTF-8
+последовательно. Некоторые тайские символы представлены
+кодовыми точками UTF-8, занимающими несколько байтов,
+поэтому результат подсчёта может быть неожиданным.</p>
 
           </td>
           <td class="code leading">
@@ -140,8 +140,8 @@ may be surprising.</p>
         
         <tr>
           <td class="docs">
-            <p>A <code>range</code> loop handles strings specially and decodes
-each <code>rune</code> along with its offset in the string.</p>
+            <p>Цикл <code>range</code> обрабатывает строки особым образом и
+декодирует каждую <code>rune</code> вместе с её смещением в строке.</p>
 
           </td>
           <td class="code leading">
@@ -154,8 +154,8 @@ each <code>rune</code> along with its offset in the string.</p>
         
         <tr>
           <td class="docs">
-            <p>We can achieve the same iteration by using the
-<code>utf8.DecodeRuneInString</code> function explicitly.</p>
+            <p>Того же результата можно достичь, явно используя
+функцию <code>utf8.DecodeRuneInString</code>.</p>
 
           </td>
           <td class="code leading">
@@ -170,7 +170,7 @@ each <code>rune</code> along with its offset in the string.</p>
         
         <tr>
           <td class="docs">
-            <p>This demonstrates passing a <code>rune</code> value to a function.</p>
+            <p>Это демонстрирует передачу значения <code>rune</code> в функцию.</p>
 
           </td>
           <td class="code leading">
@@ -193,8 +193,9 @@ each <code>rune</code> along with its offset in the string.</p>
         
         <tr>
           <td class="docs">
-            <p>Values enclosed in single quotes are <em>rune literals</em>. We
-can compare a <code>rune</code> value to a rune literal directly.</p>
+            <p>Значения в одинарных кавычках — это <em>руновые литералы</em>.
+Мы можем напрямую сравнивать значение <code>rune</code> с руновым
+литералом.</p>
 
           </td>
           <td class="code">
@@ -253,7 +254,7 @@ can compare a <code>rune</code> value to a rune literal directly.</p>
       
       
       <p class="next">
-        Далее: <a href="structs" rel="next">Structs</a>.
+        Далее: <a href="structs" rel="next">Структуры</a>.
       </p>
       
 
