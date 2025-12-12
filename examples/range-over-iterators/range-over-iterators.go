@@ -1,6 +1,6 @@
-// Starting with version 1.23, Go has added support for
-// [iterators](https://go.dev/blog/range-functions),
-// which lets us range over pretty much anything!
+// Начиная с версии 1.23, в Go добавлена поддержка
+// [итераторов](https://go.dev/blog/range-functions),
+// что позволяет использовать range практически с чем угодно!
 
 package main
 
@@ -10,11 +10,11 @@ import (
 	"slices"
 )
 
-// Let's look at the `List` type from the
-// [previous example](generics) again. In that example
-// we had an `AllElements` method that returned a slice
-// of all elements in the list. With Go iterators, we
-// can do it better - as shown below.
+// Вернёмся к типу `List` из
+// [предыдущего примера](generics). В том примере
+// у нас был метод `AllElements`, который возвращал слайс
+// всех элементов списка. С итераторами Go мы можем
+// сделать это лучше — как показано ниже.
 type List[T any] struct {
 	head, tail *element[T]
 }
@@ -34,15 +34,16 @@ func (lst *List[T]) Push(v T) {
 	}
 }
 
-// All returns an _iterator_, which in Go is a function
-// with a [special signature](https://pkg.go.dev/iter#Seq).
+// All возвращает _итератор_, который в Go является функцией
+// с [особой сигнатурой](https://pkg.go.dev/iter#Seq).
 func (lst *List[T]) All() iter.Seq[T] {
 	return func(yield func(T) bool) {
-		// The iterator function takes another function as
-		// a parameter, called `yield` by convention (but
-		// the name can be arbitrary). It will call `yield` for
-		// every element we want to iterate over, and note `yield`'s
-		// return value for a potential early termination.
+		// Функция-итератор принимает другую функцию в качестве
+		// параметра, по соглашению называемую `yield` (но
+		// имя может быть произвольным). Она вызывает `yield` для
+		// каждого элемента, по которому мы хотим итерироваться,
+		// и проверяет возвращаемое значение `yield` для
+		// возможного досрочного завершения.
 		for e := lst.head; e != nil; e = e.next {
 			if !yield(e.val) {
 				return
@@ -51,10 +52,10 @@ func (lst *List[T]) All() iter.Seq[T] {
 	}
 }
 
-// Iteration doesn't require an underlying data structure,
-// and doesn't even have to be finite! Here's a function
-// returning an iterator over Fibonacci numbers: it keeps
-// running as long as `yield` keeps returning `true`.
+// Итерация не требует базовой структуры данных
+// и даже не обязана быть конечной! Вот функция,
+// возвращающая итератор по числам Фибоначчи: она
+// продолжает работать, пока `yield` возвращает `true`.
 func genFib() iter.Seq[int] {
 	return func(yield func(int) bool) {
 		a, b := 1, 1
@@ -74,23 +75,23 @@ func main() {
 	lst.Push(13)
 	lst.Push(23)
 
-	// Since `List.All` returns an iterator, we can use it
-	// in a regular `range` loop.
+	// Поскольку `List.All` возвращает итератор, мы можем
+	// использовать его в обычном цикле `range`.
 	for e := range lst.All() {
 		fmt.Println(e)
 	}
 
-	// Packages like [slices](https://pkg.go.dev/slices) have
-	// a number of useful functions to work with iterators.
-	// For example, `Collect` takes any iterator and collects
-	// all its values into a slice.
+	// В пакетах вроде [slices](https://pkg.go.dev/slices)
+	// есть много полезных функций для работы с итераторами.
+	// Например, `Collect` принимает любой итератор и собирает
+	// все его значения в слайс.
 	all := slices.Collect(lst.All())
 	fmt.Println("all:", all)
 
 	for n := range genFib() {
 
-		// Once the loop hits `break` or an early return, the `yield` function
-		// passed to the iterator will return `false`.
+		// Когда цикл достигает `break` или досрочного return,
+		// функция `yield`, переданная итератору, возвращает `false`.
 		if n >= 10 {
 			break
 		}

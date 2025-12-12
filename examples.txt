@@ -22,14 +22,14 @@ interfaces|Интерфейсы
 enums|Перечисления (enum)
 struct-embedding|Встраивание структур
 generics|Дженерики
-range-over-iterators|Range over Iterators
-errors|Errors
-custom-errors|Custom Errors
-goroutines|Goroutines
-channels|Channels
-channel-buffering|Channel Buffering
-channel-synchronization|Channel Synchronization
-channel-directions|Channel Directions
+range-over-iterators|Range по итераторам
+errors|Ошибки
+custom-errors|Пользовательские ошибки
+goroutines|Горутины
+channels|Каналы
+channel-buffering|Буферизация каналов
+channel-synchronization|Синхронизация каналов
+channel-directions|Направления каналов
 select|Select
 timeouts|Timeouts
 non-blocking-channel-operations|Non-Blocking Channel Operations

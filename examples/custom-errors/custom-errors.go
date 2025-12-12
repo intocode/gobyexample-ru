@@ -1,7 +1,7 @@
-// It's possible to define custom error types by
-// implementing the `Error()` method on them. Here's a
-// variant on the example above that uses a custom type
-// to explicitly represent an argument error.
+// Можно определять пользовательские типы ошибок,
+// реализовав на них метод `Error()`. Вот вариант
+// примера выше, который использует пользовательский тип
+// для явного представления ошибки аргумента.
 
 package main
 
@@ -10,14 +10,14 @@ import (
 	"fmt"
 )
 
-// A custom error type usually has the suffix "Error".
+// Пользовательский тип ошибки обычно имеет суффикс "Error".
 type argError struct {
 	arg     int
 	message string
 }
 
-// Adding this `Error` method makes `argError` implement
-// the `error` interface.
+// Добавление этого метода `Error` делает `argError`
+// реализацией интерфейса `error`.
 func (e *argError) Error() string {
 	return fmt.Sprintf("%d - %s", e.arg, e.message)
 }
@@ -25,7 +25,7 @@ func (e *argError) Error() string {
 func f(arg int) (int, error) {
 	if arg == 42 {
 
-		// Return our custom error.
+		// Возвращаем нашу пользовательскую ошибку.
 		return -1, &argError{arg, "can't work with it"}
 	}
 	return arg + 3, nil
@@ -33,11 +33,11 @@ func f(arg int) (int, error) {
 
 func main() {
 
-	// `errors.As` is a more advanced version of `errors.Is`.
-	// It checks that a given error (or any error in its chain)
-	// matches a specific error type and converts to a value
-	// of that type, returning `true`. If there's no match, it
-	// returns `false`.
+	// `errors.As` — это более продвинутая версия `errors.Is`.
+	// Она проверяет, соответствует ли данная ошибка (или любая
+	// ошибка в её цепочке) определённому типу ошибки, и преобразует
+	// её в значение этого типа, возвращая `true`. Если совпадения
+	// нет, возвращается `false`.
 	_, err := f(42)
 	var ae *argError
 	if errors.As(err, &ae) {

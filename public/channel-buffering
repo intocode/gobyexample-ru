@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Channel Buffering</title>
+    <title>Go на примерах: Буферизация каналов</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,18 +24,18 @@
   </script>
   <body>
     <div class="example" id="channel-buffering">
-      <h2><a href="./">Go на примерах</a>: Channel Buffering</h2>
+      <h2><a href="./">Go на примерах</a>: Буферизация каналов</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>By default channels are <em>unbuffered</em>, meaning that they
-will only accept sends (<code>chan &lt;-</code>) if there is a
-corresponding receive (<code>&lt;- chan</code>) ready to receive the
-sent value. <em>Buffered channels</em> accept a limited
-number of  values without a corresponding receiver for
-those values.</p>
+            <p>По умолчанию каналы <em>небуферизованные</em>, то есть они
+принимают отправку (<code>chan &lt;-</code>) только при наличии
+соответствующего получателя (<code>&lt;- chan</code>), готового
+принять отправленное значение. <em>Буферизованные каналы</em>
+принимают ограниченное количество значений без
+соответствующего получателя для этих значений.</p>
 
           </td>
           <td class="code empty leading">
@@ -49,7 +49,7 @@ those values.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/3BRCdRnRszb"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/mGnvgIdX6kt"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,8 +76,8 @@ those values.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we <code>make</code> a channel of strings buffering up to
-2 values.</p>
+            <p>Здесь мы создаём (<code>make</code>) канал строк с буфером
+до 2 значений.</p>
 
           </td>
           <td class="code leading">
@@ -88,9 +88,9 @@ those values.</p>
         
         <tr>
           <td class="docs">
-            <p>Because this channel is buffered, we can send these
-values into the channel without a corresponding
-concurrent receive.</p>
+            <p>Поскольку этот канал буферизован, мы можем отправить
+эти значения в канал без соответствующего
+конкурентного получения.</p>
 
           </td>
           <td class="code leading">
@@ -102,7 +102,7 @@ concurrent receive.</p>
         
         <tr>
           <td class="docs">
-            <p>Later we can receive these two values as usual.</p>
+            <p>Позже мы можем получить эти два значения как обычно.</p>
 
           </td>
           <td class="code">
@@ -133,7 +133,7 @@ concurrent receive.</p>
       
       
       <p class="next">
-        Далее: <a href="channel-synchronization" rel="next">Channel Synchronization</a>.
+        Далее: <a href="channel-synchronization" rel="next">Синхронизация каналов</a>.
       </p>
       
 
