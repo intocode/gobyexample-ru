@@ -1,8 +1,8 @@
-// We often want to execute Go code at some point in the
-// future, or repeatedly at some interval. Go's built-in
-// _timer_ and _ticker_ features make both of these tasks
-// easy. We'll look first at timers and then
-// at [tickers](tickers).
+// Часто нам нужно выполнить код Go в определённый момент
+// в будущем или повторять с некоторым интервалом.
+// Встроенные возможности Go — _таймеры_ и _тикеры_ —
+// делают обе эти задачи простыми. Сначала рассмотрим
+// таймеры, а затем [тикеры](tickers).
 
 package main
 
@@ -13,22 +13,22 @@ import (
 
 func main() {
 
-	// Timers represent a single event in the future. You
-	// tell the timer how long you want to wait, and it
-	// provides a channel that will be notified at that
-	// time. This timer will wait 2 seconds.
+	// Таймеры представляют одиночное событие в будущем.
+	// Ты указываешь таймеру, сколько нужно подождать,
+	// и он предоставляет канал, в который придёт уведомление
+	// в нужный момент. Этот таймер будет ждать 2 секунды.
 	timer1 := time.NewTimer(2 * time.Second)
 
-	// The `<-timer1.C` blocks on the timer's channel `C`
-	// until it sends a value indicating that the timer
-	// fired.
+	// `<-timer1.C` блокируется на канале таймера `C`,
+	// пока тот не отправит значение, указывающее на то,
+	// что таймер сработал.
 	<-timer1.C
 	fmt.Println("Timer 1 fired")
 
-	// If you just wanted to wait, you could have used
-	// `time.Sleep`. One reason a timer may be useful is
-	// that you can cancel the timer before it fires.
-	// Here's an example of that.
+	// Если тебе просто нужно подождать, можно использовать
+	// `time.Sleep`. Одна из причин, по которой таймер
+	// может быть полезен — возможность отменить его
+	// до срабатывания. Вот пример этого.
 	timer2 := time.NewTimer(time.Second)
 	go func() {
 		<-timer2.C
@@ -39,7 +39,8 @@ func main() {
 		fmt.Println("Timer 2 stopped")
 	}
 
-	// Give the `timer2` enough time to fire, if it ever
-	// was going to, to show it is in fact stopped.
+	// Даём `timer2` достаточно времени, чтобы сработать,
+	// если бы он собирался, чтобы показать, что он
+	// действительно остановлен.
 	time.Sleep(2 * time.Second)
 }

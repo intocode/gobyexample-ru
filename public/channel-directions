@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Channel Directions</title>
+    <title>Go на примерах: Направления каналов</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,16 @@
   </script>
   <body>
     <div class="example" id="channel-directions">
-      <h2><a href="./">Go на примерах</a>: Channel Directions</h2>
+      <h2><a href="./">Go на примерах</a>: Направления каналов</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>When using channels as function parameters, you can
-specify if a channel is meant to only send or receive
-values. This specificity increases the type-safety of
-the program.</p>
+            <p>При использовании каналов как параметров функции
+можно указать, предназначен ли канал только для
+отправки или только для получения значений. Эта
+специфичность повышает типобезопасность программы.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +47,7 @@ the program.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/mjNJDHwUH4R"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/IJ776XE4cN4"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -64,9 +64,9 @@ the program.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>ping</code> function only accepts a channel for sending
-values. It would be a compile-time error to try to
-receive on this channel.</p>
+            <p>Эта функция <code>ping</code> принимает канал только для отправки
+значений. Попытка получить из этого канала приведёт
+к ошибке компиляции.</p>
 
           </td>
           <td class="code leading">
@@ -79,8 +79,8 @@ receive on this channel.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>pong</code> function accepts one channel for receives
-(<code>pings</code>) and a second for sends (<code>pongs</code>).</p>
+            <p>Функция <code>pong</code> принимает один канал для получения
+(<code>pings</code>) и второй для отправки (<code>pongs</code>).</p>
 
           </td>
           <td class="code leading">

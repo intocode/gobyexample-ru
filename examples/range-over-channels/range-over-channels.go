@@ -1,7 +1,7 @@
-// In a [previous](range-over-built-in-types) example we saw how `for` and
-// `range` provide iteration over basic data structures.
-// We can also use this syntax to iterate over
-// values received from a channel.
+// В [предыдущем](range-over-built-in-types) примере мы видели, как `for`
+// и `range` обеспечивают итерацию по базовым структурам данных.
+// Мы также можем использовать этот синтаксис для итерации
+// по значениям, полученным из канала.
 
 package main
 
@@ -9,16 +9,16 @@ import "fmt"
 
 func main() {
 
-	// We'll iterate over 2 values in the `queue` channel.
+	// Мы будем итерировать по 2 значениям в канале `queue`.
 	queue := make(chan string, 2)
 	queue <- "one"
 	queue <- "two"
 	close(queue)
 
-	// This `range` iterates over each element as it's
-	// received from `queue`. Because we `close`d the
-	// channel above, the iteration terminates after
-	// receiving the 2 elements.
+	// Этот `range` итерирует по каждому элементу по мере
+	// его получения из `queue`. Поскольку мы закрыли
+	// канал выше, итерация завершится после получения
+	// 2 элементов.
 	for elem := range queue {
 		fmt.Println(elem)
 	}

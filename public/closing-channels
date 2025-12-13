@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Closing Channels</title>
+    <title>Go на примерах: Закрытие каналов</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,15 +24,15 @@
   </script>
   <body>
     <div class="example" id="closing-channels">
-      <h2><a href="./">Go на примерах</a>: Closing Channels</h2>
+      <h2><a href="./">Go на примерах</a>: Закрытие каналов</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><em>Closing</em> a channel indicates that no more values
-will be sent on it. This can be useful to communicate
-completion to the channel&rsquo;s receivers.</p>
+            <p><em>Закрытие</em> канала означает, что в него больше не будут
+отправляться значения. Это полезно для сообщения
+получателям канала о завершении работы.</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +46,7 @@ completion to the channel&rsquo;s receivers.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/yZijZHYe22y"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/iN2CE9zKfwA"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -63,10 +63,10 @@ completion to the channel&rsquo;s receivers.</p>
         
         <tr>
           <td class="docs">
-            <p>In this example we&rsquo;ll use a <code>jobs</code> channel to
-communicate work to be done from the <code>main()</code> goroutine
-to a worker goroutine. When we have no more jobs for
-the worker we&rsquo;ll <code>close</code> the <code>jobs</code> channel.</p>
+            <p>В этом примере мы используем канал <code>jobs</code> для передачи
+задач из горутины <code>main()</code> в горутину-воркер. Когда
+задач для воркера больше нет, мы закроем канал <code>jobs</code>
+с помощью <code>close</code>.</p>
 
           </td>
           <td class="code leading">
@@ -79,13 +79,13 @@ the worker we&rsquo;ll <code>close</code> the <code>jobs</code> channel.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the worker goroutine. It repeatedly receives
-from <code>jobs</code> with <code>j, more := &lt;-jobs</code>. In this
-special 2-value form of receive, the <code>more</code> value
-will be <code>false</code> if <code>jobs</code> has been <code>close</code>d and all
-values in the channel have already been received.
-We use this to notify on <code>done</code> when we&rsquo;ve worked
-all our jobs.</p>
+            <p>Вот горутина-воркер. Она многократно получает данные
+из <code>jobs</code> с помощью <code>j, more := &lt;-jobs</code>. В этой
+специальной форме получения с двумя значениями
+<code>more</code> будет равно <code>false</code>, если канал <code>jobs</code> был
+закрыт и все значения из него уже получены.
+Мы используем это, чтобы отправить уведомление в <code>done</code>,
+когда все задачи выполнены.</p>
 
           </td>
           <td class="code leading">
@@ -107,8 +107,8 @@ all our jobs.</p>
         
         <tr>
           <td class="docs">
-            <p>This sends 3 jobs to the worker over the <code>jobs</code>
-channel, then closes it.</p>
+            <p>Здесь мы отправляем 3 задачи воркеру через канал
+<code>jobs</code>, а затем закрываем его.</p>
 
           </td>
           <td class="code leading">
@@ -124,9 +124,9 @@ channel, then closes it.</p>
         
         <tr>
           <td class="docs">
-            <p>We await the worker using the
-<a href="channel-synchronization">synchronization</a> approach
-we saw earlier.</p>
+            <p>Ожидаем воркера, используя подход
+<a href="channel-synchronization">синхронизации</a>, который
+мы видели ранее.</p>
 
           </td>
           <td class="code leading">
@@ -137,13 +137,13 @@ we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>Reading from a closed channel succeeds immediately,
-returning the zero value of the underlying type.
-The optional second return value is <code>true</code> if the
-value received was delivered by a successful send
-operation to the channel, or <code>false</code> if it was a
-zero value generated because the channel is closed
-and empty.</p>
+            <p>Чтение из закрытого канала выполняется немедленно
+и возвращает нулевое значение соответствующего типа.
+Опциональное второе возвращаемое значение равно <code>true</code>,
+если полученное значение было доставлено успешной
+операцией отправки в канал, или <code>false</code>, если это
+нулевое значение, сгенерированное потому, что канал
+закрыт и пуст.</p>
 
           </td>
           <td class="code">
@@ -179,8 +179,8 @@ and empty.</p>
         
         <tr>
           <td class="docs">
-            <p>The idea of closed channels leads naturally to our next
-example: <code>range</code> over channels.</p>
+            <p>Идея закрытых каналов естественно приводит нас к
+следующему примеру: <code>range</code> по каналам.</p>
 
           </td>
           <td class="code empty">
@@ -193,7 +193,7 @@ example: <code>range</code> over channels.</p>
       
       
       <p class="next">
-        Далее: <a href="range-over-channels" rel="next">Range over Channels</a>.
+        Далее: <a href="range-over-channels" rel="next">Range по каналам</a>.
       </p>
       
 

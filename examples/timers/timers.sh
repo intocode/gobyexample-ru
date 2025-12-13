@@ -1,6 +1,6 @@
-# The first timer will fire ~2s after we start the
-# program, but the second should be stopped before it has
-# a chance to fire.
+# Первый таймер сработает примерно через 2 секунды
+# после запуска программы, а второй будет остановлен
+# до того, как успеет сработать.
 $ go run timers.go
 Timer 1 fired
 Timer 2 stopped

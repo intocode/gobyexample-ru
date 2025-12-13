@@ -1,9 +1,9 @@
-// The primary mechanism for managing state in Go is
-// communication over channels. We saw this for example
-// with [worker pools](worker-pools). There are a few other
-// options for managing state though. Here we'll
-// look at using the `sync/atomic` package for _atomic
-// counters_ accessed by multiple goroutines.
+// Основной механизм управления состоянием в Go —
+// взаимодействие через каналы. Мы видели это, например,
+// в примере с [пулом воркеров](worker-pools). Однако есть
+// и другие способы управления состоянием. Здесь мы
+// рассмотрим использование пакета `sync/atomic` для
+// _атомарных счётчиков_, к которым обращаются несколько горутин.
 
 package main
 
@@ -15,30 +15,30 @@ import (
 
 func main() {
 
-	// We'll use an atomic integer type to represent our
-	// (always-positive) counter.
+	// Используем атомарный целочисленный тип для представления
+	// нашего (всегда положительного) счётчика.
 	var ops atomic.Uint64
 
-	// A WaitGroup will help us wait for all goroutines
-	// to finish their work.
+	// WaitGroup поможет нам дождаться завершения
+	// всех горутин.
 	var wg sync.WaitGroup
 
-	// We'll start 50 goroutines that each increment the
-	// counter exactly 1000 times.
+	// Запустим 50 горутин, каждая из которых
+	// увеличит счётчик ровно 1000 раз.
 	for range 50 {
 		wg.Go(func() {
 			for range 1000 {
-				// To atomically increment the counter we use `Add`.
+				// Для атомарного увеличения счётчика используем `Add`.
 				ops.Add(1)
 			}
 		})
 	}
 
-	// Wait until all the goroutines are done.
+	// Ждём завершения всех горутин.
 	wg.Wait()
 
-	// Here no goroutines are writing to 'ops', but using
-	// `Load` it's safe to atomically read a value even while
-	// other goroutines are (atomically) updating it.
+	// Здесь ни одна горутина не пишет в 'ops', но с помощью
+	// `Load` можно безопасно атомарно читать значение, даже пока
+	// другие горутины (атомарно) его обновляют.
 	fmt.Println("ops:", ops.Load())
 }
