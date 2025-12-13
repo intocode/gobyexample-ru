@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Non-Blocking Channel Operations</title>
+    <title>Go на примерах: Неблокирующие операции с каналами</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,16 @@
   </script>
   <body>
     <div class="example" id="non-blocking-channel-operations">
-      <h2><a href="./">Go на примерах</a>: Non-Blocking Channel Operations</h2>
+      <h2><a href="./">Go на примерах</a>: Неблокирующие операции с каналами</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Basic sends and receives on channels are blocking.
-However, we can use <code>select</code> with a <code>default</code> clause to
-implement <em>non-blocking</em> sends, receives, and even
-non-blocking multi-way <code>select</code>s.</p>
+            <p>Обычные отправки и получения из каналов блокирующие.
+Однако мы можем использовать <code>select</code> с веткой <code>default</code>,
+чтобы реализовать <em>неблокирующие</em> отправки, получения
+и даже неблокирующие многовариантные <code>select</code>.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +47,7 @@ non-blocking multi-way <code>select</code>s.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/TFv6-7OVNVq"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/vfWdkWctxUy"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,10 +76,10 @@ non-blocking multi-way <code>select</code>s.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a non-blocking receive. If a value is
-available on <code>messages</code> then <code>select</code> will take
-the <code>&lt;-messages</code> <code>case</code> with that value. If not
-it will immediately take the <code>default</code> case.</p>
+            <p>Вот неблокирующее получение. Если значение доступно
+в канале <code>messages</code>, то <code>select</code> выберет ветку
+<code>&lt;-messages</code> с этим значением. Если нет —
+немедленно выполнится ветка <code>default</code>.</p>
 
           </td>
           <td class="code leading">
@@ -95,10 +95,10 @@ it will immediately take the <code>default</code> case.</p>
         
         <tr>
           <td class="docs">
-            <p>A non-blocking send works similarly. Here <code>msg</code>
-cannot be sent to the <code>messages</code> channel, because
-the channel has no buffer and there is no receiver.
-Therefore the <code>default</code> case is selected.</p>
+            <p>Неблокирующая отправка работает аналогично. Здесь <code>msg</code>
+не может быть отправлено в канал <code>messages</code>, потому что
+канал не буферизован и нет получателя.
+Поэтому выбирается ветка <code>default</code>.</p>
 
           </td>
           <td class="code leading">
@@ -115,10 +115,10 @@ Therefore the <code>default</code> case is selected.</p>
         
         <tr>
           <td class="docs">
-            <p>We can use multiple <code>case</code>s above the <code>default</code>
-clause to implement a multi-way non-blocking
-select. Here we attempt non-blocking receives
-on both <code>messages</code> and <code>signals</code>.</p>
+            <p>Мы можем использовать несколько веток <code>case</code> перед
+<code>default</code>, чтобы реализовать многовариантный
+неблокирующий select. Здесь мы пытаемся неблокирующе
+получить данные из обоих каналов <code>messages</code> и <code>signals</code>.</p>
 
           </td>
           <td class="code">
@@ -156,7 +156,7 @@ on both <code>messages</code> and <code>signals</code>.</p>
       
       
       <p class="next">
-        Далее: <a href="closing-channels" rel="next">Closing Channels</a>.
+        Далее: <a href="closing-channels" rel="next">Закрытие каналов</a>.
       </p>
       
 

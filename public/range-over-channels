@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Range over Channels</title>
+    <title>Go на примерах: Range по каналам</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,16 @@
   </script>
   <body>
     <div class="example" id="range-over-channels">
-      <h2><a href="./">Go на примерах</a>: Range over Channels</h2>
+      <h2><a href="./">Go на примерах</a>: Range по каналам</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>In a <a href="range-over-built-in-types">previous</a> example we saw how <code>for</code> and
-<code>range</code> provide iteration over basic data structures.
-We can also use this syntax to iterate over
-values received from a channel.</p>
+            <p>В <a href="range-over-built-in-types">предыдущем</a> примере мы видели, как <code>for</code>
+и <code>range</code> обеспечивают итерацию по базовым структурам данных.
+Мы также можем использовать этот синтаксис для итерации
+по значениям, полученным из канала.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +47,7 @@ values received from a channel.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/8vAhX6eX1wy"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/Q8y9fMpJm0s"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -74,7 +74,7 @@ values received from a channel.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll iterate over 2 values in the <code>queue</code> channel.</p>
+            <p>Мы будем итерировать по 2 значениям в канале <code>queue</code>.</p>
 
           </td>
           <td class="code leading">
@@ -88,10 +88,10 @@ values received from a channel.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>range</code> iterates over each element as it&rsquo;s
-received from <code>queue</code>. Because we <code>close</code>d the
-channel above, the iteration terminates after
-receiving the 2 elements.</p>
+            <p>Этот <code>range</code> итерирует по каждому элементу по мере
+его получения из <code>queue</code>. Поскольку мы закрыли
+канал выше, итерация завершится после получения
+2 элементов.</p>
 
           </td>
           <td class="code">
@@ -121,9 +121,9 @@ receiving the 2 elements.</p>
         
         <tr>
           <td class="docs">
-            <p>This example also showed that it&rsquo;s possible to close
-a non-empty channel but still have the remaining
-values be received.</p>
+            <p>Этот пример также показал, что можно закрыть
+непустой канал, и оставшиеся значения всё равно
+будут получены.</p>
 
           </td>
           <td class="code empty">
@@ -136,7 +136,7 @@ values be received.</p>
       
       
       <p class="next">
-        Далее: <a href="timers" rel="next">Timers</a>.
+        Далее: <a href="timers" rel="next">Таймеры</a>.
       </p>
       
 

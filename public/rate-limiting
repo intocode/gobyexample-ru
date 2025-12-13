@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Rate Limiting</title>
+    <title>Go на примерах: Ограничение частоты запросов</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,17 +24,17 @@
   </script>
   <body>
     <div class="example" id="rate-limiting">
-      <h2><a href="./">Go на примерах</a>: Rate Limiting</h2>
+      <h2><a href="./">Go на примерах</a>: Ограничение частоты запросов</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><a href="https://en.wikipedia.org/wiki/Rate_limiting"><em>Rate limiting</em></a>
-is an important mechanism for controlling resource
-utilization and maintaining quality of service. Go
-elegantly supports rate limiting with goroutines,
-channels, and <a href="tickers">tickers</a>.</p>
+            <p><a href="https://en.wikipedia.org/wiki/Rate_limiting"><em>Rate limiting</em></a> —
+важный механизм для контроля использования ресурсов
+и поддержания качества сервиса. Go элегантно
+поддерживает rate limiting с помощью горутин,
+каналов и <a href="tickers">тикеров</a>.</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +48,7 @@ channels, and <a href="tickers">tickers</a>.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/y9V3goQfy5m"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/NeQDaF9Tm5L"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -78,10 +78,9 @@ channels, and <a href="tickers">tickers</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>First we&rsquo;ll look at basic rate limiting. Suppose
-we want to limit our handling of incoming requests.
-We&rsquo;ll serve these requests off a channel of the
-same name.</p>
+            <p>Сначала рассмотрим базовый rate limiting. Допустим,
+мы хотим ограничить обработку входящих запросов.
+Будем обслуживать эти запросы из одноимённого канала.</p>
 
           </td>
           <td class="code leading">
@@ -96,9 +95,9 @@ same name.</p>
         
         <tr>
           <td class="docs">
-            <p>This <code>limiter</code> channel will receive a value
-every 200 milliseconds. This is the regulator in
-our rate limiting scheme.</p>
+            <p>Канал <code>limiter</code> будет получать значение каждые
+200 миллисекунд. Это регулятор в нашей схеме
+rate limiting.</p>
 
           </td>
           <td class="code leading">
@@ -109,9 +108,9 @@ our rate limiting scheme.</p>
         
         <tr>
           <td class="docs">
-            <p>By blocking on a receive from the <code>limiter</code> channel
-before serving each request, we limit ourselves to
-1 request every 200 milliseconds.</p>
+            <p>Блокируясь на получении из канала <code>limiter</code> перед
+обработкой каждого запроса, мы ограничиваем себя
+до 1 запроса каждые 200 миллисекунд.</p>
 
           </td>
           <td class="code leading">
@@ -125,11 +124,11 @@ before serving each request, we limit ourselves to
         
         <tr>
           <td class="docs">
-            <p>We may want to allow short bursts of requests in
-our rate limiting scheme while preserving the
-overall rate limit. We can accomplish this by
-buffering our limiter channel. This <code>burstyLimiter</code>
-channel will allow bursts of up to 3 events.</p>
+            <p>Возможно, мы захотим разрешить короткие всплески
+запросов в нашей схеме rate limiting, сохраняя
+при этом общий лимит. Этого можно добиться с помощью
+буферизации канала-лимитера. Этот <code>burstyLimiter</code>
+позволит всплески до 3 событий.</p>
 
           </td>
           <td class="code leading">
@@ -140,7 +139,7 @@ channel will allow bursts of up to 3 events.</p>
         
         <tr>
           <td class="docs">
-            <p>Fill up the channel to represent allowed bursting.</p>
+            <p>Заполняем канал для представления разрешённых всплесков.</p>
 
           </td>
           <td class="code leading">
@@ -153,8 +152,8 @@ channel will allow bursts of up to 3 events.</p>
         
         <tr>
           <td class="docs">
-            <p>Every 200 milliseconds we&rsquo;ll try to add a new
-value to <code>burstyLimiter</code>, up to its limit of 3.</p>
+            <p>Каждые 200 миллисекунд мы будем пытаться добавить
+новое значение в <code>burstyLimiter</code>, до его лимита в 3.</p>
 
           </td>
           <td class="code leading">
@@ -169,9 +168,9 @@ value to <code>burstyLimiter</code>, up to its limit of 3.</p>
         
         <tr>
           <td class="docs">
-            <p>Now simulate 5 more incoming requests. The first
-3 of these will benefit from the burst capability
-of <code>burstyLimiter</code>.</p>
+            <p>Теперь имитируем ещё 5 входящих запросов. Первые
+3 из них воспользуются возможностью всплеска
+<code>burstyLimiter</code>.</p>
 
           </td>
           <td class="code">
@@ -195,8 +194,8 @@ of <code>burstyLimiter</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Running our program we see the first batch of requests
-handled once every ~200 milliseconds as desired.</p>
+            <p>Запустив программу, мы видим, что первая партия
+запросов обрабатывается каждые ~200 миллисекунд.</p>
 
           </td>
           <td class="code leading">
@@ -212,9 +211,9 @@ handled once every ~200 milliseconds as desired.</p>
         
         <tr>
           <td class="docs">
-            <p>For the second batch of requests we serve the first
-3 immediately because of the burstable rate limiting,
-then serve the remaining 2 with ~200ms delays each.</p>
+            <p>Для второй партии запросов мы обслуживаем первые
+3 немедленно благодаря возможности всплеска, а затем
+обслуживаем оставшиеся 2 с задержкой ~200ms каждый.</p>
 
           </td>
           <td class="code">
@@ -231,7 +230,7 @@ then serve the remaining 2 with ~200ms delays each.</p>
       
       
       <p class="next">
-        Далее: <a href="atomic-counters" rel="next">Atomic Counters</a>.
+        Далее: <a href="atomic-counters" rel="next">Атомарные счётчики</a>.
       </p>
       
 

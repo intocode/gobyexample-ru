@@ -1,7 +1,7 @@
-// Basic sends and receives on channels are blocking.
-// However, we can use `select` with a `default` clause to
-// implement _non-blocking_ sends, receives, and even
-// non-blocking multi-way `select`s.
+// Обычные отправки и получения из каналов блокирующие.
+// Однако мы можем использовать `select` с веткой `default`,
+// чтобы реализовать _неблокирующие_ отправки, получения
+// и даже неблокирующие многовариантные `select`.
 
 package main
 
@@ -11,10 +11,10 @@ func main() {
 	messages := make(chan string)
 	signals := make(chan bool)
 
-	// Here's a non-blocking receive. If a value is
-	// available on `messages` then `select` will take
-	// the `<-messages` `case` with that value. If not
-	// it will immediately take the `default` case.
+	// Вот неблокирующее получение. Если значение доступно
+	// в канале `messages`, то `select` выберет ветку
+	// `<-messages` с этим значением. Если нет —
+	// немедленно выполнится ветка `default`.
 	select {
 	case msg := <-messages:
 		fmt.Println("received message", msg)
@@ -22,10 +22,10 @@ func main() {
 		fmt.Println("no message received")
 	}
 
-	// A non-blocking send works similarly. Here `msg`
-	// cannot be sent to the `messages` channel, because
-	// the channel has no buffer and there is no receiver.
-	// Therefore the `default` case is selected.
+	// Неблокирующая отправка работает аналогично. Здесь `msg`
+	// не может быть отправлено в канал `messages`, потому что
+	// канал не буферизован и нет получателя.
+	// Поэтому выбирается ветка `default`.
 	msg := "hi"
 	select {
 	case messages <- msg:
@@ -34,10 +34,10 @@ func main() {
 		fmt.Println("no message sent")
 	}
 
-	// We can use multiple `case`s above the `default`
-	// clause to implement a multi-way non-blocking
-	// select. Here we attempt non-blocking receives
-	// on both `messages` and `signals`.
+	// Мы можем использовать несколько веток `case` перед
+	// `default`, чтобы реализовать многовариантный
+	// неблокирующий select. Здесь мы пытаемся неблокирующе
+	// получить данные из обоих каналов `messages` и `signals`.
 	select {
 	case msg := <-messages:
 		fmt.Println("received message", msg)

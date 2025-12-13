@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Timers</title>
+    <title>Go на примерах: Таймеры</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,17 +24,17 @@
   </script>
   <body>
     <div class="example" id="timers">
-      <h2><a href="./">Go на примерах</a>: Timers</h2>
+      <h2><a href="./">Go на примерах</a>: Таймеры</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>We often want to execute Go code at some point in the
-future, or repeatedly at some interval. Go&rsquo;s built-in
-<em>timer</em> and <em>ticker</em> features make both of these tasks
-easy. We&rsquo;ll look first at timers and then
-at <a href="tickers">tickers</a>.</p>
+            <p>Часто нам нужно выполнить код Go в определённый момент
+в будущем или повторять с некоторым интервалом.
+Встроенные возможности Go — <em>таймеры</em> и <em>тикеры</em> —
+делают обе эти задачи простыми. Сначала рассмотрим
+таймеры, а затем <a href="tickers">тикеры</a>.</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +48,7 @@ at <a href="tickers">tickers</a>.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/gF7VLRz3URM"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/mq9QBblyUQM"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -78,10 +78,10 @@ at <a href="tickers">tickers</a>.</p>
         
         <tr>
           <td class="docs">
-            <p>Timers represent a single event in the future. You
-tell the timer how long you want to wait, and it
-provides a channel that will be notified at that
-time. This timer will wait 2 seconds.</p>
+            <p>Таймеры представляют одиночное событие в будущем.
+Ты указываешь таймеру, сколько нужно подождать,
+и он предоставляет канал, в который придёт уведомление
+в нужный момент. Этот таймер будет ждать 2 секунды.</p>
 
           </td>
           <td class="code leading">
@@ -92,9 +92,9 @@ time. This timer will wait 2 seconds.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>&lt;-timer1.C</code> blocks on the timer&rsquo;s channel <code>C</code>
-until it sends a value indicating that the timer
-fired.</p>
+            <p><code>&lt;-timer1.C</code> блокируется на канале таймера <code>C</code>,
+пока тот не отправит значение, указывающее на то,
+что таймер сработал.</p>
 
           </td>
           <td class="code leading">
@@ -106,10 +106,10 @@ fired.</p>
         
         <tr>
           <td class="docs">
-            <p>If you just wanted to wait, you could have used
-<code>time.Sleep</code>. One reason a timer may be useful is
-that you can cancel the timer before it fires.
-Here&rsquo;s an example of that.</p>
+            <p>Если тебе просто нужно подождать, можно использовать
+<code>time.Sleep</code>. Одна из причин, по которой таймер
+может быть полезен — возможность отменить его
+до срабатывания. Вот пример этого.</p>
 
           </td>
           <td class="code leading">
@@ -128,8 +128,9 @@ Here&rsquo;s an example of that.</p>
         
         <tr>
           <td class="docs">
-            <p>Give the <code>timer2</code> enough time to fire, if it ever
-was going to, to show it is in fact stopped.</p>
+            <p>Даём <code>timer2</code> достаточно времени, чтобы сработать,
+если бы он собирался, чтобы показать, что он
+действительно остановлен.</p>
 
           </td>
           <td class="code">
@@ -145,9 +146,9 @@ was going to, to show it is in fact stopped.</p>
         
         <tr>
           <td class="docs">
-            <p>The first timer will fire ~2s after we start the
-program, but the second should be stopped before it has
-a chance to fire.</p>
+            <p>Первый таймер сработает примерно через 2 секунды
+после запуска программы, а второй будет остановлен
+до того, как успеет сработать.</p>
 
           </td>
           <td class="code">
@@ -162,7 +163,7 @@ a chance to fire.</p>
       
       
       <p class="next">
-        Далее: <a href="tickers" rel="next">Tickers</a>.
+        Далее: <a href="tickers" rel="next">Тикеры</a>.
       </p>
       
 

@@ -31,18 +31,18 @@ channel-buffering|Буферизация каналов
 channel-synchronization|Синхронизация каналов
 channel-directions|Направления каналов
 select|Select
-timeouts|Timeouts
-non-blocking-channel-operations|Non-Blocking Channel Operations
-closing-channels|Closing Channels
-range-over-channels|Range over Channels
-timers|Timers
-tickers|Tickers
-worker-pools|Worker Pools
+timeouts|Таймауты
+non-blocking-channel-operations|Неблокирующие операции с каналами
+closing-channels|Закрытие каналов
+range-over-channels|Range по каналам
+timers|Таймеры
+tickers|Тикеры
+worker-pools|Пул воркеров
 waitgroups|WaitGroups
-rate-limiting|Rate Limiting
-atomic-counters|Atomic Counters
-mutexes|Mutexes
-stateful-goroutines|Stateful Goroutines
+rate-limiting|Ограничение частоты запросов
+atomic-counters|Атомарные счётчики
+mutexes|Мьютексы
+stateful-goroutines|Горутины с состоянием
 sorting|Sorting
 sorting-by-functions|Sorting by Functions
 panic|Panic
