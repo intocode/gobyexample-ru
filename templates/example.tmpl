@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: {{.Title}}</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v={{.Site.CSSVersion}}">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -51,6 +51,6 @@
       var codeLines = [];
       {{range .Segs}}{{range .}}codeLines.push('{{js .CodeForJs}}');{{end}}{{end}}
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v={{.Site.JSVersion}}" async></script>
   </body>
 </html>

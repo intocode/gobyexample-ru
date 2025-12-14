@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Функции</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -180,6 +180,6 @@
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func plus(a int, b int) int {\u000A');codeLines.push('    return a + b\u000A}\u000A');codeLines.push('func plusPlus(a, b, c int) int {\u000A    return a + b + c\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    res :\u003D plus(1, 2)\u000A    fmt.Println(\"1+2 \u003D\", res)\u000A');codeLines.push('    res \u003D plusPlus(1, 2, 3)\u000A    fmt.Println(\"1+2+3 \u003D\", res)\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

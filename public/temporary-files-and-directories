@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Временные файлы и директории</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -220,6 +220,6 @@
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"os\"\u000A    \"path/filepath\"\u000A)\u000A');codeLines.push('func check(e error) {\u000A    if e !\u003D nil {\u000A        panic(e)\u000A    }\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    f, err :\u003D os.CreateTemp(\"\", \"sample\")\u000A    check(err)\u000A');codeLines.push('    fmt.Println(\"Temp file name:\", f.Name())\u000A');codeLines.push('    defer os.Remove(f.Name())\u000A');codeLines.push('    _, err \u003D f.Write([]byte{1, 2, 3, 4})\u000A    check(err)\u000A');codeLines.push('    dname, err :\u003D os.MkdirTemp(\"\", \"sampledir\")\u000A    check(err)\u000A    fmt.Println(\"Temp dir name:\", dname)\u000A');codeLines.push('    defer os.RemoveAll(dname)\u000A');codeLines.push('    fname :\u003D filepath.Join(dname, \"file1\")\u000A    err \u003D os.WriteFile(fname, []byte{1, 2}, 0666)\u000A    check(err)\u000A}\u000A');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

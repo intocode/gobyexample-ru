@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Интерфейсы</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -252,6 +252,6 @@
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"math\"\u000A)\u000A');codeLines.push('type geometry interface {\u000A    area() float64\u000A    perim() float64\u000A}\u000A');codeLines.push('type rect struct {\u000A    width, height float64\u000A}\u000Atype circle struct {\u000A    radius float64\u000A}\u000A');codeLines.push('func (r rect) area() float64 {\u000A    return r.width * r.height\u000A}\u000Afunc (r rect) perim() float64 {\u000A    return 2*r.width + 2*r.height\u000A}\u000A');codeLines.push('func (c circle) area() float64 {\u000A    return math.Pi * c.radius * c.radius\u000A}\u000Afunc (c circle) perim() float64 {\u000A    return 2 * math.Pi * c.radius\u000A}\u000A');codeLines.push('func measure(g geometry) {\u000A    fmt.Println(g)\u000A    fmt.Println(g.area())\u000A    fmt.Println(g.perim())\u000A}\u000A');codeLines.push('func detectCircle(g geometry) {\u000A    if c, ok :\u003D g.(circle); ok {\u000A        fmt.Println(\"circle with radius\", c.radius)\u000A    }\u000A}\u000A');codeLines.push('func main() {\u000A    r :\u003D rect{width: 3, height: 4}\u000A    c :\u003D circle{radius: 5}\u000A');codeLines.push('    measure(r)\u000A    measure(c)\u000A');codeLines.push('    detectCircle(r)\u000A    detectCircle(c)\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

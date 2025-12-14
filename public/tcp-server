@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: TCP-сервер</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -237,6 +237,6 @@
       var codeLines = [];
       codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"bufio\"\u000A    \"fmt\"\u000A    \"log\"\u000A    \"net\"\u000A    \"strings\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    listener, err :\u003D net.Listen(\"tcp\", \":8090\")\u000A    if err !\u003D nil {\u000A        log.Fatal(\"Error listening:\", err)\u000A    }\u000A');codeLines.push('    defer listener.Close()\u000A');codeLines.push('    for {\u000A');codeLines.push('        conn, err :\u003D listener.Accept()\u000A        if err !\u003D nil {\u000A            log.Println(\"Error accepting conn:\", err)\u000A            continue\u000A        }\u000A');codeLines.push('        go handleConnection(conn)\u000A    }\u000A}\u000A');codeLines.push('func handleConnection(conn net.Conn) {\u000A');codeLines.push('    defer conn.Close()\u000A');codeLines.push('    reader :\u003D bufio.NewReader(conn)\u000A    message, err :\u003D reader.ReadString(\'\\n\')\u000A    if err !\u003D nil {\u000A        log.Printf(\"Read error: %v\", err)\u000A        return\u000A    }\u000A');codeLines.push('    ackMsg :\u003D strings.ToUpper(strings.TrimSpace(message))\u000A    response :\u003D fmt.Sprintf(\"ACK: %s\\n\", ackMsg)\u000A    _, err \u003D conn.Write([]byte(response))\u000A    if err !\u003D nil {\u000A        log.Printf(\"Server write error: %v\", err)\u000A    }\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

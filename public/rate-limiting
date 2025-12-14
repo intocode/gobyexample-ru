@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Ограничение частоты запросов</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -243,6 +243,6 @@ rate limiting.</p>
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    requests :\u003D make(chan int, 5)\u000A    for i :\u003D 1; i \u003C\u003D 5; i++ {\u000A        requests \u003C- i\u000A    }\u000A    close(requests)\u000A');codeLines.push('    limiter :\u003D time.Tick(200 * time.Millisecond)\u000A');codeLines.push('    for req :\u003D range requests {\u000A        \u003C-limiter\u000A        fmt.Println(\"request\", req, time.Now())\u000A    }\u000A');codeLines.push('    burstyLimiter :\u003D make(chan time.Time, 3)\u000A');codeLines.push('    for range 3 {\u000A        burstyLimiter \u003C- time.Now()\u000A    }\u000A');codeLines.push('    go func() {\u000A        for t :\u003D range time.Tick(200 * time.Millisecond) {\u000A            burstyLimiter \u003C- t\u000A        }\u000A    }()\u000A');codeLines.push('    burstyRequests :\u003D make(chan int, 5)\u000A    for i :\u003D 1; i \u003C\u003D 5; i++ {\u000A        burstyRequests \u003C- i\u000A    }\u000A    close(burstyRequests)\u000A    for req :\u003D range burstyRequests {\u000A        \u003C-burstyLimiter\u000A        fmt.Println(\"request\", req, time.Now())\u000A    }\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

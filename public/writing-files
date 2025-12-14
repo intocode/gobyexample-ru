@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Запись файлов</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -268,6 +268,6 @@
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"bufio\"\u000A    \"fmt\"\u000A    \"os\"\u000A    \"path/filepath\"\u000A)\u000A');codeLines.push('func check(e error) {\u000A    if e !\u003D nil {\u000A        panic(e)\u000A    }\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    d1 :\u003D []byte(\"hello\\ngo\\n\")\u000A    path1 :\u003D filepath.Join(os.TempDir(), \"dat1\")\u000A    err :\u003D os.WriteFile(path1, d1, 0644)\u000A    check(err)\u000A');codeLines.push('    path2 :\u003D filepath.Join(os.TempDir(), \"dat2\")\u000A    f, err :\u003D os.Create(path2)\u000A    check(err)\u000A');codeLines.push('    defer f.Close()\u000A');codeLines.push('    d2 :\u003D []byte{115, 111, 109, 101, 10}\u000A    n2, err :\u003D f.Write(d2)\u000A    check(err)\u000A    fmt.Printf(\"wrote %d bytes\\n\", n2)\u000A');codeLines.push('    n3, err :\u003D f.WriteString(\"writes\\n\")\u000A    check(err)\u000A    fmt.Printf(\"wrote %d bytes\\n\", n3)\u000A');codeLines.push('    f.Sync()\u000A');codeLines.push('    w :\u003D bufio.NewWriter(f)\u000A    n4, err :\u003D w.WriteString(\"buffered\\n\")\u000A    check(err)\u000A    fmt.Printf(\"wrote %d bytes\\n\", n4)\u000A');codeLines.push('    w.Flush()\u000A');codeLines.push('}\u000A');codeLines.push('');codeLines.push('');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>
