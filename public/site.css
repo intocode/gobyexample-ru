@@ -122,6 +122,9 @@ td.code {
 td.code.leading {
   padding-bottom: 11px;
 }
+td.docs, td.code {
+  transition: background-color 120ms ease-in-out;
+}
 pre, code {
   font-size: 14px; line-height: 18px;
   font-family: 'Menlo', 'Monaco', 'Consolas', 'Lucida Console', monospace;
@@ -145,7 +148,7 @@ body {
   color: #252519;
 }
 td.code.empty {
-  background: #ffffff;
+  background-color: #ffffff;
 }
 a, a:visited {
   color: #261a3b;
@@ -157,7 +160,13 @@ p.footer a, p.footer a:visited {
   color: #808080;
 }
 td.code {
-  background: #f0f0f0;
+  background-color: #f0f0f0;
+}
+div.example table tr:hover td.docs {
+  background-color: #f7f7f7;
+}
+div.example table tr:hover td.code {
+  background-color: #e8e8e8;
 }
 
 /* Syntax highlighting: light mode */
@@ -190,7 +199,7 @@ body .c1 { color: #808080 }  /* Comment.Single */
     color: #dadada;
   }
   td.code.empty {
-    background: #1f1f1f;
+    background-color: #1f1f1f;
   }
   a, a:visited {
     color: #e4e4e4;
@@ -202,7 +211,13 @@ body .c1 { color: #808080 }  /* Comment.Single */
     color: #898e98;
   }
   td.code {
-    background: #282828;
+    background-color: #282828;
+  }
+  div.example table tr:hover td.docs {
+    background-color: #262626;
+  }
+  div.example table tr:hover td.code {
+    background-color: #303030;
   }
 
  
