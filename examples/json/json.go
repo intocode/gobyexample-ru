@@ -1,6 +1,6 @@
-// Go offers built-in support for JSON encoding and
-// decoding, including to and from built-in and custom
-// data types.
+// Go предоставляет встроенную поддержку кодирования и
+// декодирования JSON, включая работу со встроенными
+// и пользовательскими типами данных.
 
 package main
 
@@ -11,15 +11,15 @@ import (
 	"strings"
 )
 
-// We'll use these two structs to demonstrate encoding and
-// decoding of custom types below.
+// Мы будем использовать эти две структуры для демонстрации
+// кодирования и декодирования пользовательских типов ниже.
 type response1 struct {
 	Page   int
 	Fruits []string
 }
 
-// Only exported fields will be encoded/decoded in JSON.
-// Fields must start with capital letters to be exported.
+// В JSON будут кодироваться/декодироваться только экспортируемые поля.
+// Поля должны начинаться с заглавной буквы, чтобы быть экспортируемыми.
 type response2 struct {
 	Page   int      `json:"page"`
 	Fruits []string `json:"fruits"`
@@ -27,9 +27,9 @@ type response2 struct {
 
 func main() {
 
-	// First we'll look at encoding basic data types to
-	// JSON strings. Here are some examples for atomic
-	// values.
+	// Сначала рассмотрим кодирование базовых типов данных
+	// в строки JSON. Вот несколько примеров для атомарных
+	// значений.
 	bolB, _ := json.Marshal(true)
 	fmt.Println(string(bolB))
 
@@ -42,8 +42,8 @@ func main() {
 	strB, _ := json.Marshal("gopher")
 	fmt.Println(string(strB))
 
-	// And here are some for slices and maps, which encode
-	// to JSON arrays and objects as you'd expect.
+	// А вот примеры для срезов и карт, которые кодируются
+	// в JSON-массивы и объекты, как и следовало ожидать.
 	slcD := []string{"apple", "peach", "pear"}
 	slcB, _ := json.Marshal(slcD)
 	fmt.Println(string(slcB))
@@ -52,79 +52,76 @@ func main() {
 	mapB, _ := json.Marshal(mapD)
 	fmt.Println(string(mapB))
 
-	// The JSON package can automatically encode your
-	// custom data types. It will only include exported
-	// fields in the encoded output and will by default
-	// use those names as the JSON keys.
+	// Пакет JSON может автоматически кодировать твои
+	// пользовательские типы данных. Он включит в закодированный
+	// вывод только экспортируемые поля и по умолчанию будет
+	// использовать их имена в качестве ключей JSON.
 	res1D := &response1{
 		Page:   1,
 		Fruits: []string{"apple", "peach", "pear"}}
 	res1B, _ := json.Marshal(res1D)
 	fmt.Println(string(res1B))
 
-	// You can use tags on struct field declarations
-	// to customize the encoded JSON key names. Check the
-	// definition of `response2` above to see an example
-	// of such tags.
+	// Можно использовать теги в объявлениях полей структуры
+	// для настройки имён ключей в закодированном JSON.
+	// Посмотри определение `response2` выше, чтобы увидеть
+	// пример таких тегов.
 	res2D := &response2{
 		Page:   1,
 		Fruits: []string{"apple", "peach", "pear"}}
 	res2B, _ := json.Marshal(res2D)
 	fmt.Println(string(res2B))
 
-	// Now let's look at decoding JSON data into Go
-	// values. Here's an example for a generic data
-	// structure.
+	// Теперь рассмотрим декодирование JSON-данных в значения Go.
+	// Вот пример для обобщённой структуры данных.
 	byt := []byte(`{"num":6.13,"strs":["a","b"]}`)
 
-	// We need to provide a variable where the JSON
-	// package can put the decoded data. This
-	// `map[string]interface{}` will hold a map of strings
-	// to arbitrary data types.
+	// Нужно предоставить переменную, куда пакет JSON
+	// сможет поместить декодированные данные. Этот
+	// `map[string]interface{}` будет хранить карту строк
+	// к произвольным типам данных.
 	var dat map[string]interface{}
 
-	// Here's the actual decoding, and a check for
-	// associated errors.
+	// Вот само декодирование и проверка на связанные ошибки.
 	if err := json.Unmarshal(byt, &dat); err != nil {
 		panic(err)
 	}
 	fmt.Println(dat)
 
-	// In order to use the values in the decoded map,
-	// we'll need to convert them to their appropriate type.
-	// For example here we convert the value in `num` to
-	// the expected `float64` type.
+	// Чтобы использовать значения в декодированной карте,
+	// нужно преобразовать их к соответствующему типу.
+	// Например, здесь мы преобразуем значение в `num`
+	// к ожидаемому типу `float64`.
 	num := dat["num"].(float64)
 	fmt.Println(num)
 
-	// Accessing nested data requires a series of
-	// conversions.
+	// Для доступа к вложенным данным требуется серия
+	// преобразований.
 	strs := dat["strs"].([]interface{})
 	str1 := strs[0].(string)
 	fmt.Println(str1)
 
-	// We can also decode JSON into custom data types.
-	// This has the advantages of adding additional
-	// type-safety to our programs and eliminating the
-	// need for type assertions when accessing the decoded
-	// data.
+	// Можно также декодировать JSON в пользовательские типы данных.
+	// Это даёт преимущества дополнительной типобезопасности
+	// в наших программах и устраняет необходимость утверждений типа
+	// при доступе к декодированным данным.
 	str := `{"page": 1, "fruits": ["apple", "peach"]}`
 	res := response2{}
 	json.Unmarshal([]byte(str), &res)
 	fmt.Println(res)
 	fmt.Println(res.Fruits[0])
 
-	// In the examples above we always used bytes and
-	// strings as intermediates between the data and
-	// JSON representation on standard out. We can also
-	// stream JSON encodings directly to `os.Writer`s like
-	// `os.Stdout` or even HTTP response bodies.
+	// В примерах выше мы всегда использовали байты и строки
+	// как промежуточное звено между данными и JSON-представлением
+	// на стандартном выводе. Можно также потоково передавать
+	// JSON-кодирование напрямую в `os.Writer`, например
+	// `os.Stdout` или даже в тела HTTP-ответов.
 	enc := json.NewEncoder(os.Stdout)
 	d := map[string]int{"apple": 5, "lettuce": 7}
 	enc.Encode(d)
 
-	// Streaming reads from `os.Reader`s like `os.Stdin`
-	// or HTTP request bodies is done with `json.Decoder`.
+	// Потоковое чтение из `os.Reader`, например `os.Stdin`
+	// или тел HTTP-запросов, выполняется с помощью `json.Decoder`.
 	dec := json.NewDecoder(strings.NewReader(str))
 	res1 := response2{}
 	dec.Decode(&res1)

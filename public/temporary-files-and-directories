@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Temporary Files and Directories</title>
+    <title>Go на примерах: Временные файлы и директории</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,17 +24,16 @@
   </script>
   <body>
     <div class="example" id="temporary-files-and-directories">
-      <h2><a href="./">Go на примерах</a>: Temporary Files and Directories</h2>
+      <h2><a href="./">Go на примерах</a>: Временные файлы и директории</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Throughout program execution, we often want to create
-data that isn&rsquo;t needed after the program exits.
-<em>Temporary files and directories</em> are useful for this
-purpose since they don&rsquo;t pollute the file system over
-time.</p>
+            <p>В ходе выполнения программы часто нужно создавать
+данные, которые не нужны после завершения программы.
+<em>Временные файлы и директории</em> полезны для этой цели,
+поскольку они не засоряют файловую систему со временем.</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +47,7 @@ time.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/hVcPg9RH3_V"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/YCKAorsft1t"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -93,11 +92,11 @@ time.</p>
         
         <tr>
           <td class="docs">
-            <p>The easiest way to create a temporary file is by
-calling <code>os.CreateTemp</code>. It creates a file <em>and</em>
-opens it for reading and writing. We provide <code>&quot;&quot;</code>
-as the first argument, so <code>os.CreateTemp</code> will
-create the file in the default location for our OS.</p>
+            <p>Самый простой способ создать временный файл — вызвать
+<code>os.CreateTemp</code>. Он создаёт файл <em>и</em> открывает его
+для чтения и записи. Мы передаём <code>&quot;&quot;</code> как первый
+аргумент, поэтому <code>os.CreateTemp</code> создаст файл
+в директории по умолчанию для нашей ОС.</p>
 
           </td>
           <td class="code leading">
@@ -109,12 +108,11 @@ create the file in the default location for our OS.</p>
         
         <tr>
           <td class="docs">
-            <p>Display the name of the temporary file. On
-Unix-based OSes the directory will likely be <code>/tmp</code>.
-The file name starts with the prefix given as the
-second argument to <code>os.CreateTemp</code> and the rest
-is chosen automatically to ensure that concurrent
-calls will always create different file names.</p>
+            <p>Выводим имя временного файла. На Unix-подобных ОС
+директорией скорее всего будет <code>/tmp</code>. Имя файла
+начинается с префикса, переданного вторым аргументом
+в <code>os.CreateTemp</code>, а остальное выбирается автоматически,
+чтобы параллельные вызовы всегда создавали разные имена.</p>
 
           </td>
           <td class="code leading">
@@ -125,10 +123,9 @@ calls will always create different file names.</p>
         
         <tr>
           <td class="docs">
-            <p>Clean up the file after we&rsquo;re done. The OS is
-likely to clean up temporary files by itself after
-some time, but it&rsquo;s good practice to do this
-explicitly.</p>
+            <p>Удаляем файл после завершения работы. ОС скорее всего
+сама удалит временные файлы через некоторое время,
+но хорошей практикой является делать это явно.</p>
 
           </td>
           <td class="code leading">
@@ -139,7 +136,7 @@ explicitly.</p>
         
         <tr>
           <td class="docs">
-            <p>We can write some data to the file.</p>
+            <p>Можем записать некоторые данные в файл.</p>
 
           </td>
           <td class="code leading">
@@ -151,11 +148,10 @@ explicitly.</p>
         
         <tr>
           <td class="docs">
-            <p>If we intend to write many temporary files, we may
-prefer to create a temporary <em>directory</em>.
-<code>os.MkdirTemp</code>&rsquo;s arguments are the same as
-<code>CreateTemp</code>&rsquo;s, but it returns a directory <em>name</em>
-rather than an open file.</p>
+            <p>Если мы планируем создавать много временных файлов,
+лучше создать временную <em>директорию</em>. Аргументы
+<code>os.MkdirTemp</code> такие же, как у <code>CreateTemp</code>, но он
+возвращает <em>имя</em> директории, а не открытый файл.</p>
 
           </td>
           <td class="code leading">
@@ -178,8 +174,8 @@ rather than an open file.</p>
         
         <tr>
           <td class="docs">
-            <p>Now we can synthesize temporary file names by
-prefixing them with our temporary directory.</p>
+            <p>Теперь можем создавать имена временных файлов,
+добавляя к ним префикс нашей временной директории.</p>
 
           </td>
           <td class="code">
@@ -211,7 +207,7 @@ prefixing them with our temporary directory.</p>
       
       
       <p class="next">
-        Далее: <a href="embed-directive" rel="next">Embed Directive</a>.
+        Далее: <a href="embed-directive" rel="next">Директива Embed</a>.
       </p>
       
 

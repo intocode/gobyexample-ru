@@ -1,5 +1,5 @@
-// Sometimes our Go programs need to spawn other
-// processes.
+// Иногда нашим программам на Go нужно порождать
+// другие процессы.
 
 package main
 
@@ -12,16 +12,15 @@ import (
 
 func main() {
 
-	// We'll start with a simple command that takes no
-	// arguments or input and just prints something to
-	// stdout. The `exec.Command` helper creates an object
-	// to represent this external process.
+	// Начнём с простой команды, которая не принимает
+	// аргументов или ввода и просто выводит что-то в
+	// stdout. Помощник `exec.Command` создаёт объект,
+	// представляющий этот внешний процесс.
 	dateCmd := exec.Command("date")
 
-	// The `Output` method runs the command, waits for it
-	// to finish and collects its standard output.
-	//  If there were no errors, `dateOut` will hold bytes
-	// with the date info.
+	// Метод `Output` запускает команду, ждёт её завершения
+	// и собирает её стандартный вывод. Если ошибок не было,
+	// `dateOut` будет содержать байты с информацией о дате.
 	dateOut, err := dateCmd.Output()
 	if err != nil {
 		panic(err)
@@ -29,11 +28,11 @@ func main() {
 	fmt.Println("> date")
 	fmt.Println(string(dateOut))
 
-	// `Output` and other methods of `Command` will return
-	// `*exec.Error` if there was a problem executing the
-	// command (e.g. wrong path), and `*exec.ExitError`
-	// if the command ran but exited with a non-zero return
-	// code.
+	// `Output` и другие методы `Command` вернут
+	// `*exec.Error`, если была проблема с выполнением
+	// команды (например, неверный путь), и `*exec.ExitError`,
+	// если команда выполнилась, но завершилась с ненулевым
+	// кодом возврата.
 	_, err = exec.Command("date", "-x").Output()
 	if err != nil {
 		var execErr *exec.Error
@@ -49,15 +48,15 @@ func main() {
 		}
 	}
 
-	// Next we'll look at a slightly more involved case
-	// where we pipe data to the external process on its
-	// `stdin` and collect the results from its `stdout`.
+	// Далее рассмотрим немного более сложный случай,
+	// где мы передаём данные внешнему процессу через его
+	// `stdin` и собираем результаты из его `stdout`.
 	grepCmd := exec.Command("grep", "hello")
 
-	// Here we explicitly grab input/output pipes, start
-	// the process, write some input to it, read the
-	// resulting output, and finally wait for the process
-	// to exit.
+	// Здесь мы явно получаем пайпы ввода/вывода, запускаем
+	// процесс, записываем в него некоторый ввод, читаем
+	// результирующий вывод и, наконец, ждём завершения
+	// процесса.
 	grepIn, _ := grepCmd.StdinPipe()
 	grepOut, _ := grepCmd.StdoutPipe()
 	grepCmd.Start()
@@ -66,20 +65,18 @@ func main() {
 	grepBytes, _ := io.ReadAll(grepOut)
 	grepCmd.Wait()
 
-	// We omitted error checks in the above example, but
-	// you could use the usual `if err != nil` pattern for
-	// all of them. We also only collect the `StdoutPipe`
-	// results, but you could collect the `StderrPipe` in
-	// exactly the same way.
+	// Мы опустили проверки ошибок в примере выше, но можно
+	// использовать обычный паттерн `if err != nil` для всех
+	// них. Также мы собираем только результаты `StdoutPipe`,
+	// но можно собирать `StderrPipe` точно так же.
 	fmt.Println("> grep hello")
 	fmt.Println(string(grepBytes))
 
-	// Note that when spawning commands we need to
-	// provide an explicitly delineated command and
-	// argument array, vs. being able to just pass in one
-	// command-line string. If you want to spawn a full
-	// command with a string, you can use `bash`'s `-c`
-	// option:
+	// Обрати внимание, что при порождении команд нужно
+	// предоставить явно разделённый массив команды и
+	// аргументов, а не просто одну строку командной строки.
+	// Если хочешь выполнить полную команду со строкой,
+	// можно использовать опцию `-c` в `bash`:
 	lsCmd := exec.Command("bash", "-c", "ls -a -l -h")
 	lsOut, err := lsCmd.Output()
 	if err != nil {

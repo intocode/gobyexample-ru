@@ -1,9 +1,9 @@
-// Some command-line tools, like the `go` tool or `git`
-// have many *subcommands*, each with its own set of
-// flags. For example, `go build` and `go get` are two
-// different subcommands of the `go` tool.
-// The `flag` package lets us easily define simple
-// subcommands that have their own flags.
+// Некоторые инструменты командной строки, такие как `go`
+// или `git`, имеют много *подкоманд*, каждая со своим
+// набором флагов. Например, `go build` и `go get` — две
+// разные подкоманды инструмента `go`. Пакет `flag`
+// позволяет легко определять простые подкоманды
+// со своими флагами.
 
 package main
 
@@ -15,30 +15,29 @@ import (
 
 func main() {
 
-	// We declare a subcommand using the `NewFlagSet`
-	// function, and proceed to define new flags specific
-	// for this subcommand.
+	// Объявляем подкоманду с помощью функции `NewFlagSet`
+	// и затем определяем новые флаги, специфичные
+	// для этой подкоманды.
 	fooCmd := flag.NewFlagSet("foo", flag.ExitOnError)
 	fooEnable := fooCmd.Bool("enable", false, "enable")
 	fooName := fooCmd.String("name", "", "name")
 
-	// For a different subcommand we can define different
-	// supported flags.
+	// Для другой подкоманды можно определить другие
+	// поддерживаемые флаги.
 	barCmd := flag.NewFlagSet("bar", flag.ExitOnError)
 	barLevel := barCmd.Int("level", 0, "level")
 
-	// The subcommand is expected as the first argument
-	// to the program.
+	// Подкоманда ожидается как первый аргумент программы.
 	if len(os.Args) < 2 {
 		fmt.Println("expected 'foo' or 'bar' subcommands")
 		os.Exit(1)
 	}
 
-	// Check which subcommand is invoked.
+	// Проверяем, какая подкоманда вызвана.
 	switch os.Args[1] {
 
-	// For every subcommand, we parse its own flags and
-	// have access to trailing positional arguments.
+	// Для каждой подкоманды разбираем её собственные флаги
+	// и получаем доступ к позиционным аргументам в конце.
 	case "foo":
 		fooCmd.Parse(os.Args[2:])
 		fmt.Println("subcommand 'foo'")

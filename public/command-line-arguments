@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Command-Line Arguments</title>
+    <title>Go на примерах: Аргументы командной строки</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,16 @@
   </script>
   <body>
     <div class="example" id="command-line-arguments">
-      <h2><a href="./">Go на примерах</a>: Command-Line Arguments</h2>
+      <h2><a href="./">Go на примерах</a>: Аргументы командной строки</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><a href="https://en.wikipedia.org/wiki/Command-line_interface#Arguments"><em>Command-line arguments</em></a>
-are a common way to parameterize execution of programs.
-For example, <code>go run hello.go</code> uses <code>run</code> and
-<code>hello.go</code> arguments to the <code>go</code> program.</p>
+            <p><a href="https://en.wikipedia.org/wiki/Command-line_interface#Arguments"><em>Аргументы командной строки</em></a> —
+распространённый способ параметризации выполнения программ.
+Например, <code>go run hello.go</code> использует аргументы <code>run</code>
+и <code>hello.go</code> для программы <code>go</code>.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +47,7 @@ For example, <code>go run hello.go</code> uses <code>run</code> and
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/UYCEvh9d2Zb"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/fPVr-3odd3S"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -77,10 +77,10 @@ For example, <code>go run hello.go</code> uses <code>run</code> and
         
         <tr>
           <td class="docs">
-            <p><code>os.Args</code> provides access to raw command-line
-arguments. Note that the first value in this slice
-is the path to the program, and <code>os.Args[1:]</code>
-holds the arguments to the program.</p>
+            <p><code>os.Args</code> предоставляет доступ к необработанным
+аргументам командной строки. Обрати внимание, что
+первое значение в этом срезе — путь к программе,
+а <code>os.Args[1:]</code> содержит аргументы программы.</p>
 
           </td>
           <td class="code leading">
@@ -92,7 +92,7 @@ holds the arguments to the program.</p>
         
         <tr>
           <td class="docs">
-            <p>You can get individual args with normal indexing.</p>
+            <p>Можно получить отдельные аргументы обычной индексацией.</p>
 
           </td>
           <td class="code leading">
@@ -120,8 +120,8 @@ holds the arguments to the program.</p>
         
         <tr>
           <td class="docs">
-            <p>To experiment with command-line arguments it&rsquo;s best to
-build a binary with <code>go build</code> first.</p>
+            <p>Для экспериментов с аргументами командной строки лучше
+сначала собрать бинарный файл с помощью <code>go build</code>.</p>
 
           </td>
           <td class="code leading">
@@ -136,8 +136,8 @@ build a binary with <code>go build</code> first.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at more advanced command-line processing
-with flags.</p>
+            <p>Далее рассмотрим более продвинутую обработку
+командной строки с помощью флагов.</p>
 
           </td>
           <td class="code empty">
@@ -150,7 +150,7 @@ with flags.</p>
       
       
       <p class="next">
-        Далее: <a href="command-line-flags" rel="next">Command-Line Flags</a>.
+        Далее: <a href="command-line-flags" rel="next">Флаги командной строки</a>.
       </p>
       
 

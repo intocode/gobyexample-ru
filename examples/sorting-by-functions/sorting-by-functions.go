@@ -1,8 +1,7 @@
-// Sometimes we'll want to sort a collection by something
-// other than its natural order. For example, suppose we
-// wanted to sort strings by their length instead of
-// alphabetically. Here's an example of custom sorts
-// in Go.
+// Иногда нужно отсортировать коллекцию не в естественном
+// порядке. Например, мы хотим отсортировать строки по длине,
+// а не по алфавиту. Вот пример пользовательской сортировки
+// в Go.
 
 package main
 
@@ -15,19 +14,20 @@ import (
 func main() {
 	fruits := []string{"peach", "banana", "kiwi"}
 
-	// We implement a comparison function for string
-	// lengths. `cmp.Compare` is helpful for this.
+	// Реализуем функцию сравнения для длин строк.
+	// Для этого удобно использовать `cmp.Compare`.
 	lenCmp := func(a, b string) int {
 		return cmp.Compare(len(a), len(b))
 	}
 
-	// Now we can call `slices.SortFunc` with this custom
-	// comparison function to sort `fruits` by name length.
+	// Теперь можно вызвать `slices.SortFunc` с этой
+	// пользовательской функцией сравнения, чтобы
+	// отсортировать `fruits` по длине названий.
 	slices.SortFunc(fruits, lenCmp)
 	fmt.Println(fruits)
 
-	// We can use the same technique to sort a slice of
-	// values that aren't built-in types.
+	// Тот же подход можно использовать для сортировки
+	// среза значений, которые не являются встроенными типами.
 	type Person struct {
 		name string
 		age  int
@@ -39,12 +39,12 @@ func main() {
 		Person{name: "Alex", age: 72},
 	}
 
-	// Sort `people` by age using `slices.SortFunc`.
+	// Сортируем `people` по возрасту с помощью `slices.SortFunc`.
 	//
-	// Note: if the `Person` struct is large,
-	// you may want the slice to contain `*Person` instead
-	// and adjust the sorting function accordingly. If in
-	// doubt, [benchmark](testing-and-benchmarking)!
+	// Примечание: если структура `Person` большая,
+	// возможно, стоит использовать срез `*Person`
+	// и соответствующим образом изменить функцию сортировки.
+	// Если сомневаетесь — [бенчмарк](testing-and-benchmarking)!
 	slices.SortFunc(people,
 		func(a, b Person) int {
 			return cmp.Compare(a.age, b.age)

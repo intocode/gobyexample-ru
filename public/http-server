@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: HTTP Server</title>
+    <title>Go на примерах: HTTP-сервер</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,18 +24,18 @@
   </script>
   <body>
     <div class="example" id="http-server">
-      <h2><a href="./">Go на примерах</a>: HTTP Server</h2>
+      <h2><a href="./">Go на примерах</a>: HTTP-сервер</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Writing a basic HTTP server is easy using the
-<code>net/http</code> package.</p>
+            <p>Написать базовый HTTP-сервер легко с использованием
+пакета <code>net/http</code>.</p>
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/s3xMMt9Ytry"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/TFD8renpuAr"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -55,11 +55,11 @@
         
         <tr>
           <td class="docs">
-            <p>A fundamental concept in <code>net/http</code> servers is
-<em>handlers</em>. A handler is an object implementing the
-<code>http.Handler</code> interface. A common way to write
-a handler is by using the <code>http.HandlerFunc</code> adapter
-on functions with the appropriate signature.</p>
+            <p>Фундаментальная концепция серверов <code>net/http</code> —
+<em>обработчики</em>. Обработчик — это объект, реализующий
+интерфейс <code>http.Handler</code>. Распространённый способ
+написания обработчика — использование адаптера
+<code>http.HandlerFunc</code> на функциях с подходящей сигнатурой.</p>
 
           </td>
           <td class="code leading">
@@ -70,10 +70,10 @@ on functions with the appropriate signature.</p>
         
         <tr>
           <td class="docs">
-            <p>Functions serving as handlers take a
-<code>http.ResponseWriter</code> and a <code>http.Request</code> as
-arguments. The response writer is used to fill in the
-HTTP response. Here our simple response is just
+            <p>Функции, служащие обработчиками, принимают
+<code>http.ResponseWriter</code> и <code>http.Request</code> как аргументы.
+Response writer используется для заполнения
+HTTP-ответа. Здесь наш простой ответ — просто
 &ldquo;hello\n&rdquo;.</p>
 
           </td>
@@ -96,9 +96,9 @@ HTTP response. Here our simple response is just
         
         <tr>
           <td class="docs">
-            <p>This handler does something a little more
-sophisticated by reading all the HTTP request
-headers and echoing them into the response body.</p>
+            <p>Этот обработчик делает кое-что посложнее: читает
+все HTTP-заголовки запроса и возвращает их
+в теле ответа.</p>
 
           </td>
           <td class="code leading">
@@ -124,10 +124,10 @@ headers and echoing them into the response body.</p>
         
         <tr>
           <td class="docs">
-            <p>We register our handlers on server routes using the
-<code>http.HandleFunc</code> convenience function. It sets up
-the <em>default router</em> in the <code>net/http</code> package and
-takes a function as an argument.</p>
+            <p>Регистрируем наши обработчики на маршрутах сервера
+с помощью удобной функции <code>http.HandleFunc</code>. Она
+настраивает <em>роутер по умолчанию</em> в пакете <code>net/http</code>
+и принимает функцию как аргумент.</p>
 
           </td>
           <td class="code leading">
@@ -139,9 +139,9 @@ takes a function as an argument.</p>
         
         <tr>
           <td class="docs">
-            <p>Finally, we call the <code>ListenAndServe</code> with the port
-and a handler. <code>nil</code> tells it to use the default
-router we&rsquo;ve just set up.</p>
+            <p>Наконец, вызываем <code>ListenAndServe</code> с портом и
+обработчиком. <code>nil</code> указывает использовать роутер
+по умолчанию, который мы только что настроили.</p>
 
           </td>
           <td class="code">
@@ -157,7 +157,7 @@ router we&rsquo;ve just set up.</p>
         
         <tr>
           <td class="docs">
-            <p>Run the server in the background.</p>
+            <p>Запускаем сервер в фоновом режиме.</p>
 
           </td>
           <td class="code leading">
@@ -168,7 +168,7 @@ router we&rsquo;ve just set up.</p>
         
         <tr>
           <td class="docs">
-            <p>Access the <code>/hello</code> route.</p>
+            <p>Обращаемся к маршруту <code>/hello</code>.</p>
 
           </td>
           <td class="code">
@@ -182,7 +182,7 @@ router we&rsquo;ve just set up.</p>
       
       
       <p class="next">
-        Далее: <a href="tcp-server" rel="next">TCP Server</a>.
+        Далее: <a href="tcp-server" rel="next">TCP-сервер</a>.
       </p>
       
 

@@ -1,10 +1,9 @@
-// Parsing numbers from strings is a basic but common task
-// in many programs; here's how to do it in Go.
+// Парсинг чисел из строк — базовая, но распространённая
+// задача во многих программах; вот как это сделать в Go.
 
 package main
 
-// The built-in package `strconv` provides the number
-// parsing.
+// Встроенный пакет `strconv` обеспечивает парсинг чисел.
 import (
 	"fmt"
 	"strconv"
@@ -12,31 +11,30 @@ import (
 
 func main() {
 
-	// With `ParseFloat`, this `64` tells how many bits of
-	// precision to parse.
+	// В `ParseFloat` число `64` указывает, сколько бит точности
+	// использовать при парсинге.
 	f, _ := strconv.ParseFloat("1.234", 64)
 	fmt.Println(f)
 
-	// For `ParseInt`, the `0` means infer the base from
-	// the string. `64` requires that the result fit in 64
-	// bits.
+	// Для `ParseInt` `0` означает определить основание из строки.
+	// `64` требует, чтобы результат помещался в 64 бита.
 	i, _ := strconv.ParseInt("123", 0, 64)
 	fmt.Println(i)
 
-	// `ParseInt` will recognize hex-formatted numbers.
+	// `ParseInt` распознаёт числа в шестнадцатеричном формате.
 	d, _ := strconv.ParseInt("0x1c8", 0, 64)
 	fmt.Println(d)
 
-	// A `ParseUint` is also available.
+	// Также доступен `ParseUint`.
 	u, _ := strconv.ParseUint("789", 0, 64)
 	fmt.Println(u)
 
-	// `Atoi` is a convenience function for basic base-10
-	// `int` parsing.
+	// `Atoi` — удобная функция для базового парсинга
+	// десятичных `int`.
 	k, _ := strconv.Atoi("135")
 	fmt.Println(k)
 
-	// Parse functions return an error on bad input.
+	// Функции парсинга возвращают ошибку при некорректном вводе.
 	_, e := strconv.Atoi("wat")
 	fmt.Println(e)
 }

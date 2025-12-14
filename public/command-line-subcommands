@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Command-Line Subcommands</title>
+    <title>Go на примерах: Подкоманды командной строки</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,18 +24,18 @@
   </script>
   <body>
     <div class="example" id="command-line-subcommands">
-      <h2><a href="./">Go на примерах</a>: Command-Line Subcommands</h2>
+      <h2><a href="./">Go на примерах</a>: Подкоманды командной строки</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Some command-line tools, like the <code>go</code> tool or <code>git</code>
-have many <em>subcommands</em>, each with its own set of
-flags. For example, <code>go build</code> and <code>go get</code> are two
-different subcommands of the <code>go</code> tool.
-The <code>flag</code> package lets us easily define simple
-subcommands that have their own flags.</p>
+            <p>Некоторые инструменты командной строки, такие как <code>go</code>
+или <code>git</code>, имеют много <em>подкоманд</em>, каждая со своим
+набором флагов. Например, <code>go build</code> и <code>go get</code> — две
+разные подкоманды инструмента <code>go</code>. Пакет <code>flag</code>
+позволяет легко определять простые подкоманды
+со своими флагами.</p>
 
           </td>
           <td class="code empty leading">
@@ -49,7 +49,7 @@ subcommands that have their own flags.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/DkvdHKK-XCv"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/1M7N7nsvI3E"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -80,9 +80,9 @@ subcommands that have their own flags.</p>
         
         <tr>
           <td class="docs">
-            <p>We declare a subcommand using the <code>NewFlagSet</code>
-function, and proceed to define new flags specific
-for this subcommand.</p>
+            <p>Объявляем подкоманду с помощью функции <code>NewFlagSet</code>
+и затем определяем новые флаги, специфичные
+для этой подкоманды.</p>
 
           </td>
           <td class="code leading">
@@ -95,8 +95,8 @@ for this subcommand.</p>
         
         <tr>
           <td class="docs">
-            <p>For a different subcommand we can define different
-supported flags.</p>
+            <p>Для другой подкоманды можно определить другие
+поддерживаемые флаги.</p>
 
           </td>
           <td class="code leading">
@@ -108,8 +108,7 @@ supported flags.</p>
         
         <tr>
           <td class="docs">
-            <p>The subcommand is expected as the first argument
-to the program.</p>
+            <p>Подкоманда ожидается как первый аргумент программы.</p>
 
           </td>
           <td class="code leading">
@@ -123,7 +122,7 @@ to the program.</p>
         
         <tr>
           <td class="docs">
-            <p>Check which subcommand is invoked.</p>
+            <p>Проверяем, какая подкоманда вызвана.</p>
 
           </td>
           <td class="code leading">
@@ -134,8 +133,8 @@ to the program.</p>
         
         <tr>
           <td class="docs">
-            <p>For every subcommand, we parse its own flags and
-have access to trailing positional arguments.</p>
+            <p>Для каждой подкоманды разбираем её собственные флаги
+и получаем доступ к позиционным аргументам в конце.</p>
 
           </td>
           <td class="code">
@@ -175,7 +174,7 @@ have access to trailing positional arguments.</p>
         
         <tr>
           <td class="docs">
-            <p>First invoke the foo subcommand.</p>
+            <p>Сначала вызовем подкоманду foo.</p>
 
           </td>
           <td class="code leading">
@@ -190,7 +189,7 @@ have access to trailing positional arguments.</p>
         
         <tr>
           <td class="docs">
-            <p>Now try bar.</p>
+            <p>Теперь попробуем bar.</p>
 
           </td>
           <td class="code leading">
@@ -204,7 +203,7 @@ have access to trailing positional arguments.</p>
         
         <tr>
           <td class="docs">
-            <p>But bar won&rsquo;t accept foo&rsquo;s flags.</p>
+            <p>Но bar не примет флаги foo.</p>
 
           </td>
           <td class="code leading">
@@ -219,8 +218,8 @@ have access to trailing positional arguments.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at environment variables, another common
-way to parameterize programs.</p>
+            <p>Далее рассмотрим переменные окружения — ещё один
+распространённый способ параметризации программ.</p>
 
           </td>
           <td class="code empty">
@@ -233,7 +232,7 @@ way to parameterize programs.</p>
       
       
       <p class="next">
-        Далее: <a href="environment-variables" rel="next">Environment Variables</a>.
+        Далее: <a href="environment-variables" rel="next">Переменные окружения</a>.
       </p>
       
 

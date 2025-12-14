@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Sorting by Functions</title>
+    <title>Go на примерах: Сортировка с функцией сравнения</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,17 +24,16 @@
   </script>
   <body>
     <div class="example" id="sorting-by-functions">
-      <h2><a href="./">Go на примерах</a>: Sorting by Functions</h2>
+      <h2><a href="./">Go на примерах</a>: Сортировка с функцией сравнения</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Sometimes we&rsquo;ll want to sort a collection by something
-other than its natural order. For example, suppose we
-wanted to sort strings by their length instead of
-alphabetically. Here&rsquo;s an example of custom sorts
-in Go.</p>
+            <p>Иногда нужно отсортировать коллекцию не в естественном
+порядке. Например, мы хотим отсортировать строки по длине,
+а не по алфавиту. Вот пример пользовательской сортировки
+в Go.</p>
 
           </td>
           <td class="code empty leading">
@@ -48,7 +47,7 @@ in Go.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/3EaTknAZHMu"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/TzpbdA4K-rO"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -80,8 +79,8 @@ in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>We implement a comparison function for string
-lengths. <code>cmp.Compare</code> is helpful for this.</p>
+            <p>Реализуем функцию сравнения для длин строк.
+Для этого удобно использовать <code>cmp.Compare</code>.</p>
 
           </td>
           <td class="code leading">
@@ -94,8 +93,9 @@ lengths. <code>cmp.Compare</code> is helpful for this.</p>
         
         <tr>
           <td class="docs">
-            <p>Now we can call <code>slices.SortFunc</code> with this custom
-comparison function to sort <code>fruits</code> by name length.</p>
+            <p>Теперь можно вызвать <code>slices.SortFunc</code> с этой
+пользовательской функцией сравнения, чтобы
+отсортировать <code>fruits</code> по длине названий.</p>
 
           </td>
           <td class="code leading">
@@ -107,8 +107,8 @@ comparison function to sort <code>fruits</code> by name length.</p>
         
         <tr>
           <td class="docs">
-            <p>We can use the same technique to sort a slice of
-values that aren&rsquo;t built-in types.</p>
+            <p>Тот же подход можно использовать для сортировки
+среза значений, которые не являются встроенными типами.</p>
 
           </td>
           <td class="code leading">
@@ -136,12 +136,12 @@ values that aren&rsquo;t built-in types.</p>
         
         <tr>
           <td class="docs">
-            <p>Sort <code>people</code> by age using <code>slices.SortFunc</code>.</p>
+            <p>Сортируем <code>people</code> по возрасту с помощью <code>slices.SortFunc</code>.</p>
 
-<p>Note: if the <code>Person</code> struct is large,
-you may want the slice to contain <code>*Person</code> instead
-and adjust the sorting function accordingly. If in
-doubt, <a href="testing-and-benchmarking">benchmark</a>!</p>
+<p>Примечание: если структура <code>Person</code> большая,
+возможно, стоит использовать срез <code>*Person</code>
+и соответствующим образом изменить функцию сортировки.
+Если сомневаетесь — <a href="testing-and-benchmarking">бенчмарк</a>!</p>
 
           </td>
           <td class="code">
@@ -175,7 +175,7 @@ doubt, <a href="testing-and-benchmarking">benchmark</a>!</p>
       
       
       <p class="next">
-        Далее: <a href="panic" rel="next">Panic</a>.
+        Далее: <a href="panic" rel="next">Паника (panic)</a>.
       </p>
       
 

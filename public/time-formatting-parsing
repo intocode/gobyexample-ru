@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Time Formatting / Parsing</title>
+    <title>Go на примерах: Форматирование и парсинг времени</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,14 @@
   </script>
   <body>
     <div class="example" id="time-formatting-parsing">
-      <h2><a href="./">Go на примерах</a>: Time Formatting / Parsing</h2>
+      <h2><a href="./">Go на примерах</a>: Форматирование и парсинг времени</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go supports time formatting and parsing via
-pattern-based layouts.</p>
+            <p>Go поддерживает форматирование и парсинг времени
+с помощью шаблонов на основе паттернов.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@ pattern-based layouts.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/BoZYtr_2j66"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/YEyhZIVFI8e"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,9 +76,8 @@ pattern-based layouts.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s a basic example of formatting a time
-according to RFC3339, using the corresponding layout
-constant.</p>
+            <p>Вот базовый пример форматирования времени по RFC3339
+с использованием соответствующей константы шаблона.</p>
 
           </td>
           <td class="code leading">
@@ -90,7 +89,7 @@ constant.</p>
         
         <tr>
           <td class="docs">
-            <p>Time parsing uses the same layout values as <code>Format</code>.</p>
+            <p>Парсинг времени использует те же значения шаблона, что и <code>Format</code>.</p>
 
           </td>
           <td class="code leading">
@@ -104,13 +103,12 @@ constant.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Format</code> and <code>Parse</code> use example-based layouts. Usually
-you&rsquo;ll use a constant from <code>time</code> for these layouts, but
-you can also supply custom layouts. Layouts must use the
-reference time <code>Mon Jan 2 15:04:05 MST 2006</code> to show the
-pattern with which to format/parse a given time/string.
-The example time must be exactly as shown: the year 2006,
-15 for the hour, Monday for the day of the week, etc.</p>
+            <p><code>Format</code> и <code>Parse</code> используют шаблоны на основе примеров.
+Обычно для них используют константы из <code>time</code>, но можно
+задавать и свои шаблоны. Шаблоны должны использовать
+эталонное время <code>Mon Jan 2 15:04:05 MST 2006</code>, чтобы показать
+паттерн форматирования/парсинга. Эталонное время должно быть
+именно таким: год 2006, час 15, понедельник для дня недели и т.д.</p>
 
           </td>
           <td class="code leading">
@@ -126,9 +124,9 @@ The example time must be exactly as shown: the year 2006,
         
         <tr>
           <td class="docs">
-            <p>For purely numeric representations you can also
-use standard string formatting with the extracted
-components of the time value.</p>
+            <p>Для чисто числового представления можно также использовать
+стандартное форматирование строк с извлечёнными
+компонентами значения времени.</p>
 
           </td>
           <td class="code leading">
@@ -141,8 +139,8 @@ components of the time value.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Parse</code> will return an error on malformed input
-explaining the parsing problem.</p>
+            <p><code>Parse</code> вернёт ошибку при некорректном вводе,
+объясняющую проблему парсинга.</p>
 
           </td>
           <td class="code">
@@ -180,7 +178,7 @@ explaining the parsing problem.</p>
       
       
       <p class="next">
-        Далее: <a href="random-numbers" rel="next">Random Numbers</a>.
+        Далее: <a href="random-numbers" rel="next">Случайные числа</a>.
       </p>
       
 

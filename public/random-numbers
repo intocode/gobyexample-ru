@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Random Numbers</title>
+    <title>Go на примерах: Случайные числа</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,15 +24,14 @@
   </script>
   <body>
     <div class="example" id="random-numbers">
-      <h2><a href="./">Go на примерах</a>: Random Numbers</h2>
+      <h2><a href="./">Go на примерах</a>: Случайные числа</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go&rsquo;s <code>math/rand/v2</code> package provides
-<a href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">pseudorandom number</a>
-generation.</p>
+            <p>Пакет <code>math/rand/v2</code> в Go предоставляет генерацию
+<a href="https://en.wikipedia.org/wiki/Pseudorandom_number_generator">псевдослучайных чисел</a>.</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +45,7 @@ generation.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/TkgmNAl8euK"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/VRSa6aXViS_M"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,8 +75,8 @@ generation.</p>
         
         <tr>
           <td class="docs">
-            <p>For example, <code>rand.IntN</code> returns a random <code>int</code> n,
-<code>0 &lt;= n &lt; 100</code>.</p>
+            <p>Например, <code>rand.IntN</code> возвращает случайный <code>int</code> n,
+где <code>0 &lt;= n &lt; 100</code>.</p>
 
           </td>
           <td class="code leading">
@@ -90,8 +89,8 @@ generation.</p>
         
         <tr>
           <td class="docs">
-            <p><code>rand.Float64</code> returns a <code>float64</code> <code>f</code>,
-<code>0.0 &lt;= f &lt; 1.0</code>.</p>
+            <p><code>rand.Float64</code> возвращает <code>float64</code> <code>f</code>,
+где <code>0.0 &lt;= f &lt; 1.0</code>.</p>
 
           </td>
           <td class="code leading">
@@ -102,8 +101,8 @@ generation.</p>
         
         <tr>
           <td class="docs">
-            <p>This can be used to generate random floats in
-other ranges, for example <code>5.0 &lt;= f' &lt; 10.0</code>.</p>
+            <p>Это можно использовать для генерации случайных float
+в других диапазонах, например <code>5.0 &lt;= f' &lt; 10.0</code>.</p>
 
           </td>
           <td class="code leading">
@@ -116,12 +115,10 @@ other ranges, for example <code>5.0 &lt;= f' &lt; 10.0</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>If you want a known seed, create a new
-<code>rand.Source</code> and pass it into the <code>New</code>
-constructor. <code>NewPCG</code> creates a new
-<a href="https://en.wikipedia.org/wiki/Permuted_congruential_generator">PCG</a>
-source that requires a seed of two <code>uint64</code>
-numbers.</p>
+            <p>Если нужен известный seed, создай новый <code>rand.Source</code>
+и передай его в конструктор <code>New</code>. <code>NewPCG</code> создаёт
+новый источник <a href="https://en.wikipedia.org/wiki/Permuted_congruential_generator">PCG</a>,
+который требует seed из двух чисел <code>uint64</code>.</p>
 
           </td>
           <td class="code leading">
@@ -155,8 +152,8 @@ numbers.</p>
         
         <tr>
           <td class="docs">
-            <p>Some of the generated numbers may be
-different when you run the sample.</p>
+            <p>Некоторые сгенерированные числа могут отличаться
+при запуске примера.</p>
 
           </td>
           <td class="code leading">
@@ -172,9 +169,9 @@ different when you run the sample.</p>
         
         <tr>
           <td class="docs">
-            <p>See the <a href="https://pkg.go.dev/math/rand/v2"><code>math/rand/v2</code></a>
-package docs for references on other random quantities
-that Go can provide.</p>
+            <p>Смотри документацию пакета <a href="https://pkg.go.dev/math/rand/v2"><code>math/rand/v2</code></a>
+для информации о других случайных величинах,
+которые может предоставить Go.</p>
 
           </td>
           <td class="code empty">
@@ -187,7 +184,7 @@ that Go can provide.</p>
       
       
       <p class="next">
-        Далее: <a href="number-parsing" rel="next">Number Parsing</a>.
+        Далее: <a href="number-parsing" rel="next">Парсинг чисел</a>.
       </p>
       
 

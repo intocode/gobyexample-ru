@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Embed Directive</title>
+    <title>Go на примерах: Директива Embed</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,29 +24,30 @@
   </script>
   <body>
     <div class="example" id="embed-directive">
-      <h2><a href="./">Go на примерах</a>: Embed Directive</h2>
+      <h2><a href="./">Go на примерах</a>: Директива Embed</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><code>//go:embed</code> is a <a href="https://pkg.go.dev/cmd/compile#hdr-Compiler_Directives">compiler
-directive</a> that
-allows programs to include arbitrary files and folders in the Go binary at
-build time. Read more about the embed directive
-<a href="https://pkg.go.dev/embed">here</a>.</p>
+            <p><code>//go:embed</code> — это <a href="https://pkg.go.dev/cmd/compile#hdr-Compiler_Directives">директива
+компилятора</a>,
+которая позволяет включать произвольные файлы и папки
+в бинарный файл Go во время сборки. Подробнее о директиве
+embed читай <a href="https://pkg.go.dev/embed">здесь</a>.</p>
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/6m2ll-D52BB"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/v0Yq5HiFXAn"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>Import the <code>embed</code> package; if you don&rsquo;t use any exported
-identifiers from this package, you can do a blank import with <code>_ &quot;embed&quot;</code>.</p>
+            <p>Импортируй пакет <code>embed</code>; если не используешь экспортируемые
+идентификаторы из этого пакета, можно сделать пустой импорт
+с помощью <code>_ &quot;embed&quot;</code>.</p>
 
           </td>
           <td class="code leading">
@@ -59,9 +60,9 @@ identifiers from this package, you can do a blank import with <code>_ &quot;embe
         
         <tr>
           <td class="docs">
-            <p><code>embed</code> directives accept paths relative to the directory containing the
-Go source file. This directive embeds the contents of the file into the
-<code>string</code> variable immediately following it.</p>
+            <p>Директивы <code>embed</code> принимают пути относительно директории, содержащей
+исходный файл Go. Эта директива встраивает содержимое файла
+в переменную типа <code>string</code>, следующую сразу за ней.</p>
 
           </td>
           <td class="code leading">
@@ -73,7 +74,7 @@ Go source file. This directive embeds the contents of the file into the
         
         <tr>
           <td class="docs">
-            <p>Or embed the contents of the file into a <code>[]byte</code>.</p>
+            <p>Или встроить содержимое файла в <code>[]byte</code>.</p>
 
           </td>
           <td class="code leading">
@@ -85,9 +86,10 @@ Go source file. This directive embeds the contents of the file into the
         
         <tr>
           <td class="docs">
-            <p>We can also embed multiple files or even folders with wildcards. This uses
-a variable of the <a href="https://pkg.go.dev/embed#FS">embed.FS type</a>, which
-implements a simple virtual file system.</p>
+            <p>Также можно встраивать несколько файлов или даже папки
+с помощью подстановочных знаков. Здесь используется переменная
+типа <a href="https://pkg.go.dev/embed#FS">embed.FS</a>, который реализует
+простую виртуальную файловую систему.</p>
 
           </td>
           <td class="code leading">
@@ -110,7 +112,7 @@ implements a simple virtual file system.</p>
         
         <tr>
           <td class="docs">
-            <p>Print out the contents of <code>single_file.txt</code>.</p>
+            <p>Выводим содержимое <code>single_file.txt</code>.</p>
 
           </td>
           <td class="code leading">
@@ -122,7 +124,7 @@ implements a simple virtual file system.</p>
         
         <tr>
           <td class="docs">
-            <p>Retrieve some files from the embedded folder.</p>
+            <p>Получаем некоторые файлы из встроенной папки.</p>
 
           </td>
           <td class="code leading">
@@ -150,9 +152,9 @@ implements a simple virtual file system.</p>
         
         <tr>
           <td class="docs">
-            <p>Use these commands to run the example.
-(Note: due to limitation on go playground,
-this example can only be run on your local machine.)</p>
+            <p>Используй эти команды для запуска примера.
+(Примечание: из-за ограничений go playground этот
+пример можно запустить только на локальной машине.)</p>
 
           </td>
           <td class="code leading">
@@ -182,7 +184,7 @@ this example can only be run on your local machine.)</p>
       
       
       <p class="next">
-        Далее: <a href="testing-and-benchmarking" rel="next">Testing and Benchmarking</a>.
+        Далее: <a href="testing-and-benchmarking" rel="next">Тестирование и бенчмаркинг</a>.
       </p>
       
 

@@ -1,6 +1,6 @@
-// Go offers excellent support for string formatting in
-// the `printf` tradition. Here are some examples of
-// common string formatting tasks.
+// Go предоставляет отличную поддержку форматирования строк
+// в традиции `printf`. Вот несколько примеров типичных задач
+// форматирования строк.
 
 package main
 
@@ -15,96 +15,94 @@ type point struct {
 
 func main() {
 
-	// Go offers several printing "verbs" designed to
-	// format general Go values. For example, this prints
-	// an instance of our `point` struct.
+	// Go предлагает несколько «глаголов» (verbs) для вывода,
+	// предназначенных для форматирования значений Go.
+	// Например, здесь выводится экземпляр структуры `point`.
 	p := point{1, 2}
 	fmt.Printf("struct1: %v\n", p)
 
-	// If the value is a struct, the `%+v` variant will
-	// include the struct's field names.
+	// Если значение — структура, вариант `%+v` выведет
+	// также имена полей структуры.
 	fmt.Printf("struct2: %+v\n", p)
 
-	// The `%#v` variant prints a Go syntax representation
-	// of the value, i.e. the source code snippet that
-	// would produce that value.
+	// Вариант `%#v` выводит представление значения
+	// в синтаксисе Go, т.е. фрагмент исходного кода,
+	// который создал бы это значение.
 	fmt.Printf("struct3: %#v\n", p)
 
-	// To print the type of a value, use `%T`.
+	// Для вывода типа значения используй `%T`.
 	fmt.Printf("type: %T\n", p)
 
-	// Formatting booleans is straight-forward.
+	// Форматирование булевых значений простое.
 	fmt.Printf("bool: %t\n", true)
 
-	// There are many options for formatting integers.
-	// Use `%d` for standard, base-10 formatting.
+	// Для форматирования целых чисел есть много вариантов.
+	// Используй `%d` для стандартного десятичного формата.
 	fmt.Printf("int: %d\n", 123)
 
-	// This prints a binary representation.
+	// Выводит двоичное представление.
 	fmt.Printf("bin: %b\n", 14)
 
-	// This prints the character corresponding to the
-	// given integer.
+	// Выводит символ, соответствующий данному
+	// целому числу.
 	fmt.Printf("char: %c\n", 33)
 
-	// `%x` provides hex encoding.
+	// `%x` выводит в шестнадцатеричном формате.
 	fmt.Printf("hex: %x\n", 456)
 
-	// There are also several formatting options for
-	// floats. For basic decimal formatting use `%f`.
+	// Для чисел с плавающей точкой тоже есть несколько
+	// вариантов. Для базового десятичного формата используй `%f`.
 	fmt.Printf("float1: %f\n", 78.9)
 
-	// `%e` and `%E` format the float in (slightly
-	// different versions of) scientific notation.
+	// `%e` и `%E` форматируют число в (немного различающихся
+	// версиях) экспоненциальной записи.
 	fmt.Printf("float2: %e\n", 123400000.0)
 	fmt.Printf("float3: %E\n", 123400000.0)
 
-	// For basic string printing use `%s`.
+	// Для базового вывода строк используй `%s`.
 	fmt.Printf("str1: %s\n", "\"string\"")
 
-	// To double-quote strings as in Go source, use `%q`.
+	// Для вывода строк в двойных кавычках как в исходном коде Go используй `%q`.
 	fmt.Printf("str2: %q\n", "\"string\"")
 
-	// As with integers seen earlier, `%x` renders
-	// the string in base-16, with two output characters
-	// per byte of input.
+	// Как и для целых чисел, `%x` выводит строку
+	// в шестнадцатеричном формате, по два символа
+	// на каждый байт входных данных.
 	fmt.Printf("str3: %x\n", "hex this")
 
-	// To print a representation of a pointer, use `%p`.
+	// Для вывода представления указателя используй `%p`.
 	fmt.Printf("pointer: %p\n", &p)
 
-	// When formatting numbers you will often want to
-	// control the width and precision of the resulting
-	// figure. To specify the width of an integer, use a
-	// number after the `%` in the verb. By default the
-	// result will be right-justified and padded with
-	// spaces.
+	// При форматировании чисел часто нужно контролировать
+	// ширину и точность результата. Для указания ширины
+	// целого числа используй число после `%` в глаголе.
+	// По умолчанию результат выравнивается по правому краю
+	// и дополняется пробелами.
 	fmt.Printf("width1: |%6d|%6d|\n", 12, 345)
 
-	// You can also specify the width of printed floats,
-	// though usually you'll also want to restrict the
-	// decimal precision at the same time with the
-	// width.precision syntax.
+	// Можно также указать ширину для чисел с плавающей точкой,
+	// хотя обычно при этом также ограничивают точность
+	// десятичной части с помощью синтаксиса ширина.точность.
 	fmt.Printf("width2: |%6.2f|%6.2f|\n", 1.2, 3.45)
 
-	// To left-justify, use the `-` flag.
+	// Для выравнивания по левому краю используй флаг `-`.
 	fmt.Printf("width3: |%-6.2f|%-6.2f|\n", 1.2, 3.45)
 
-	// You may also want to control width when formatting
-	// strings, especially to ensure that they align in
-	// table-like output. For basic right-justified width.
+	// При форматировании строк тоже может понадобиться
+	// контролировать ширину, особенно для выравнивания
+	// в табличном выводе. Базовое выравнивание по правому краю.
 	fmt.Printf("width4: |%6s|%6s|\n", "foo", "b")
 
-	// To left-justify use the `-` flag as with numbers.
+	// Для выравнивания по левому краю используй флаг `-`, как и для чисел.
 	fmt.Printf("width5: |%-6s|%-6s|\n", "foo", "b")
 
-	// So far we've seen `Printf`, which prints the
-	// formatted string to `os.Stdout`. `Sprintf` formats
-	// and returns a string without printing it anywhere.
+	// До сих пор мы использовали `Printf`, который выводит
+	// форматированную строку в `os.Stdout`. `Sprintf` форматирует
+	// и возвращает строку, не выводя её никуда.
 	s := fmt.Sprintf("sprintf: a %s", "string")
 	fmt.Println(s)
 
-	// You can format+print to `io.Writers` other than
-	// `os.Stdout` using `Fprintf`.
+	// Можно форматировать и выводить в любой `io.Writer`,
+	// а не только в `os.Stdout`, с помощью `Fprintf`.
 	fmt.Fprintf(os.Stderr, "io: an %s\n", "error")
 }

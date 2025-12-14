@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Writing Files</title>
+    <title>Go на примерах: Запись файлов</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,14 @@
   </script>
   <body>
     <div class="example" id="writing-files">
-      <h2><a href="./">Go на примерах</a>: Writing Files</h2>
+      <h2><a href="./">Go на примерах</a>: Запись файлов</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Writing files in Go follows similar patterns to the
-ones we saw earlier for reading.</p>
+            <p>Запись файлов в Go следует паттернам, аналогичным тем,
+что мы видели ранее при чтении.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@ ones we saw earlier for reading.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/iuKQDnKfl2T"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/hVthrW3oA56"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -91,8 +91,8 @@ ones we saw earlier for reading.</p>
         
         <tr>
           <td class="docs">
-            <p>To start, here&rsquo;s how to dump a string (or just
-bytes) into a file.</p>
+            <p>Для начала вот как записать строку (или просто
+байты) в файл.</p>
 
           </td>
           <td class="code leading">
@@ -106,7 +106,7 @@ bytes) into a file.</p>
         
         <tr>
           <td class="docs">
-            <p>For more granular writes, open a file for writing.</p>
+            <p>Для более точной записи открой файл для записи.</p>
 
           </td>
           <td class="code leading">
@@ -119,8 +119,8 @@ bytes) into a file.</p>
         
         <tr>
           <td class="docs">
-            <p>It&rsquo;s idiomatic to defer a <code>Close</code> immediately
-after opening a file.</p>
+            <p>Идиоматично откладывать <code>Close</code> сразу
+после открытия файла.</p>
 
           </td>
           <td class="code leading">
@@ -131,7 +131,7 @@ after opening a file.</p>
         
         <tr>
           <td class="docs">
-            <p>You can <code>Write</code> byte slices as you&rsquo;d expect.</p>
+            <p>Можно записывать (<code>Write</code>) срезы байт, как и ожидается.</p>
 
           </td>
           <td class="code leading">
@@ -145,7 +145,7 @@ after opening a file.</p>
         
         <tr>
           <td class="docs">
-            <p>A <code>WriteString</code> is also available.</p>
+            <p>Также доступен <code>WriteString</code>.</p>
 
           </td>
           <td class="code leading">
@@ -158,7 +158,7 @@ after opening a file.</p>
         
         <tr>
           <td class="docs">
-            <p>Issue a <code>Sync</code> to flush writes to stable storage.</p>
+            <p>Вызови <code>Sync</code> для сброса записей в постоянное хранилище.</p>
 
           </td>
           <td class="code leading">
@@ -169,8 +169,8 @@ after opening a file.</p>
         
         <tr>
           <td class="docs">
-            <p><code>bufio</code> provides buffered writers in addition
-to the buffered readers we saw earlier.</p>
+            <p><code>bufio</code> предоставляет буферизованные писатели
+в дополнение к буферизованным читателям, которые мы видели ранее.</p>
 
           </td>
           <td class="code leading">
@@ -184,8 +184,8 @@ to the buffered readers we saw earlier.</p>
         
         <tr>
           <td class="docs">
-            <p>Use <code>Flush</code> to ensure all buffered operations have
-been applied to the underlying writer.</p>
+            <p>Используй <code>Flush</code>, чтобы убедиться, что все буферизованные
+операции были применены к базовому писателю.</p>
 
           </td>
           <td class="code leading">
@@ -210,7 +210,7 @@ been applied to the underlying writer.</p>
         
         <tr>
           <td class="docs">
-            <p>Try running the file-writing code.</p>
+            <p>Попробуй запустить код записи файлов.</p>
 
           </td>
           <td class="code leading">
@@ -224,7 +224,7 @@ been applied to the underlying writer.</p>
         
         <tr>
           <td class="docs">
-            <p>Then check the contents of the written files.</p>
+            <p>Затем проверь содержимое записанных файлов.</p>
 
           </td>
           <td class="code leading">
@@ -241,8 +241,8 @@ been applied to the underlying writer.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at applying some of the file I/O ideas
-we&rsquo;ve just seen to the <code>stdin</code> and <code>stdout</code> streams.</p>
+            <p>Далее рассмотрим применение некоторых идей файлового
+ввода-вывода к потокам <code>stdin</code> и <code>stdout</code>.</p>
 
           </td>
           <td class="code empty">
@@ -255,7 +255,7 @@ we&rsquo;ve just seen to the <code>stdin</code> and <code>stdout</code> streams.
       
       
       <p class="next">
-        Далее: <a href="line-filters" rel="next">Line Filters</a>.
+        Далее: <a href="line-filters" rel="next">Строковые фильтры</a>.
       </p>
       
 

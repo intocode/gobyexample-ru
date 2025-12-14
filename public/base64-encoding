@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Base64 Encoding</title>
+    <title>Go на примерах: Кодирование Base64</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,14 @@
   </script>
   <body>
     <div class="example" id="base64-encoding">
-      <h2><a href="./">Go на примерах</a>: Base64 Encoding</h2>
+      <h2><a href="./">Go на примерах</a>: Кодирование Base64</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go provides built-in support for <a href="https://en.wikipedia.org/wiki/Base64">base64
-encoding/decoding</a>.</p>
+            <p>Go предоставляет встроенную поддержку
+<a href="https://en.wikipedia.org/wiki/Base64">кодирования/декодирования base64</a>.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,16 +45,16 @@ encoding/decoding</a>.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/yztzkirFEvv"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/ZRMkN5RA46p"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>This syntax imports the <code>encoding/base64</code> package with
-the <code>b64</code> name instead of the default <code>base64</code>. It&rsquo;ll
-save us some space below.</p>
+            <p>Этот синтаксис импортирует пакет <code>encoding/base64</code> с именем
+<code>b64</code> вместо стандартного <code>base64</code>. Это сэкономит нам
+немного места ниже.</p>
 
           </td>
           <td class="code leading">
@@ -78,7 +78,7 @@ save us some space below.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the <code>string</code> we&rsquo;ll encode/decode.</p>
+            <p>Вот <code>string</code>, который мы будем кодировать/декодировать.</p>
 
           </td>
           <td class="code leading">
@@ -89,10 +89,10 @@ save us some space below.</p>
         
         <tr>
           <td class="docs">
-            <p>Go supports both standard and URL-compatible
-base64. Here&rsquo;s how to encode using the standard
-encoder. The encoder requires a <code>[]byte</code> so we
-convert our <code>string</code> to that type.</p>
+            <p>Go поддерживает как стандартный, так и URL-совместимый
+base64. Вот как кодировать с помощью стандартного
+кодировщика. Кодировщик требует <code>[]byte</code>, поэтому
+мы преобразуем <code>string</code> в этот тип.</p>
 
           </td>
           <td class="code leading">
@@ -104,9 +104,9 @@ convert our <code>string</code> to that type.</p>
         
         <tr>
           <td class="docs">
-            <p>Decoding may return an error, which you can check
-if you don&rsquo;t already know the input to be
-well-formed.</p>
+            <p>Декодирование может вернуть ошибку, которую можно
+проверить, если не уверен, что входные данные
+корректно сформированы.</p>
 
           </td>
           <td class="code leading">
@@ -119,8 +119,8 @@ well-formed.</p>
         
         <tr>
           <td class="docs">
-            <p>This encodes/decodes using a URL-compatible base64
-format.</p>
+            <p>Это кодирует/декодирует с использованием URL-совместимого
+формата base64.</p>
 
           </td>
           <td class="code">
@@ -139,9 +139,9 @@ format.</p>
         
         <tr>
           <td class="docs">
-            <p>The string encodes to slightly different values with the
-standard and URL base64 encoders (trailing <code>+</code> vs <code>-</code>)
-but they both decode to the original string as desired.</p>
+            <p>Строка кодируется в немного разные значения стандартным
+и URL base64 кодировщиками (завершающий <code>+</code> vs <code>-</code>),
+но оба декодируются в исходную строку.</p>
 
           </td>
           <td class="code leading">
@@ -167,7 +167,7 @@ but they both decode to the original string as desired.</p>
       
       
       <p class="next">
-        Далее: <a href="reading-files" rel="next">Reading Files</a>.
+        Далее: <a href="reading-files" rel="next">Чтение файлов</a>.
       </p>
       
 

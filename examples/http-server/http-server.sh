@@ -1,6 +1,6 @@
-# Run the server in the background.
+# Запускаем сервер в фоновом режиме.
 $ go run http-server.go &
 
-# Access the `/hello` route.
+# Обращаемся к маршруту `/hello`.
 $ curl localhost:8090/hello
 hello

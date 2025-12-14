@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Environment Variables</title>
+    <title>Go на примерах: Переменные окружения</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,16 +24,17 @@
   </script>
   <body>
     <div class="example" id="environment-variables">
-      <h2><a href="./">Go на примерах</a>: Environment Variables</h2>
+      <h2><a href="./">Go на примерах</a>: Переменные окружения</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p><a href="https://en.wikipedia.org/wiki/Environment_variable">Environment variables</a>
-are a universal mechanism for <a href="https://www.12factor.net/config">conveying configuration
-information to Unix programs</a>.
-Let&rsquo;s look at how to set, get, and list environment variables.</p>
+            <p><a href="https://en.wikipedia.org/wiki/Environment_variable">Переменные окружения</a> —
+универсальный механизм для <a href="https://www.12factor.net/config">передачи конфигурации
+Unix-программам</a>.
+Рассмотрим, как устанавливать, получать и выводить
+переменные окружения.</p>
 
           </td>
           <td class="code empty leading">
@@ -47,7 +48,7 @@ Let&rsquo;s look at how to set, get, and list environment variables.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/2jmwXM264NC"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/pJ_x3Dy_2S-"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -78,10 +79,10 @@ Let&rsquo;s look at how to set, get, and list environment variables.</p>
         
         <tr>
           <td class="docs">
-            <p>To set a key/value pair, use <code>os.Setenv</code>. To get a
-value for a key, use <code>os.Getenv</code>. This will return
-an empty string if the key isn&rsquo;t present in the
-environment.</p>
+            <p>Чтобы установить пару ключ/значение, используй
+<code>os.Setenv</code>. Чтобы получить значение по ключу,
+используй <code>os.Getenv</code>. Вернётся пустая строка,
+если ключа нет в окружении.</p>
 
           </td>
           <td class="code leading">
@@ -94,10 +95,11 @@ environment.</p>
         
         <tr>
           <td class="docs">
-            <p>Use <code>os.Environ</code> to list all key/value pairs in the
-environment. This returns a slice of strings in the
-form <code>KEY=value</code>. You can <code>strings.SplitN</code> them to
-get the key and value. Here we print all the keys.</p>
+            <p>Используй <code>os.Environ</code> для получения списка всех
+пар ключ/значение в окружении. Возвращается срез
+строк вида <code>KEY=value</code>. Можно использовать
+<code>strings.SplitN</code> для получения ключа и значения.
+Здесь мы выводим все ключи.</p>
 
           </td>
           <td class="code">
@@ -117,9 +119,8 @@ get the key and value. Here we print all the keys.</p>
         
         <tr>
           <td class="docs">
-            <p>Running the program shows that we pick up the value
-for <code>FOO</code> that we set in the program, but that
-<code>BAR</code> is empty.</p>
+            <p>Запуск программы показывает, что мы получаем значение
+<code>FOO</code>, которое установили в программе, но <code>BAR</code> пуст.</p>
 
           </td>
           <td class="code leading">
@@ -132,8 +133,7 @@ for <code>FOO</code> that we set in the program, but that
         
         <tr>
           <td class="docs">
-            <p>The list of keys in the environment will depend on your
-particular machine.</p>
+            <p>Список ключей в окружении зависит от конкретной машины.</p>
 
           </td>
           <td class="code leading">
@@ -148,8 +148,8 @@ particular machine.</p>
         
         <tr>
           <td class="docs">
-            <p>If we set <code>BAR</code> in the environment first, the running
-program picks that value up.</p>
+            <p>Если сначала установить <code>BAR</code> в окружении,
+запущенная программа получит это значение.</p>
 
           </td>
           <td class="code">
@@ -165,7 +165,7 @@ program picks that value up.</p>
       
       
       <p class="next">
-        Далее: <a href="logging" rel="next">Logging</a>.
+        Далее: <a href="logging" rel="next">Логирование</a>.
       </p>
       
 

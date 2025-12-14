@@ -1,5 +1,5 @@
-// URLs provide a [uniform way to locate resources](https://adam.herokuapp.com/past/2010/3/30/urls_are_the_uniform_way_to_locate_resources/).
-// Here's how to parse URLs in Go.
+// URL предоставляют [унифицированный способ адресации ресурсов](https://adam.herokuapp.com/past/2010/3/30/urls_are_the_uniform_way_to_locate_resources/).
+// Вот как парсить URL в Go.
 
 package main
 
@@ -11,45 +11,44 @@ import (
 
 func main() {
 
-	// We'll parse this example URL, which includes a
-	// scheme, authentication info, host, port, path,
-	// query params, and query fragment.
+	// Распарсим этот пример URL, который включает схему,
+	// данные аутентификации, хост, порт, путь, параметры
+	// запроса и фрагмент.
 	s := "postgres://user:pass@host.com:5432/path?k=v#f"
 
-	// Parse the URL and ensure there are no errors.
+	// Парсим URL и проверяем на отсутствие ошибок.
 	u, err := url.Parse(s)
 	if err != nil {
 		panic(err)
 	}
 
-	// Accessing the scheme is straightforward.
+	// Доступ к схеме прост.
 	fmt.Println(u.Scheme)
 
-	// `User` contains all authentication info; call
-	// `Username` and `Password` on this for individual
-	// values.
+	// `User` содержит всю информацию для аутентификации;
+	// вызови `Username` и `Password` для получения
+	// отдельных значений.
 	fmt.Println(u.User)
 	fmt.Println(u.User.Username())
 	p, _ := u.User.Password()
 	fmt.Println(p)
 
-	// The `Host` contains both the hostname and the port,
-	// if present. Use `SplitHostPort` to extract them.
+	// `Host` содержит и имя хоста, и порт (если он есть).
+	// Используй `SplitHostPort` для их извлечения.
 	fmt.Println(u.Host)
 	host, port, _ := net.SplitHostPort(u.Host)
 	fmt.Println(host)
 	fmt.Println(port)
 
-	// Here we extract the `path` and the fragment after
-	// the `#`.
+	// Здесь мы извлекаем `path` и фрагмент после `#`.
 	fmt.Println(u.Path)
 	fmt.Println(u.Fragment)
 
-	// To get query params in a string of `k=v` format,
-	// use `RawQuery`. You can also parse query params
-	// into a map. The parsed query param maps are from
-	// strings to slices of strings, so index into `[0]`
-	// if you only want the first value.
+	// Чтобы получить параметры запроса в строковом формате
+	// `k=v`, используй `RawQuery`. Можно также распарсить
+	// параметры запроса в карту. Карты параметров — это
+	// соответствия строк срезам строк, поэтому используй
+	// индекс `[0]`, если нужно только первое значение.
 	fmt.Println(u.RawQuery)
 	m, _ := url.ParseQuery(u.RawQuery)
 	fmt.Println(m)

@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: URL Parsing</title>
+    <title>Go на примерах: Парсинг URL</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,14 @@
   </script>
   <body>
     <div class="example" id="url-parsing">
-      <h2><a href="./">Go на примерах</a>: URL Parsing</h2>
+      <h2><a href="./">Go на примерах</a>: Парсинг URL</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>URLs provide a <a href="https://adam.herokuapp.com/past/2010/3/30/urls_are_the_uniform_way_to_locate_resources/">uniform way to locate resources</a>.
-Here&rsquo;s how to parse URLs in Go.</p>
+            <p>URL предоставляют <a href="https://adam.herokuapp.com/past/2010/3/30/urls_are_the_uniform_way_to_locate_resources/">унифицированный способ адресации ресурсов</a>.
+Вот как парсить URL в Go.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@ Here&rsquo;s how to parse URLs in Go.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/fHTQn9X7l1B"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/cCbLTMHiT3Y"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -76,9 +76,9 @@ Here&rsquo;s how to parse URLs in Go.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll parse this example URL, which includes a
-scheme, authentication info, host, port, path,
-query params, and query fragment.</p>
+            <p>Распарсим этот пример URL, который включает схему,
+данные аутентификации, хост, порт, путь, параметры
+запроса и фрагмент.</p>
 
           </td>
           <td class="code leading">
@@ -89,7 +89,7 @@ query params, and query fragment.</p>
         
         <tr>
           <td class="docs">
-            <p>Parse the URL and ensure there are no errors.</p>
+            <p>Парсим URL и проверяем на отсутствие ошибок.</p>
 
           </td>
           <td class="code leading">
@@ -103,7 +103,7 @@ query params, and query fragment.</p>
         
         <tr>
           <td class="docs">
-            <p>Accessing the scheme is straightforward.</p>
+            <p>Доступ к схеме прост.</p>
 
           </td>
           <td class="code leading">
@@ -114,9 +114,9 @@ query params, and query fragment.</p>
         
         <tr>
           <td class="docs">
-            <p><code>User</code> contains all authentication info; call
-<code>Username</code> and <code>Password</code> on this for individual
-values.</p>
+            <p><code>User</code> содержит всю информацию для аутентификации;
+вызови <code>Username</code> и <code>Password</code> для получения
+отдельных значений.</p>
 
           </td>
           <td class="code leading">
@@ -130,8 +130,8 @@ values.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>Host</code> contains both the hostname and the port,
-if present. Use <code>SplitHostPort</code> to extract them.</p>
+            <p><code>Host</code> содержит и имя хоста, и порт (если он есть).
+Используй <code>SplitHostPort</code> для их извлечения.</p>
 
           </td>
           <td class="code leading">
@@ -145,8 +145,7 @@ if present. Use <code>SplitHostPort</code> to extract them.</p>
         
         <tr>
           <td class="docs">
-            <p>Here we extract the <code>path</code> and the fragment after
-the <code>#</code>.</p>
+            <p>Здесь мы извлекаем <code>path</code> и фрагмент после <code>#</code>.</p>
 
           </td>
           <td class="code leading">
@@ -158,11 +157,11 @@ the <code>#</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>To get query params in a string of <code>k=v</code> format,
-use <code>RawQuery</code>. You can also parse query params
-into a map. The parsed query param maps are from
-strings to slices of strings, so index into <code>[0]</code>
-if you only want the first value.</p>
+            <p>Чтобы получить параметры запроса в строковом формате
+<code>k=v</code>, используй <code>RawQuery</code>. Можно также распарсить
+параметры запроса в карту. Карты параметров — это
+соответствия строк срезам строк, поэтому используй
+индекс <code>[0]</code>, если нужно только первое значение.</p>
 
           </td>
           <td class="code">
@@ -181,8 +180,8 @@ if you only want the first value.</p>
         
         <tr>
           <td class="docs">
-            <p>Running our URL parsing program shows all the different
-pieces that we extracted.</p>
+            <p>Запуск программы парсинга URL показывает все различные
+части, которые мы извлекли.</p>
 
           </td>
           <td class="code">
@@ -207,7 +206,7 @@ pieces that we extracted.</p>
       
       
       <p class="next">
-        Далее: <a href="sha256-hashes" rel="next">SHA256 Hashes</a>.
+        Далее: <a href="sha256-hashes" rel="next">Хеши SHA256</a>.
       </p>
       
 

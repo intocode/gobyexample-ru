@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Directories</title>
+    <title>Go на примерах: Директории</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,14 @@
   </script>
   <body>
     <div class="example" id="directories">
-      <h2><a href="./">Go на примерах</a>: Directories</h2>
+      <h2><a href="./">Go на примерах</a>: Директории</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Go has several useful functions for working with
-<em>directories</em> in the file system.</p>
+            <p>В Go есть несколько полезных функций для работы
+с <em>директориями</em> в файловой системе.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,7 +45,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/ORNj2BPrLQr"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/elI6ZZSAiPA"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -91,8 +91,8 @@
         
         <tr>
           <td class="docs">
-            <p>Create a new sub-directory in the current working
-directory.</p>
+            <p>Создаём новую поддиректорию в текущей рабочей
+директории.</p>
 
           </td>
           <td class="code leading">
@@ -104,10 +104,9 @@ directory.</p>
         
         <tr>
           <td class="docs">
-            <p>When creating temporary directories, it&rsquo;s good
-practice to <code>defer</code> their removal. <code>os.RemoveAll</code>
-will delete a whole directory tree (similarly to
-<code>rm -rf</code>).</p>
+            <p>При создании временных директорий хорошей практикой
+является откладывание (<code>defer</code>) их удаления. <code>os.RemoveAll</code>
+удалит всё дерево директорий (аналогично <code>rm -rf</code>).</p>
 
           </td>
           <td class="code leading">
@@ -118,7 +117,7 @@ will delete a whole directory tree (similarly to
         
         <tr>
           <td class="docs">
-            <p>Helper function to create a new empty file.</p>
+            <p>Вспомогательная функция для создания нового пустого файла.</p>
 
           </td>
           <td class="code leading">
@@ -142,9 +141,9 @@ will delete a whole directory tree (similarly to
         
         <tr>
           <td class="docs">
-            <p>We can create a hierarchy of directories, including
-parents with <code>MkdirAll</code>. This is similar to the
-command-line <code>mkdir -p</code>.</p>
+            <p>Можно создать иерархию директорий, включая
+родительские, с помощью <code>MkdirAll</code>. Это аналогично
+команде <code>mkdir -p</code>.</p>
 
           </td>
           <td class="code leading">
@@ -168,8 +167,8 @@ command-line <code>mkdir -p</code>.</p>
         
         <tr>
           <td class="docs">
-            <p><code>ReadDir</code> lists directory contents, returning a
-slice of <code>os.DirEntry</code> objects.</p>
+            <p><code>ReadDir</code> выводит содержимое директории, возвращая
+срез объектов <code>os.DirEntry</code>.</p>
 
           </td>
           <td class="code leading">
@@ -194,8 +193,8 @@ slice of <code>os.DirEntry</code> objects.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Chdir</code> lets us change the current working directory,
-similarly to <code>cd</code>.</p>
+            <p><code>Chdir</code> позволяет изменить текущую рабочую директорию,
+аналогично <code>cd</code>.</p>
 
           </td>
           <td class="code leading">
@@ -207,8 +206,8 @@ similarly to <code>cd</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>Now we&rsquo;ll see the contents of <code>subdir/parent/child</code>
-when listing the <em>current</em> directory.</p>
+            <p>Теперь мы увидим содержимое <code>subdir/parent/child</code>
+при выводе <em>текущей</em> директории.</p>
 
           </td>
           <td class="code leading">
@@ -233,7 +232,7 @@ when listing the <em>current</em> directory.</p>
         
         <tr>
           <td class="docs">
-            <p><code>cd</code> back to where we started.</p>
+            <p>Возвращаемся (<code>cd</code>) туда, где начинали.</p>
 
           </td>
           <td class="code leading">
@@ -245,10 +244,10 @@ when listing the <em>current</em> directory.</p>
         
         <tr>
           <td class="docs">
-            <p>We can also visit a directory <em>recursively</em>,
-including all its sub-directories. <code>WalkDir</code> accepts
-a callback function to handle every file or
-directory visited.</p>
+            <p>Можно также обойти директорию <em>рекурсивно</em>,
+включая все её поддиректории. <code>WalkDir</code> принимает
+callback-функцию для обработки каждого посещённого
+файла или директории.</p>
 
           </td>
           <td class="code leading">
@@ -261,8 +260,8 @@ directory visited.</p>
         
         <tr>
           <td class="docs">
-            <p><code>visit</code> is called for every file or directory found
-recursively by <code>filepath.WalkDir</code>.</p>
+            <p><code>visit</code> вызывается для каждого файла или директории,
+найденных рекурсивно с помощью <code>filepath.WalkDir</code>.</p>
 
           </td>
           <td class="code">
@@ -309,7 +308,7 @@ recursively by <code>filepath.WalkDir</code>.</p>
       
       
       <p class="next">
-        Далее: <a href="temporary-files-and-directories" rel="next">Temporary Files and Directories</a>.
+        Далее: <a href="temporary-files-and-directories" rel="next">Временные файлы и директории</a>.
       </p>
       
 

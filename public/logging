@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Logging</title>
+    <title>Go на примерах: Логирование</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,22 +24,21 @@
   </script>
   <body>
     <div class="example" id="logging">
-      <h2><a href="./">Go на примерах</a>: Logging</h2>
+      <h2><a href="./">Go на примерах</a>: Логирование</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>The Go standard library provides straightforward
-tools for outputting logs from Go programs, with
-the <a href="https://pkg.go.dev/log">log</a> package for
-free-form output and the
-<a href="https://pkg.go.dev/log/slog">log/slog</a> package for
-structured output.</p>
+            <p>Стандартная библиотека Go предоставляет простые
+инструменты для вывода логов из программ Go: пакет
+<a href="https://pkg.go.dev/log">log</a> для свободного вывода
+и пакет <a href="https://pkg.go.dev/log/slog">log/slog</a>
+для структурированного вывода.</p>
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/Qd0uCqBlYUn"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/_6WUmXBha0t"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -81,12 +80,12 @@ structured output.</p>
         
         <tr>
           <td class="docs">
-            <p>Simply invoking functions like <code>Println</code> from the
-<code>log</code> package uses the <em>standard</em> logger, which
-is already pre-configured for reasonable logging
-output to <code>os.Stderr</code>. Additional methods like
-<code>Fatal*</code> or <code>Panic*</code> will exit the program after
-logging.</p>
+            <p>Простой вызов функций вроде <code>Println</code> из пакета
+<code>log</code> использует <em>стандартный</em> логгер, который
+уже предварительно настроен для разумного вывода
+логов в <code>os.Stderr</code>. Дополнительные методы вроде
+<code>Fatal*</code> или <code>Panic*</code> завершат программу после
+логирования.</p>
 
           </td>
           <td class="code leading">
@@ -97,12 +96,12 @@ logging.</p>
         
         <tr>
           <td class="docs">
-            <p>Loggers can be configured with <em>flags</em> to set
-their output format. By default, the standard
-logger has the <code>log.Ldate</code> and <code>log.Ltime</code> flags
-set, and these are collected in <code>log.LstdFlags</code>.
-We can change its flags to emit time with
-microsecond accuracy, for example.</p>
+            <p>Логгеры можно настраивать с помощью <em>флагов</em> для
+установки формата вывода. По умолчанию стандартный
+логгер имеет установленные флаги <code>log.Ldate</code> и
+<code>log.Ltime</code>, которые собраны в <code>log.LstdFlags</code>.
+Можно изменить флаги, чтобы выводить время
+с микросекундной точностью, например.</p>
 
           </td>
           <td class="code leading">
@@ -114,8 +113,8 @@ microsecond accuracy, for example.</p>
         
         <tr>
           <td class="docs">
-            <p>It also supports emitting the file name and
-line from which the <code>log</code> function is called.</p>
+            <p>Также поддерживается вывод имени файла и строки,
+из которой вызвана функция <code>log</code>.</p>
 
           </td>
           <td class="code leading">
@@ -127,10 +126,10 @@ line from which the <code>log</code> function is called.</p>
         
         <tr>
           <td class="docs">
-            <p>It may be useful to create a custom logger and
-pass it around. When creating a new logger, we
-can set a <em>prefix</em> to distinguish its output
-from other loggers.</p>
+            <p>Может быть полезно создать пользовательский логгер
+и передавать его. При создании нового логгера можно
+установить <em>префикс</em>, чтобы отличать его вывод
+от других логгеров.</p>
 
           </td>
           <td class="code leading">
@@ -142,9 +141,8 @@ from other loggers.</p>
         
         <tr>
           <td class="docs">
-            <p>We can set the prefix
-on existing loggers (including the standard one)
-with the <code>SetPrefix</code> method.</p>
+            <p>Можно установить префикс на существующих логгерах
+(включая стандартный) с помощью метода <code>SetPrefix</code>.</p>
 
           </td>
           <td class="code leading">
@@ -156,8 +154,8 @@ with the <code>SetPrefix</code> method.</p>
         
         <tr>
           <td class="docs">
-            <p>Loggers can have custom output targets;
-any <code>io.Writer</code> works.</p>
+            <p>Логгеры могут иметь пользовательские цели вывода;
+подойдёт любой <code>io.Writer</code>.</p>
 
           </td>
           <td class="code leading">
@@ -169,7 +167,7 @@ any <code>io.Writer</code> works.</p>
         
         <tr>
           <td class="docs">
-            <p>This call writes the log output into <code>buf</code>.</p>
+            <p>Этот вызов записывает вывод лога в <code>buf</code>.</p>
 
           </td>
           <td class="code leading">
@@ -180,7 +178,7 @@ any <code>io.Writer</code> works.</p>
         
         <tr>
           <td class="docs">
-            <p>This will actually show it on standard output.</p>
+            <p>Это фактически покажет его в стандартном выводе.</p>
 
           </td>
           <td class="code leading">
@@ -191,9 +189,9 @@ any <code>io.Writer</code> works.</p>
         
         <tr>
           <td class="docs">
-            <p>The <code>slog</code> package provides
-<em>structured</em> log output. For example, logging
-in JSON format is straightforward.</p>
+            <p>Пакет <code>slog</code> предоставляет <em>структурированный</em>
+вывод логов. Например, логирование в формате JSON
+делается просто.</p>
 
           </td>
           <td class="code leading">
@@ -206,9 +204,8 @@ in JSON format is straightforward.</p>
         
         <tr>
           <td class="docs">
-            <p>In addition to the message, <code>slog</code> output can
-contain an arbitrary number of key=value
-pairs.</p>
+            <p>Помимо сообщения, вывод <code>slog</code> может содержать
+произвольное количество пар key=value.</p>
 
           </td>
           <td class="code">
@@ -224,8 +221,8 @@ pairs.</p>
         
         <tr>
           <td class="docs">
-            <p>Sample output; the date and time
-emitted will depend on when the example ran.</p>
+            <p>Пример вывода; дата и время зависят от того,
+когда был запущен пример.</p>
 
           </td>
           <td class="code leading">
@@ -242,9 +239,8 @@ emitted will depend on when the example ran.</p>
         
         <tr>
           <td class="docs">
-            <p>These are wrapped for clarity of presentation
-on the website; in reality they are emitted
-on a single line.</p>
+            <p>Эти строки разбиты для наглядности на сайте;
+на самом деле они выводятся в одну строку.</p>
 
           </td>
           <td class="code">
@@ -261,7 +257,7 @@ on a single line.</p>
       
       
       <p class="next">
-        Далее: <a href="http-client" rel="next">HTTP Client</a>.
+        Далее: <a href="http-client" rel="next">HTTP-клиент</a>.
       </p>
       
 

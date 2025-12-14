@@ -1,9 +1,9 @@
-// In the previous example we looked at setting up a simple
-// [HTTP server](http-server). HTTP servers are useful for
-// demonstrating the usage of `context.Context` for
-// controlling cancellation. A `Context` carries deadlines,
-// cancellation signals, and other request-scoped values
-// across API boundaries and goroutines.
+// В предыдущем примере мы рассмотрели настройку простого
+// [HTTP-сервера](http-server). HTTP-серверы полезны для
+// демонстрации использования `context.Context` для
+// управления отменой. `Context` переносит дедлайны,
+// сигналы отмены и другие значения области запроса
+// через границы API и горутины.
 package main
 
 import (
@@ -14,25 +14,24 @@ import (
 
 func hello(w http.ResponseWriter, req *http.Request) {
 
-	// A `context.Context` is created for each request by
-	// the `net/http` machinery, and is available with
-	// the `Context()` method.
+	// `context.Context` создаётся для каждого запроса
+	// механизмом `net/http` и доступен через метод
+	// `Context()`.
 	ctx := req.Context()
 	fmt.Println("server: hello handler started")
 	defer fmt.Println("server: hello handler ended")
 
-	// Wait for a few seconds before sending a reply to the
-	// client. This could simulate some work the server is
-	// doing. While working, keep an eye on the context's
-	// `Done()` channel for a signal that we should cancel
-	// the work and return as soon as possible.
+	// Ждём несколько секунд перед отправкой ответа клиенту.
+	// Это может имитировать работу, выполняемую сервером.
+	// Во время работы следим за каналом `Done()` контекста
+	// на предмет сигнала о необходимости отменить работу
+	// и вернуться как можно скорее.
 	select {
 	case <-time.After(10 * time.Second):
 		fmt.Fprintf(w, "hello\n")
 	case <-ctx.Done():
-		// The context's `Err()` method returns an error
-		// that explains why the `Done()` channel was
-		// closed.
+		// Метод `Err()` контекста возвращает ошибку,
+		// объясняющую, почему канал `Done()` был закрыт.
 		err := ctx.Err()
 		fmt.Println("server:", err)
 		internalError := http.StatusInternalServerError
@@ -42,8 +41,8 @@ func hello(w http.ResponseWriter, req *http.Request) {
 
 func main() {
 
-	// As before, we register our handler on the "/hello"
-	// route, and start serving.
+	// Как и раньше, регистрируем наш обработчик на маршруте
+	// "/hello" и начинаем обслуживание.
 	http.HandleFunc("/hello", hello)
 	http.ListenAndServe(":8090", nil)
 }

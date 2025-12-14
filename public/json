@@ -30,9 +30,9 @@
         
         <tr>
           <td class="docs">
-            <p>Go offers built-in support for JSON encoding and
-decoding, including to and from built-in and custom
-data types.</p>
+            <p>Go предоставляет встроенную поддержку кодирования и
+декодирования JSON, включая работу со встроенными
+и пользовательскими типами данных.</p>
 
           </td>
           <td class="code empty leading">
@@ -46,7 +46,7 @@ data types.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/zwf9dZ4pUPW"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/8lH4QYlH8EI"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -68,8 +68,8 @@ data types.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ll use these two structs to demonstrate encoding and
-decoding of custom types below.</p>
+            <p>Мы будем использовать эти две структуры для демонстрации
+кодирования и декодирования пользовательских типов ниже.</p>
 
           </td>
           <td class="code leading">
@@ -83,8 +83,8 @@ decoding of custom types below.</p>
         
         <tr>
           <td class="docs">
-            <p>Only exported fields will be encoded/decoded in JSON.
-Fields must start with capital letters to be exported.</p>
+            <p>В JSON будут кодироваться/декодироваться только экспортируемые поля.
+Поля должны начинаться с заглавной буквы, чтобы быть экспортируемыми.</p>
 
           </td>
           <td class="code leading">
@@ -108,9 +108,9 @@ Fields must start with capital letters to be exported.</p>
         
         <tr>
           <td class="docs">
-            <p>First we&rsquo;ll look at encoding basic data types to
-JSON strings. Here are some examples for atomic
-values.</p>
+            <p>Сначала рассмотрим кодирование базовых типов данных
+в строки JSON. Вот несколько примеров для атомарных
+значений.</p>
 
           </td>
           <td class="code leading">
@@ -155,8 +155,8 @@ values.</p>
         
         <tr>
           <td class="docs">
-            <p>And here are some for slices and maps, which encode
-to JSON arrays and objects as you&rsquo;d expect.</p>
+            <p>А вот примеры для срезов и карт, которые кодируются
+в JSON-массивы и объекты, как и следовало ожидать.</p>
 
           </td>
           <td class="code leading">
@@ -181,10 +181,10 @@ to JSON arrays and objects as you&rsquo;d expect.</p>
         
         <tr>
           <td class="docs">
-            <p>The JSON package can automatically encode your
-custom data types. It will only include exported
-fields in the encoded output and will by default
-use those names as the JSON keys.</p>
+            <p>Пакет JSON может автоматически кодировать твои
+пользовательские типы данных. Он включит в закодированный
+вывод только экспортируемые поля и по умолчанию будет
+использовать их имена в качестве ключей JSON.</p>
 
           </td>
           <td class="code leading">
@@ -199,10 +199,10 @@ use those names as the JSON keys.</p>
         
         <tr>
           <td class="docs">
-            <p>You can use tags on struct field declarations
-to customize the encoded JSON key names. Check the
-definition of <code>response2</code> above to see an example
-of such tags.</p>
+            <p>Можно использовать теги в объявлениях полей структуры
+для настройки имён ключей в закодированном JSON.
+Посмотри определение <code>response2</code> выше, чтобы увидеть
+пример таких тегов.</p>
 
           </td>
           <td class="code leading">
@@ -217,9 +217,8 @@ of such tags.</p>
         
         <tr>
           <td class="docs">
-            <p>Now let&rsquo;s look at decoding JSON data into Go
-values. Here&rsquo;s an example for a generic data
-structure.</p>
+            <p>Теперь рассмотрим декодирование JSON-данных в значения Go.
+Вот пример для обобщённой структуры данных.</p>
 
           </td>
           <td class="code leading">
@@ -230,10 +229,10 @@ structure.</p>
         
         <tr>
           <td class="docs">
-            <p>We need to provide a variable where the JSON
-package can put the decoded data. This
-<code>map[string]interface{}</code> will hold a map of strings
-to arbitrary data types.</p>
+            <p>Нужно предоставить переменную, куда пакет JSON
+сможет поместить декодированные данные. Этот
+<code>map[string]interface{}</code> будет хранить карту строк
+к произвольным типам данных.</p>
 
           </td>
           <td class="code leading">
@@ -244,8 +243,7 @@ to arbitrary data types.</p>
         
         <tr>
           <td class="docs">
-            <p>Here&rsquo;s the actual decoding, and a check for
-associated errors.</p>
+            <p>Вот само декодирование и проверка на связанные ошибки.</p>
 
           </td>
           <td class="code leading">
@@ -259,10 +257,10 @@ associated errors.</p>
         
         <tr>
           <td class="docs">
-            <p>In order to use the values in the decoded map,
-we&rsquo;ll need to convert them to their appropriate type.
-For example here we convert the value in <code>num</code> to
-the expected <code>float64</code> type.</p>
+            <p>Чтобы использовать значения в декодированной карте,
+нужно преобразовать их к соответствующему типу.
+Например, здесь мы преобразуем значение в <code>num</code>
+к ожидаемому типу <code>float64</code>.</p>
 
           </td>
           <td class="code leading">
@@ -274,8 +272,8 @@ the expected <code>float64</code> type.</p>
         
         <tr>
           <td class="docs">
-            <p>Accessing nested data requires a series of
-conversions.</p>
+            <p>Для доступа к вложенным данным требуется серия
+преобразований.</p>
 
           </td>
           <td class="code leading">
@@ -288,11 +286,10 @@ conversions.</p>
         
         <tr>
           <td class="docs">
-            <p>We can also decode JSON into custom data types.
-This has the advantages of adding additional
-type-safety to our programs and eliminating the
-need for type assertions when accessing the decoded
-data.</p>
+            <p>Можно также декодировать JSON в пользовательские типы данных.
+Это даёт преимущества дополнительной типобезопасности
+в наших программах и устраняет необходимость утверждений типа
+при доступе к декодированным данным.</p>
 
           </td>
           <td class="code leading">
@@ -307,11 +304,11 @@ data.</p>
         
         <tr>
           <td class="docs">
-            <p>In the examples above we always used bytes and
-strings as intermediates between the data and
-JSON representation on standard out. We can also
-stream JSON encodings directly to <code>os.Writer</code>s like
-<code>os.Stdout</code> or even HTTP response bodies.</p>
+            <p>В примерах выше мы всегда использовали байты и строки
+как промежуточное звено между данными и JSON-представлением
+на стандартном выводе. Можно также потоково передавать
+JSON-кодирование напрямую в <code>os.Writer</code>, например
+<code>os.Stdout</code> или даже в тела HTTP-ответов.</p>
 
           </td>
           <td class="code leading">
@@ -324,8 +321,8 @@ stream JSON encodings directly to <code>os.Writer</code>s like
         
         <tr>
           <td class="docs">
-            <p>Streaming reads from <code>os.Reader</code>s like <code>os.Stdin</code>
-or HTTP request bodies is done with <code>json.Decoder</code>.</p>
+            <p>Потоковое чтение из <code>os.Reader</code>, например <code>os.Stdin</code>
+или тел HTTP-запросов, выполняется с помощью <code>json.Decoder</code>.</p>
 
           </td>
           <td class="code">
@@ -369,10 +366,10 @@ or HTTP request bodies is done with <code>json.Decoder</code>.</p>
         
         <tr>
           <td class="docs">
-            <p>We&rsquo;ve covered the basic of JSON in Go here, but check
-out the <a href="https://go.dev/blog/json">JSON and Go</a>
-blog post and <a href="https://pkg.go.dev/encoding/json">JSON package docs</a>
-for more.</p>
+            <p>Мы рассмотрели основы работы с JSON в Go, но для более
+подробной информации смотри пост в блоге
+<a href="https://go.dev/blog/json">JSON and Go</a> и
+<a href="https://pkg.go.dev/encoding/json">документацию пакета JSON</a>.</p>
 
           </td>
           <td class="code empty">

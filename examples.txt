@@ -43,43 +43,43 @@ rate-limiting|Ограничение частоты запросов
 atomic-counters|Атомарные счётчики
 mutexes|Мьютексы
 stateful-goroutines|Горутины с состоянием
-sorting|Sorting
-sorting-by-functions|Sorting by Functions
-panic|Panic
-defer|Defer
-recover|Recover
-string-functions|String Functions
-string-formatting|String Formatting
-text-templates|Text Templates
-regular-expressions|Regular Expressions
+sorting|Сортировка
+sorting-by-functions|Сортировка с функцией сравнения
+panic|Паника (panic)
+defer|Отложенный вызов (defer)
+recover|Восстановление (recover)
+string-functions|Строковые функции
+string-formatting|Форматирование строк
+text-templates|Текстовые шаблоны
+regular-expressions|Регулярные выражения
 json|JSON
 xml|XML
-time|Time
-epoch|Epoch
-time-formatting-parsing|Time Formatting / Parsing
-random-numbers|Random Numbers
-number-parsing|Number Parsing
-url-parsing|URL Parsing
-sha256-hashes|SHA256 Hashes
-base64-encoding|Base64 Encoding
-reading-files|Reading Files
-writing-files|Writing Files
-line-filters|Line Filters
-file-paths|File Paths
-directories|Directories
-temporary-files-and-directories|Temporary Files and Directories
-embed-directive|Embed Directive
-testing-and-benchmarking|Testing and Benchmarking
-command-line-arguments|Command-Line Arguments
-command-line-flags|Command-Line Flags
-command-line-subcommands|Command-Line Subcommands
-environment-variables|Environment Variables
-logging|Logging
-http-client|HTTP Client
-http-server|HTTP Server
-tcp-server|TCP Server
-context|Context
-spawning-processes|Spawning Processes
-execing-processes|Exec'ing Processes
-signals|Signals
-exit|Exit
+time|Время
+epoch|Эпоха Unix
+time-formatting-parsing|Форматирование и парсинг времени
+random-numbers|Случайные числа
+number-parsing|Парсинг чисел
+url-parsing|Парсинг URL
+sha256-hashes|Хеши SHA256
+base64-encoding|Кодирование Base64
+reading-files|Чтение файлов
+writing-files|Запись файлов
+line-filters|Строковые фильтры
+file-paths|Пути к файлам
+directories|Директории
+temporary-files-and-directories|Временные файлы и директории
+embed-directive|Директива Embed
+testing-and-benchmarking|Тестирование и бенчмаркинг
+command-line-arguments|Аргументы командной строки
+command-line-flags|Флаги командной строки
+command-line-subcommands|Подкоманды командной строки
+environment-variables|Переменные окружения
+logging|Логирование
+http-client|HTTP-клиент
+http-server|HTTP-сервер
+tcp-server|TCP-сервер
+context|Контекст
+spawning-processes|Порождение процессов
+execing-processes|Exec процессов
+signals|Сигналы
+exit|Завершение программы (exit)

@@ -1,9 +1,8 @@
-// The Go standard library provides straightforward
-// tools for outputting logs from Go programs, with
-// the [log](https://pkg.go.dev/log) package for
-// free-form output and the
-// [log/slog](https://pkg.go.dev/log/slog) package for
-// structured output.
+// Стандартная библиотека Go предоставляет простые
+// инструменты для вывода логов из программ Go: пакет
+// [log](https://pkg.go.dev/log) для свободного вывода
+// и пакет [log/slog](https://pkg.go.dev/log/slog)
+// для структурированного вывода.
 package main
 
 import (
@@ -17,61 +16,59 @@ import (
 
 func main() {
 
-	// Simply invoking functions like `Println` from the
-	// `log` package uses the _standard_ logger, which
-	// is already pre-configured for reasonable logging
-	// output to `os.Stderr`. Additional methods like
-	// `Fatal*` or `Panic*` will exit the program after
-	// logging.
+	// Простой вызов функций вроде `Println` из пакета
+	// `log` использует _стандартный_ логгер, который
+	// уже предварительно настроен для разумного вывода
+	// логов в `os.Stderr`. Дополнительные методы вроде
+	// `Fatal*` или `Panic*` завершат программу после
+	// логирования.
 	log.Println("standard logger")
 
-	// Loggers can be configured with _flags_ to set
-	// their output format. By default, the standard
-	// logger has the `log.Ldate` and `log.Ltime` flags
-	// set, and these are collected in `log.LstdFlags`.
-	// We can change its flags to emit time with
-	// microsecond accuracy, for example.
+	// Логгеры можно настраивать с помощью _флагов_ для
+	// установки формата вывода. По умолчанию стандартный
+	// логгер имеет установленные флаги `log.Ldate` и
+	// `log.Ltime`, которые собраны в `log.LstdFlags`.
+	// Можно изменить флаги, чтобы выводить время
+	// с микросекундной точностью, например.
 	log.SetFlags(log.LstdFlags | log.Lmicroseconds)
 	log.Println("with micro")
 
-	// It also supports emitting the file name and
-	// line from which the `log` function is called.
+	// Также поддерживается вывод имени файла и строки,
+	// из которой вызвана функция `log`.
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	log.Println("with file/line")
 
-	// It may be useful to create a custom logger and
-	// pass it around. When creating a new logger, we
-	// can set a _prefix_ to distinguish its output
-	// from other loggers.
+	// Может быть полезно создать пользовательский логгер
+	// и передавать его. При создании нового логгера можно
+	// установить _префикс_, чтобы отличать его вывод
+	// от других логгеров.
 	mylog := log.New(os.Stdout, "my:", log.LstdFlags)
 	mylog.Println("from mylog")
 
-	// We can set the prefix
-	// on existing loggers (including the standard one)
-	// with the `SetPrefix` method.
+	// Можно установить префикс на существующих логгерах
+	// (включая стандартный) с помощью метода `SetPrefix`.
 	mylog.SetPrefix("ohmy:")
 	mylog.Println("from mylog")
 
-	// Loggers can have custom output targets;
-	// any `io.Writer` works.
+	// Логгеры могут иметь пользовательские цели вывода;
+	// подойдёт любой `io.Writer`.
 	var buf bytes.Buffer
 	buflog := log.New(&buf, "buf:", log.LstdFlags)
 
-	// This call writes the log output into `buf`.
+	// Этот вызов записывает вывод лога в `buf`.
 	buflog.Println("hello")
 
-	// This will actually show it on standard output.
+	// Это фактически покажет его в стандартном выводе.
 	fmt.Print("from buflog:", buf.String())
 
-	// The `slog` package provides
-	// _structured_ log output. For example, logging
-	// in JSON format is straightforward.
+	// Пакет `slog` предоставляет _структурированный_
+	// вывод логов. Например, логирование в формате JSON
+	// делается просто.
 	jsonHandler := slog.NewJSONHandler(os.Stderr, nil)
 	myslog := slog.New(jsonHandler)
 	myslog.Info("hi there")
 
-	// In addition to the message, `slog` output can
-	// contain an arbitrary number of key=value
-	// pairs.
+	// Помимо сообщения, вывод `slog` может содержать
+	// произвольное количество пар key=value.
 	myslog.Info("hello again", "key", "val", "age", 25)
 }

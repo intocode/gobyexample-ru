@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: HTTP Client</title>
+    <title>Go на примерах: HTTP-клиент</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,20 +24,20 @@
   </script>
   <body>
     <div class="example" id="http-client">
-      <h2><a href="./">Go на примерах</a>: HTTP Client</h2>
+      <h2><a href="./">Go на примерах</a>: HTTP-клиент</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>The Go standard library comes with excellent support
-for HTTP clients and servers in the <code>net/http</code>
-package. In this example we&rsquo;ll use it to issue simple
-HTTP requests.</p>
+            <p>Стандартная библиотека Go поставляется с отличной
+поддержкой HTTP-клиентов и серверов в пакете <code>net/http</code>.
+В этом примере мы используем его для выполнения
+простых HTTP-запросов.</p>
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/vFW_el7oHMk"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/zFIKHvUDjkY"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -68,11 +68,11 @@ HTTP requests.</p>
         
         <tr>
           <td class="docs">
-            <p>Issue an HTTP GET request to a server. <code>http.Get</code> is a
-convenient shortcut around creating an <code>http.Client</code>
-object and calling its <code>Get</code> method; it uses the
-<code>http.DefaultClient</code> object which has useful default
-settings.</p>
+            <p>Выполняем HTTP GET запрос к серверу. <code>http.Get</code> —
+удобное сокращение для создания объекта <code>http.Client</code>
+и вызова его метода <code>Get</code>; он использует объект
+<code>http.DefaultClient</code> с полезными настройками
+по умолчанию.</p>
 
           </td>
           <td class="code leading">
@@ -87,7 +87,7 @@ settings.</p>
         
         <tr>
           <td class="docs">
-            <p>Print the HTTP response status.</p>
+            <p>Выводим статус HTTP-ответа.</p>
 
           </td>
           <td class="code leading">
@@ -98,7 +98,7 @@ settings.</p>
         
         <tr>
           <td class="docs">
-            <p>Print the first 5 lines of the response body.</p>
+            <p>Выводим первые 5 строк тела ответа.</p>
 
           </td>
           <td class="code leading">
@@ -147,7 +147,7 @@ settings.</p>
       
       
       <p class="next">
-        Далее: <a href="http-server" rel="next">HTTP Server</a>.
+        Далее: <a href="http-server" rel="next">HTTP-сервер</a>.
       </p>
       
 

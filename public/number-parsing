@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Go на примерах: Number Parsing</title>
+    <title>Go на примерах: Парсинг чисел</title>
     <link rel=stylesheet href="site.css">
   </head>
   <script>
@@ -24,14 +24,14 @@
   </script>
   <body>
     <div class="example" id="number-parsing">
-      <h2><a href="./">Go на примерах</a>: Number Parsing</h2>
+      <h2><a href="./">Go на примерах</a>: Парсинг чисел</h2>
       
       <table>
         
         <tr>
           <td class="docs">
-            <p>Parsing numbers from strings is a basic but common task
-in many programs; here&rsquo;s how to do it in Go.</p>
+            <p>Парсинг чисел из строк — базовая, но распространённая
+задача во многих программах; вот как это сделать в Go.</p>
 
           </td>
           <td class="code empty leading">
@@ -45,15 +45,14 @@ in many programs; here&rsquo;s how to do it in Go.</p>
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/ZAMEid6Fpmu"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/ngFCJev95q3"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
         
         <tr>
           <td class="docs">
-            <p>The built-in package <code>strconv</code> provides the number
-parsing.</p>
+            <p>Встроенный пакет <code>strconv</code> обеспечивает парсинг чисел.</p>
 
           </td>
           <td class="code leading">
@@ -77,8 +76,8 @@ parsing.</p>
         
         <tr>
           <td class="docs">
-            <p>With <code>ParseFloat</code>, this <code>64</code> tells how many bits of
-precision to parse.</p>
+            <p>В <code>ParseFloat</code> число <code>64</code> указывает, сколько бит точности
+использовать при парсинге.</p>
 
           </td>
           <td class="code leading">
@@ -90,9 +89,8 @@ precision to parse.</p>
         
         <tr>
           <td class="docs">
-            <p>For <code>ParseInt</code>, the <code>0</code> means infer the base from
-the string. <code>64</code> requires that the result fit in 64
-bits.</p>
+            <p>Для <code>ParseInt</code> <code>0</code> означает определить основание из строки.
+<code>64</code> требует, чтобы результат помещался в 64 бита.</p>
 
           </td>
           <td class="code leading">
@@ -104,7 +102,7 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p><code>ParseInt</code> will recognize hex-formatted numbers.</p>
+            <p><code>ParseInt</code> распознаёт числа в шестнадцатеричном формате.</p>
 
           </td>
           <td class="code leading">
@@ -116,7 +114,7 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p>A <code>ParseUint</code> is also available.</p>
+            <p>Также доступен <code>ParseUint</code>.</p>
 
           </td>
           <td class="code leading">
@@ -128,8 +126,8 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p><code>Atoi</code> is a convenience function for basic base-10
-<code>int</code> parsing.</p>
+            <p><code>Atoi</code> — удобная функция для базового парсинга
+десятичных <code>int</code>.</p>
 
           </td>
           <td class="code leading">
@@ -141,7 +139,7 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p>Parse functions return an error on bad input.</p>
+            <p>Функции парсинга возвращают ошибку при некорректном вводе.</p>
 
           </td>
           <td class="code">
@@ -174,7 +172,8 @@ bits.</p>
         
         <tr>
           <td class="docs">
-            <p>Next we&rsquo;ll look at another common parsing task: URLs.</p>
+            <p>Далее рассмотрим другую распространённую
+задачу парсинга: URL.</p>
 
           </td>
           <td class="code empty">
@@ -187,7 +186,7 @@ bits.</p>
       
       
       <p class="next">
-        Далее: <a href="url-parsing" rel="next">URL Parsing</a>.
+        Далее: <a href="url-parsing" rel="next">Парсинг URL</a>.
       </p>
       
 
