@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Встраивание структур</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -230,6 +230,6 @@
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('type base struct {\u000A    num int\u000A}\u000A');codeLines.push('func (b base) describe() string {\u000A    return fmt.Sprintf(\"base with num\u003D%v\", b.num)\u000A}\u000A');codeLines.push('type container struct {\u000A    base\u000A    str string\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    co :\u003D container{\u000A        base: base{\u000A            num: 1,\u000A        },\u000A        str: \"some name\",\u000A    }\u000A');codeLines.push('    fmt.Printf(\"co\u003D{num: %v, str: %v}\\n\", co.num, co.str)\u000A');codeLines.push('    fmt.Println(\"also num:\", co.base.num)\u000A');codeLines.push('    fmt.Println(\"describe:\", co.describe())\u000A');codeLines.push('    type describer interface {\u000A        describe() string\u000A    }\u000A');codeLines.push('    var d describer \u003D co\u000A    fmt.Println(\"describer:\", d.describe())\u000A}\u000A');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

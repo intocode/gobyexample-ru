@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Switch</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -196,6 +196,6 @@
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    i :\u003D 2\u000A    fmt.Print(\"Запишем \", i, \" как \")\u000A    switch i {\u000A    case 1:\u000A        fmt.Println(\"один\")\u000A    case 2:\u000A        fmt.Println(\"два\")\u000A    case 3:\u000A        fmt.Println(\"три\")\u000A    }\u000A');codeLines.push('    switch time.Now().Weekday() { // день недели\u000A    case time.Saturday, time.Sunday:\u000A        fmt.Println(\"Сейчас выходной\")\u000A    default:\u000A        fmt.Println(\"Сейчас будний день\")\u000A    }\u000A');codeLines.push('    t :\u003D time.Now()\u000A    switch {\u000A    case t.Hour() \u003C 12:\u000A        fmt.Println(\"Еще нет двенадцати\")\u000A    default:\u000A        fmt.Println(\"Сейчас после полудня\")\u000A    }\u000A');codeLines.push('    whatAmI :\u003D func(i interface{}) {\u000A        switch t :\u003D i.(type) {\u000A        case bool:\u000A            fmt.Println(\"Я bool\")\u000A        case int:\u000A            fmt.Println(\"Я int\")\u000A        default:\u000A            fmt.Printf(\"Неизвестный тип %T\\n\", t)\u000A        }\u000A    }\u000A    whatAmI(true)\u000A    whatAmI(1)\u000A    whatAmI(\"hey\")\u000A}\u000A');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

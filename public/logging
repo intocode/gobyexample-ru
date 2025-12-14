@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Логирование</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -270,6 +270,6 @@
       var codeLines = [];
       codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"bytes\"\u000A    \"fmt\"\u000A    \"log\"\u000A    \"os\"\u000A');codeLines.push('    \"log/slog\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    log.Println(\"standard logger\")\u000A');codeLines.push('    log.SetFlags(log.LstdFlags | log.Lmicroseconds)\u000A    log.Println(\"with micro\")\u000A');codeLines.push('    log.SetFlags(log.LstdFlags | log.Lshortfile)\u000A    log.Println(\"with file/line\")\u000A');codeLines.push('    mylog :\u003D log.New(os.Stdout, \"my:\", log.LstdFlags)\u000A    mylog.Println(\"from mylog\")\u000A');codeLines.push('    mylog.SetPrefix(\"ohmy:\")\u000A    mylog.Println(\"from mylog\")\u000A');codeLines.push('    var buf bytes.Buffer\u000A    buflog :\u003D log.New(\u0026buf, \"buf:\", log.LstdFlags)\u000A');codeLines.push('    buflog.Println(\"hello\")\u000A');codeLines.push('    fmt.Print(\"from buflog:\", buf.String())\u000A');codeLines.push('    jsonHandler :\u003D slog.NewJSONHandler(os.Stderr, nil)\u000A    myslog :\u003D slog.New(jsonHandler)\u000A    myslog.Info(\"hi there\")\u000A');codeLines.push('    myslog.Info(\"hello again\", \"key\", \"val\", \"age\", 25)\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

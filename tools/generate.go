@@ -59,6 +59,11 @@ func sha1Sum(s string) string {
 	return fmt.Sprintf("%x", b)
 }
 
+func fileHash(path string) string {
+	content := mustReadFile(path)
+	return sha1Sum(content)[:8]
+}
+
 func mustReadFile(path string) string {
 	bytes, err := os.ReadFile(path)
 	check(err)
@@ -105,6 +110,23 @@ type Seg struct {
 	CodeEmpty, CodeLeading, CodeRun bool
 }
 
+// SiteConfig holds site-wide configuration passed to templates
+type SiteConfig struct {
+	CSSVersion string
+	JSVersion  string
+}
+
+// IndexData holds data for rendering the index page
+type IndexData struct {
+	Examples []*Example
+	Site     *SiteConfig
+}
+
+// NotFoundData holds data for rendering the 404 page
+type NotFoundData struct {
+	Site *SiteConfig
+}
+
 // Example is info extracted from an example file
 type Example struct {
 	// ID is a stable slug used for URLs, directory names and output filenames,
@@ -122,6 +144,7 @@ type Example struct {
 	Segs                        [][]*Seg
 	PrevExample                 *Example
 	NextExample                 *Example
+	Site                        *SiteConfig
 }
 
 func parseHashFile(sourcePath string) (string, string) {
@@ -320,7 +343,7 @@ func parseExamples() []*Example {
 	return examples
 }
 
-func renderIndex(examples []*Example) {
+func renderIndex(examples []*Example, site *SiteConfig) {
 	if verbose() {
 		fmt.Println("Rendering index")
 	}
@@ -330,10 +353,11 @@ func renderIndex(examples []*Example) {
 	indexF, err := os.Create(siteDir + "/index.html")
 	check(err)
 	defer indexF.Close()
-	check(indexTmpl.Execute(indexF, examples))
+	data := IndexData{Examples: examples, Site: site}
+	check(indexTmpl.Execute(indexF, data))
 }
 
-func renderExamples(examples []*Example) {
+func renderExamples(examples []*Example, site *SiteConfig) {
 	if verbose() {
 		fmt.Println("Rendering examples")
 	}
@@ -341,6 +365,7 @@ func renderExamples(examples []*Example) {
 	template.Must(exampleTmpl.Parse(mustReadFile("templates/footer.tmpl")))
 	template.Must(exampleTmpl.Parse(mustReadFile("templates/example.tmpl")))
 	for _, example := range examples {
+		example.Site = site
 		exampleF, err := os.Create(siteDir + "/" + example.ID)
 		check(err)
 		defer exampleF.Close()
@@ -348,7 +373,7 @@ func renderExamples(examples []*Example) {
 	}
 }
 
-func render404() {
+func render404(site *SiteConfig) {
 	if verbose() {
 		fmt.Println("Rendering 404")
 	}
@@ -358,7 +383,8 @@ func render404() {
 	file, err := os.Create(siteDir + "/404.html")
 	check(err)
 	defer file.Close()
-	check(tmpl.Execute(file, ""))
+	data := NotFoundData{Site: site}
+	check(tmpl.Execute(file, data))
 }
 
 func main() {
@@ -372,10 +398,16 @@ func main() {
 	copyFile("templates/favicon.ico", siteDir+"/favicon.ico")
 	copyFile("templates/play.png", siteDir+"/play.png")
 	copyFile("templates/clipboard.png", siteDir+"/clipboard.png")
+
+	site := &SiteConfig{
+		CSSVersion: fileHash("templates/site.css"),
+		JSVersion:  fileHash("templates/site.js"),
+	}
+
 	examples := parseExamples()
-	renderIndex(examples)
-	renderExamples(examples)
-	render404()
+	renderIndex(examples, site)
+	renderExamples(examples, site)
+	render404(site)
 }
 
 var SimpleShellOutputLexer = chroma.MustNewLexer(

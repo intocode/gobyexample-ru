@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Ошибки</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -269,6 +269,6 @@
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"errors\"\u000A    \"fmt\"\u000A)\u000A');codeLines.push('func f(arg int) (int, error) {\u000A    if arg \u003D\u003D 42 {\u000A');codeLines.push('        return -1, errors.New(\"can\'t work with 42\")\u000A    }\u000A');codeLines.push('    return arg + 3, nil\u000A}\u000A');codeLines.push('var ErrOutOfTea \u003D errors.New(\"no more tea available\")\u000Avar ErrPower \u003D errors.New(\"can\'t boil water\")\u000A');codeLines.push('func makeTea(arg int) error {\u000A    if arg \u003D\u003D 2 {\u000A        return ErrOutOfTea\u000A    } else if arg \u003D\u003D 4 {\u000A');codeLines.push('        return fmt.Errorf(\"making tea: %w\", ErrPower)\u000A    }\u000A    return nil\u000A}\u000A');codeLines.push('func main() {\u000A    for _, i :\u003D range []int{7, 42} {\u000A');codeLines.push('        if r, e :\u003D f(i); e !\u003D nil {\u000A            fmt.Println(\"f failed:\", e)\u000A        } else {\u000A            fmt.Println(\"f worked:\", r)\u000A        }\u000A    }\u000A');codeLines.push('    for i :\u003D range 5 {\u000A        if err :\u003D makeTea(i); err !\u003D nil {\u000A');codeLines.push('            if errors.Is(err, ErrOutOfTea) {\u000A                fmt.Println(\"We should buy new tea!\")\u000A            } else if errors.Is(err, ErrPower) {\u000A                fmt.Println(\"Now it is dark.\")\u000A            } else {\u000A                fmt.Printf(\"unknown error: %s\\n\", err)\u000A            }\u000A            continue\u000A        }\u000A');codeLines.push('        fmt.Println(\"Tea is ready!\")\u000A    }\u000A}\u000A');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

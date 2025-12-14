@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Порождение процессов</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -267,6 +267,6 @@ stdout. Помощник <code>exec.Command</code> создаёт объект,
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"errors\"\u000A    \"fmt\"\u000A    \"io\"\u000A    \"os/exec\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    dateCmd :\u003D exec.Command(\"date\")\u000A');codeLines.push('    dateOut, err :\u003D dateCmd.Output()\u000A    if err !\u003D nil {\u000A        panic(err)\u000A    }\u000A    fmt.Println(\"\u003E date\")\u000A    fmt.Println(string(dateOut))\u000A');codeLines.push('    _, err \u003D exec.Command(\"date\", \"-x\").Output()\u000A    if err !\u003D nil {\u000A        var execErr *exec.Error\u000A        var exitErr *exec.ExitError\u000A        switch {\u000A        case errors.As(err, \u0026execErr):\u000A            fmt.Println(\"failed executing:\", err)\u000A        case errors.As(err, \u0026exitErr):\u000A            exitCode :\u003D exitErr.ExitCode()\u000A            fmt.Println(\"command exit rc \u003D\", exitCode)\u000A        default:\u000A            panic(err)\u000A        }\u000A    }\u000A');codeLines.push('    grepCmd :\u003D exec.Command(\"grep\", \"hello\")\u000A');codeLines.push('    grepIn, _ :\u003D grepCmd.StdinPipe()\u000A    grepOut, _ :\u003D grepCmd.StdoutPipe()\u000A    grepCmd.Start()\u000A    grepIn.Write([]byte(\"hello grep\\ngoodbye grep\"))\u000A    grepIn.Close()\u000A    grepBytes, _ :\u003D io.ReadAll(grepOut)\u000A    grepCmd.Wait()\u000A');codeLines.push('    fmt.Println(\"\u003E grep hello\")\u000A    fmt.Println(string(grepBytes))\u000A');codeLines.push('    lsCmd :\u003D exec.Command(\"bash\", \"-c\", \"ls -a -l -h\")\u000A    lsOut, err :\u003D lsCmd.Output()\u000A    if err !\u003D nil {\u000A        panic(err)\u000A    }\u000A    fmt.Println(\"\u003E ls -a -l -h\")\u000A    fmt.Println(string(lsOut))\u000A}\u000A');codeLines.push('');codeLines.push('');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

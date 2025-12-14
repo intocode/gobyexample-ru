@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Атомарные счётчики</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -206,6 +206,6 @@
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"sync\"\u000A    \"sync/atomic\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    var ops atomic.Uint64\u000A');codeLines.push('    var wg sync.WaitGroup\u000A');codeLines.push('    for range 50 {\u000A        wg.Go(func() {\u000A            for range 1000 {\u000A');codeLines.push('                ops.Add(1)\u000A            }\u000A        })\u000A    }\u000A');codeLines.push('    wg.Wait()\u000A');codeLines.push('    fmt.Println(\"ops:\", ops.Load())\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

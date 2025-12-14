@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Range по итераторам</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -292,6 +292,6 @@
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"iter\"\u000A    \"slices\"\u000A)\u000A');codeLines.push('type List[T any] struct {\u000A    head, tail *element[T]\u000A}\u000A');codeLines.push('type element[T any] struct {\u000A    next *element[T]\u000A    val  T\u000A}\u000A');codeLines.push('func (lst *List[T]) Push(v T) {\u000A    if lst.tail \u003D\u003D nil {\u000A        lst.head \u003D \u0026element[T]{val: v}\u000A        lst.tail \u003D lst.head\u000A    } else {\u000A        lst.tail.next \u003D \u0026element[T]{val: v}\u000A        lst.tail \u003D lst.tail.next\u000A    }\u000A}\u000A');codeLines.push('func (lst *List[T]) All() iter.Seq[T] {\u000A    return func(yield func(T) bool) {\u000A');codeLines.push('        for e :\u003D lst.head; e !\u003D nil; e \u003D e.next {\u000A            if !yield(e.val) {\u000A                return\u000A            }\u000A        }\u000A    }\u000A}\u000A');codeLines.push('func genFib() iter.Seq[int] {\u000A    return func(yield func(int) bool) {\u000A        a, b :\u003D 1, 1\u000A');codeLines.push('        for {\u000A            if !yield(a) {\u000A                return\u000A            }\u000A            a, b \u003D b, a+b\u000A        }\u000A    }\u000A}\u000A');codeLines.push('func main() {\u000A    lst :\u003D List[int]{}\u000A    lst.Push(10)\u000A    lst.Push(13)\u000A    lst.Push(23)\u000A');codeLines.push('    for e :\u003D range lst.All() {\u000A        fmt.Println(e)\u000A    }\u000A');codeLines.push('    all :\u003D slices.Collect(lst.All())\u000A    fmt.Println(\"all:\", all)\u000A');codeLines.push('    for n :\u003D range genFib() {\u000A');codeLines.push('        if n \u003E\u003D 10 {\u000A            break\u000A        }\u000A        fmt.Println(n)\u000A    }\u000A}\u000A');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

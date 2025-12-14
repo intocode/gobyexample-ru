@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Перечисления (enum)</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -226,6 +226,6 @@ enum как отдельной языковой конструкции, но и�
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('type ServerState int\u000A');codeLines.push('const (\u000A    StateIdle ServerState \u003D iota\u000A    StateConnected\u000A    StateError\u000A    StateRetrying\u000A)\u000A');codeLines.push('var stateName \u003D map[ServerState]string{\u000A    StateIdle:      \"idle\",\u000A    StateConnected: \"connected\",\u000A    StateError:     \"error\",\u000A    StateRetrying:  \"retrying\",\u000A}\u000A');codeLines.push('func (ss ServerState) String() string {\u000A    return stateName[ss]\u000A}\u000A');codeLines.push('func main() {\u000A    ns :\u003D transition(StateIdle)\u000A    fmt.Println(ns)\u000A');codeLines.push('    ns2 :\u003D transition(ns)\u000A    fmt.Println(ns2)\u000A}\u000A');codeLines.push('func transition(s ServerState) ServerState {\u000A    switch s {\u000A    case StateIdle:\u000A        return StateConnected\u000A    case StateConnected, StateRetrying:\u000A');codeLines.push('        return StateIdle\u000A    case StateError:\u000A        return StateError\u000A    default:\u000A        panic(fmt.Errorf(\"unknown state: %s\", s))\u000A    }\u000A}\u000A');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

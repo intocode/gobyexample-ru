@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Случайные числа</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -197,6 +197,6 @@
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"math/rand/v2\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    fmt.Print(rand.IntN(100), \",\")\u000A    fmt.Print(rand.IntN(100))\u000A    fmt.Println()\u000A');codeLines.push('    fmt.Println(rand.Float64())\u000A');codeLines.push('    fmt.Print((rand.Float64()*5)+5, \",\")\u000A    fmt.Print((rand.Float64() * 5) + 5)\u000A    fmt.Println()\u000A');codeLines.push('    s2 :\u003D rand.NewPCG(42, 1024)\u000A    r2 :\u003D rand.New(s2)\u000A    fmt.Print(r2.IntN(100), \",\")\u000A    fmt.Print(r2.IntN(100))\u000A    fmt.Println()\u000A');codeLines.push('    s3 :\u003D rand.NewPCG(42, 1024)\u000A    r3 :\u003D rand.New(s3)\u000A    fmt.Print(r3.IntN(100), \",\")\u000A    fmt.Print(r3.IntN(100))\u000A    fmt.Println()\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

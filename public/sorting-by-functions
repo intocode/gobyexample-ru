@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Сортировка с функцией сравнения</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -188,6 +188,6 @@
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"cmp\"\u000A    \"fmt\"\u000A    \"slices\"\u000A)\u000A');codeLines.push('func main() {\u000A    fruits :\u003D []string{\"peach\", \"banana\", \"kiwi\"}\u000A');codeLines.push('    lenCmp :\u003D func(a, b string) int {\u000A        return cmp.Compare(len(a), len(b))\u000A    }\u000A');codeLines.push('    slices.SortFunc(fruits, lenCmp)\u000A    fmt.Println(fruits)\u000A');codeLines.push('    type Person struct {\u000A        name string\u000A        age  int\u000A    }\u000A');codeLines.push('    people :\u003D []Person{\u000A        Person{name: \"Jax\", age: 37},\u000A        Person{name: \"TJ\", age: 25},\u000A        Person{name: \"Alex\", age: 72},\u000A    }\u000A');codeLines.push('    slices.SortFunc(people,\u000A        func(a, b Person) int {\u000A            return cmp.Compare(a.age, b.age)\u000A        })\u000A    fmt.Println(people)\u000A}\u000A');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

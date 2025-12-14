@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Таймеры</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -176,6 +176,6 @@
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    timer1 :\u003D time.NewTimer(2 * time.Second)\u000A');codeLines.push('    \u003C-timer1.C\u000A    fmt.Println(\"Timer 1 fired\")\u000A');codeLines.push('    timer2 :\u003D time.NewTimer(time.Second)\u000A    go func() {\u000A        \u003C-timer2.C\u000A        fmt.Println(\"Timer 2 fired\")\u000A    }()\u000A    stop2 :\u003D timer2.Stop()\u000A    if stop2 {\u000A        fmt.Println(\"Timer 2 stopped\")\u000A    }\u000A');codeLines.push('    time.Sleep(2 * time.Second)\u000A}\u000A');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

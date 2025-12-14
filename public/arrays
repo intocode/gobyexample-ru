@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Массивы</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -229,6 +229,6 @@
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func main() {\u000A');codeLines.push('    var a [5]int\u000A    fmt.Println(\"emp:\", a)\u000A');codeLines.push('    a[4] \u003D 100\u000A    fmt.Println(\"set:\", a)\u000A    fmt.Println(\"get:\", a[4])\u000A');codeLines.push('    fmt.Println(\"len:\", len(a))\u000A');codeLines.push('    b :\u003D [5]int{1, 2, 3, 4, 5}\u000A    fmt.Println(\"dcl:\", b)\u000A');codeLines.push('    b \u003D [...]int{1, 2, 3, 4, 5}\u000A    fmt.Println(\"dcl:\", b)\u000A');codeLines.push('    b \u003D [...]int{100, 3: 400, 500}\u000A    fmt.Println(\"idx:\", b)\u000A');codeLines.push('    var twoD [2][3]int\u000A    for i :\u003D range 2 {\u000A        for j :\u003D range 3 {\u000A            twoD[i][j] \u003D i + j\u000A        }\u000A    }\u000A    fmt.Println(\"2d: \", twoD)\u000A');codeLines.push('    twoD \u003D [2][3]int{\u000A        {1, 2, 3},\u000A        {1, 2, 3},\u000A    }\u000A    fmt.Println(\"2d: \", twoD)\u000A}\u000A');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

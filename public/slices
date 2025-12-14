@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Срезы</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -311,6 +311,6 @@
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"slices\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    var s []string\u000A    fmt.Println(\"uninit:\", s, s \u003D\u003D nil, len(s) \u003D\u003D 0)\u000A');codeLines.push('    s \u003D make([]string, 3)\u000A    fmt.Println(\"emp:\", s, \"len:\", len(s), \"cap:\", cap(s))\u000A');codeLines.push('    s[0] \u003D \"a\"\u000A    s[1] \u003D \"b\"\u000A    s[2] \u003D \"c\"\u000A    fmt.Println(\"set:\", s)\u000A    fmt.Println(\"get:\", s[2])\u000A');codeLines.push('    fmt.Println(\"len:\", len(s))\u000A');codeLines.push('    s \u003D append(s, \"d\")\u000A    s \u003D append(s, \"e\", \"f\")\u000A    fmt.Println(\"apd:\", s)\u000A');codeLines.push('    c :\u003D make([]string, len(s))\u000A    copy(c, s)\u000A    fmt.Println(\"cpy:\", c)\u000A');codeLines.push('    l :\u003D s[2:5]\u000A    fmt.Println(\"sl1:\", l)\u000A');codeLines.push('    l \u003D s[:5]\u000A    fmt.Println(\"sl2:\", l)\u000A');codeLines.push('    l \u003D s[2:]\u000A    fmt.Println(\"sl3:\", l)\u000A');codeLines.push('    t :\u003D []string{\"g\", \"h\", \"i\"}\u000A    fmt.Println(\"dcl:\", t)\u000A');codeLines.push('    t2 :\u003D []string{\"g\", \"h\", \"i\"}\u000A    if slices.Equal(t, t2) {\u000A        fmt.Println(\"t \u003D\u003D t2\")\u000A    }\u000A');codeLines.push('    twoD :\u003D make([][]int, 3)\u000A    for i :\u003D range 3 {\u000A        innerLen :\u003D i + 1\u000A        twoD[i] \u003D make([]int, innerLen)\u000A        for j :\u003D range innerLen {\u000A            twoD[i][j] \u003D i + j\u000A        }\u000A    }\u000A    fmt.Println(\"2d: \", twoD)\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

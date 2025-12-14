@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Пул воркеров</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -211,6 +211,6 @@
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func worker(id int, jobs \u003C-chan int, results chan\u003C- int) {\u000A    for j :\u003D range jobs {\u000A        fmt.Println(\"worker\", id, \"started  job\", j)\u000A        time.Sleep(time.Second)\u000A        fmt.Println(\"worker\", id, \"finished job\", j)\u000A        results \u003C- j * 2\u000A    }\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    const numJobs \u003D 5\u000A    jobs :\u003D make(chan int, numJobs)\u000A    results :\u003D make(chan int, numJobs)\u000A');codeLines.push('    for w :\u003D 1; w \u003C\u003D 3; w++ {\u000A        go worker(w, jobs, results)\u000A    }\u000A');codeLines.push('    for j :\u003D 1; j \u003C\u003D numJobs; j++ {\u000A        jobs \u003C- j\u000A    }\u000A    close(jobs)\u000A');codeLines.push('    for a :\u003D 1; a \u003C\u003D numJobs; a++ {\u000A        \u003C-results\u000A    }\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Рекурсия</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -172,6 +172,6 @@ Go знает, какую функцию вызывать через <code>fib</
       var codeLines = [];
       codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import \"fmt\"\u000A');codeLines.push('func fact(n int) int {\u000A    if n \u003D\u003D 0 {\u000A        return 1\u000A    }\u000A    return n * fact(n-1)\u000A}\u000A');codeLines.push('func main() {\u000A    fmt.Println(fact(7))\u000A');codeLines.push('    var fib func(n int) int\u000A');codeLines.push('    fib \u003D func(n int) int {\u000A        if n \u003C 2 {\u000A            return n\u000A        }\u000A');codeLines.push('        return fib(n-1) + fib(n-2)\u000A    }\u000A');codeLines.push('    fmt.Println(fib(7))\u000A}\u000A');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>

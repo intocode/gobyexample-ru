@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Go на примерах: Директива Embed</title>
-    <link rel=stylesheet href="site.css">
+    <link rel=stylesheet href="site.css?v=d3162d31">
   </head>
   <script>
       window.onkeydown = (e) => {
@@ -197,6 +197,6 @@ embed читай <a href="https://pkg.go.dev/embed">здесь</a>.</p>
       var codeLines = [];
       codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"embed\"\u000A)\u000A');codeLines.push('//go:embed folder/single_file.txt\u000Avar fileString string\u000A');codeLines.push('//go:embed folder/single_file.txt\u000Avar fileByte []byte\u000A');codeLines.push('//go:embed folder/single_file.txt\u000A//go:embed folder/*.hash\u000Avar folder embed.FS\u000A');codeLines.push('func main() {\u000A');codeLines.push('    print(fileString)\u000A    print(string(fileByte))\u000A');codeLines.push('    content1, _ :\u003D folder.ReadFile(\"folder/file1.hash\")\u000A    print(string(content1))\u000A');codeLines.push('    content2, _ :\u003D folder.ReadFile(\"folder/file2.hash\")\u000A    print(string(content2))\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
-    <script src="site.js" async></script>
+    <script src="site.js?v=c8c5e616" async></script>
   </body>
 </html>
