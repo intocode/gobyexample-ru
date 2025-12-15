@@ -18,8 +18,8 @@ func hello(w http.ResponseWriter, req *http.Request) {
 	// `http.ResponseWriter` и `http.Request` как аргументы.
 	// Response writer используется для заполнения
 	// HTTP-ответа. Здесь наш простой ответ — просто
-	// "hello\n".
-	fmt.Fprintf(w, "hello\n")
+	// "привет\n".
+	fmt.Fprintf(w, "привет\n")
 }
 
 func headers(w http.ResponseWriter, req *http.Request) {

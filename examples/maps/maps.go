@@ -59,12 +59,12 @@ func main() {
 
 	// Также можно объявить и инициализировать новый map
 	// в одной строке с помощью такого синтаксиса.
-	n := map[string]int{"foo": 1, "bar": 2}
+	n := map[string]int{"один": 1, "два": 2}
 	fmt.Println("map:", n)
 
 	// Пакет `maps` содержит ряд полезных вспомогательных
 	// функций для работы с map.
-	n2 := map[string]int{"foo": 1, "bar": 2}
+	n2 := map[string]int{"один": 1, "два": 2}
 	if maps.Equal(n, n2) {
 		fmt.Println("n == n2")
 	}

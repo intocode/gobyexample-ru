@@ -56,7 +56,7 @@ func main() {
 	buflog := log.New(&buf, "buf:", log.LstdFlags)
 
 	// Этот вызов записывает вывод лога в `buf`.
-	buflog.Println("hello")
+	buflog.Println("привет")
 
 	// Это фактически покажет его в стандартном выводе.
 	fmt.Print("from buflog:", buf.String())
@@ -66,9 +66,9 @@ func main() {
 	// делается просто.
 	jsonHandler := slog.NewJSONHandler(os.Stderr, nil)
 	myslog := slog.New(jsonHandler)
-	myslog.Info("hi there")
+	myslog.Info("привет")
 
 	// Помимо сообщения, вывод `slog` может содержать
 	// произвольное количество пар key=value.
-	myslog.Info("hello again", "key", "val", "age", 25)
+	myslog.Info("снова привет", "key", "val", "age", 25)
 }

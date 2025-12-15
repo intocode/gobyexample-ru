@@ -39,7 +39,7 @@
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/-L4uK2ZRV66"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/8I4H5prXlE3"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -78,8 +78,8 @@
           <td class="code leading">
             
           <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">ctx</span> <span class="o">:=</span> <span class="nx">req</span><span class="p">.</span><span class="nf">Context</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;server: hello handler started&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;server: hello handler ended&#34;</span><span class="p">)</span></span></span></code></pre>
+</span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;сервер: обработчик hello запущен&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">defer</span> <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;сервер: обработчик hello завершён&#34;</span><span class="p">)</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -96,7 +96,7 @@
             
           <pre class="chroma"><code><span class="line"><span class="cl">    <span class="k">select</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="o">&lt;-</span><span class="nx">time</span><span class="p">.</span><span class="nf">After</span><span class="p">(</span><span class="mi">10</span> <span class="o">*</span> <span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprintf</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="s">&#34;hello\n&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Fprintf</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="s">&#34;привет\n&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="k">case</span> <span class="o">&lt;-</span><span class="nx">ctx</span><span class="p">.</span><span class="nf">Done</span><span class="p">():</span></span></span></code></pre>
           </td>
         </tr>
@@ -110,7 +110,7 @@
           <td class="code leading">
             
           <pre class="chroma"><code><span class="line"><span class="cl">        <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ctx</span><span class="p">.</span><span class="nf">Err</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;server:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;сервер:&#34;</span><span class="p">,</span> <span class="nx">err</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">internalError</span> <span class="o">:=</span> <span class="nx">http</span><span class="p">.</span><span class="nx">StatusInternalServerError</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">http</span><span class="p">.</span><span class="nf">Error</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span> <span class="nx">err</span><span class="p">.</span><span class="nf">Error</span><span class="p">(),</span> <span class="nx">internalError</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
@@ -166,10 +166,10 @@ Ctrl+C вскоре после начала для сигнала отмены.<
           <td class="code">
             
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="gp">$</span> curl localhost:8090/hello
-</span></span><span class="line"><span class="cl"><span class="go">server: hello handler started
+</span></span><span class="line"><span class="cl"><span class="go">сервер: обработчик hello запущен
 </span></span></span><span class="line"><span class="cl"><span class="go">^C
-</span></span></span><span class="line"><span class="cl"><span class="go">server: context canceled
-</span></span></span><span class="line"><span class="cl"><span class="go">server: hello handler ended</span></span></span></code></pre>
+</span></span></span><span class="line"><span class="cl"><span class="go">сервер: context canceled
+</span></span></span><span class="line"><span class="cl"><span class="go">сервер: обработчик hello завершён</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -188,7 +188,7 @@ Ctrl+C вскоре после начала для сигнала отмены.<
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"net/http\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func hello(w http.ResponseWriter, req *http.Request) {\u000A');codeLines.push('    ctx :\u003D req.Context()\u000A    fmt.Println(\"server: hello handler started\")\u000A    defer fmt.Println(\"server: hello handler ended\")\u000A');codeLines.push('    select {\u000A    case \u003C-time.After(10 * time.Second):\u000A        fmt.Fprintf(w, \"hello\\n\")\u000A    case \u003C-ctx.Done():\u000A');codeLines.push('        err :\u003D ctx.Err()\u000A        fmt.Println(\"server:\", err)\u000A        internalError :\u003D http.StatusInternalServerError\u000A        http.Error(w, err.Error(), internalError)\u000A    }\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    http.HandleFunc(\"/hello\", hello)\u000A    http.ListenAndServe(\":8090\", nil)\u000A}\u000A');codeLines.push('');codeLines.push('');
+      codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"net/http\"\u000A    \"time\"\u000A)\u000A');codeLines.push('func hello(w http.ResponseWriter, req *http.Request) {\u000A');codeLines.push('    ctx :\u003D req.Context()\u000A    fmt.Println(\"сервер: обработчик hello запущен\")\u000A    defer fmt.Println(\"сервер: обработчик hello завершён\")\u000A');codeLines.push('    select {\u000A    case \u003C-time.After(10 * time.Second):\u000A        fmt.Fprintf(w, \"привет\\n\")\u000A    case \u003C-ctx.Done():\u000A');codeLines.push('        err :\u003D ctx.Err()\u000A        fmt.Println(\"сервер:\", err)\u000A        internalError :\u003D http.StatusInternalServerError\u000A        http.Error(w, err.Error(), internalError)\u000A    }\u000A}\u000A');codeLines.push('func main() {\u000A');codeLines.push('    http.HandleFunc(\"/hello\", hello)\u000A    http.ListenAndServe(\":8090\", nil)\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js?v=c8c5e616" async></script>
   </body>

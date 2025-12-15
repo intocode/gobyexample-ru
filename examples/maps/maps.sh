@@ -8,5 +8,5 @@ len: 2
 map: map[k1:7]
 map: map[]
 prs: false
-map: map[bar:2 foo:1]
+map: map[два:2 один:1]
 n == n2

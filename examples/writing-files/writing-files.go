@@ -20,7 +20,7 @@ func main() {
 
 	// Для начала вот как записать строку (или просто
 	// байты) в файл.
-	d1 := []byte("hello\ngo\n")
+	d1 := []byte("привет\ngo\n")
 	path1 := filepath.Join(os.TempDir(), "dat1")
 	err := os.WriteFile(path1, d1, 0644)
 	check(err)
@@ -38,12 +38,12 @@ func main() {
 	d2 := []byte{115, 111, 109, 101, 10}
 	n2, err := f.Write(d2)
 	check(err)
-	fmt.Printf("wrote %d bytes\n", n2)
+	fmt.Printf("записано %d байт\n", n2)
 
 	// Также доступен `WriteString`.
 	n3, err := f.WriteString("writes\n")
 	check(err)
-	fmt.Printf("wrote %d bytes\n", n3)
+	fmt.Printf("записано %d байт\n", n3)
 
 	// Вызови `Sync` для сброса записей в постоянное хранилище.
 	f.Sync()
@@ -53,7 +53,7 @@ func main() {
 	w := bufio.NewWriter(f)
 	n4, err := w.WriteString("buffered\n")
 	check(err)
-	fmt.Printf("wrote %d bytes\n", n4)
+	fmt.Printf("записано %d байт\n", n4)
 
 	// Используй `Flush`, чтобы убедиться, что все буферизованные
 	// операции были применены к базовому писателю.

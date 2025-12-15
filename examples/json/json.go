@@ -44,11 +44,11 @@ func main() {
 
 	// А вот примеры для срезов и карт, которые кодируются
 	// в JSON-массивы и объекты, как и следовало ожидать.
-	slcD := []string{"apple", "peach", "pear"}
+	slcD := []string{"яблоко", "персик", "груша"}
 	slcB, _ := json.Marshal(slcD)
 	fmt.Println(string(slcB))
 
-	mapD := map[string]int{"apple": 5, "lettuce": 7}
+	mapD := map[string]int{"яблоко": 5, "салат": 7}
 	mapB, _ := json.Marshal(mapD)
 	fmt.Println(string(mapB))
 
@@ -58,7 +58,7 @@ func main() {
 	// использовать их имена в качестве ключей JSON.
 	res1D := &response1{
 		Page:   1,
-		Fruits: []string{"apple", "peach", "pear"}}
+		Fruits: []string{"яблоко", "персик", "груша"}}
 	res1B, _ := json.Marshal(res1D)
 	fmt.Println(string(res1B))
 
@@ -68,7 +68,7 @@ func main() {
 	// пример таких тегов.
 	res2D := &response2{
 		Page:   1,
-		Fruits: []string{"apple", "peach", "pear"}}
+		Fruits: []string{"яблоко", "персик", "груша"}}
 	res2B, _ := json.Marshal(res2D)
 	fmt.Println(string(res2B))
 
@@ -105,7 +105,7 @@ func main() {
 	// Это даёт преимущества дополнительной типобезопасности
 	// в наших программах и устраняет необходимость утверждений типа
 	// при доступе к декодированным данным.
-	str := `{"page": 1, "fruits": ["apple", "peach"]}`
+	str := `{"page": 1, "fruits": ["яблоко", "персик"]}`
 	res := response2{}
 	json.Unmarshal([]byte(str), &res)
 	fmt.Println(res)
@@ -117,7 +117,7 @@ func main() {
 	// JSON-кодирование напрямую в `os.Writer`, например
 	// `os.Stdout` или даже в тела HTTP-ответов.
 	enc := json.NewEncoder(os.Stdout)
-	d := map[string]int{"apple": 5, "lettuce": 7}
+	d := map[string]int{"яблоко": 5, "салат": 7}
 	enc.Encode(d)
 
 	// Потоковое чтение из `os.Reader`, например `os.Stdin`

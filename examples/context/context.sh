@@ -4,7 +4,7 @@ $ go run context.go &
 # Имитируем клиентский запрос к `/hello`, нажимая
 # Ctrl+C вскоре после начала для сигнала отмены.
 $ curl localhost:8090/hello
-server: hello handler started
+сервер: обработчик hello запущен
 ^C
-server: context canceled
-server: hello handler ended
+сервер: context canceled
+сервер: обработчик hello завершён

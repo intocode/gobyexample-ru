@@ -3,17 +3,17 @@ true
 1
 2.34
 "gopher"
-["apple","peach","pear"]
-{"apple":5,"lettuce":7}
-{"Page":1,"Fruits":["apple","peach","pear"]}
-{"page":1,"fruits":["apple","peach","pear"]}
+["яблоко","персик","груша"]
+{"салат":7,"яблоко":5}
+{"Page":1,"Fruits":["яблоко","персик","груша"]}
+{"page":1,"fruits":["яблоко","персик","груша"]}
 map[num:6.13 strs:[a b]]
 6.13
 a
-{1 [apple peach]}
-apple
-{"apple":5,"lettuce":7}
-{1 [apple peach]}
+{1 [яблоко персик]}
+яблоко
+{"салат":7,"яблоко":5}
+{1 [яблоко персик]}
 
 
 # Мы рассмотрели основы работы с JSON в Go, но для более

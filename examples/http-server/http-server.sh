@@ -3,4 +3,4 @@ $ go run http-server.go &
 
 # Обращаемся к маршруту `/hello`.
 $ curl localhost:8090/hello
-hello
+привет

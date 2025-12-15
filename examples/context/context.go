@@ -18,8 +18,8 @@ func hello(w http.ResponseWriter, req *http.Request) {
 	// механизмом `net/http` и доступен через метод
 	// `Context()`.
 	ctx := req.Context()
-	fmt.Println("server: hello handler started")
-	defer fmt.Println("server: hello handler ended")
+	fmt.Println("сервер: обработчик hello запущен")
+	defer fmt.Println("сервер: обработчик hello завершён")
 
 	// Ждём несколько секунд перед отправкой ответа клиенту.
 	// Это может имитировать работу, выполняемую сервером.
@@ -28,12 +28,12 @@ func hello(w http.ResponseWriter, req *http.Request) {
 	// и вернуться как можно скорее.
 	select {
 	case <-time.After(10 * time.Second):
-		fmt.Fprintf(w, "hello\n")
+		fmt.Fprintf(w, "привет\n")
 	case <-ctx.Done():
 		// Метод `Err()` контекста возвращает ошибку,
 		// объясняющую, почему канал `Done()` был закрыт.
 		err := ctx.Err()
-		fmt.Println("server:", err)
+		fmt.Println("сервер:", err)
 		internalError := http.StatusInternalServerError
 		http.Error(w, err.Error(), internalError)
 	}

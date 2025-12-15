@@ -11,8 +11,8 @@ func main() {
 
 	// Мы будем итерировать по 2 значениям в канале `queue`.
 	queue := make(chan string, 2)
-	queue <- "one"
-	queue <- "two"
+	queue <- "один"
+	queue <- "два"
 	close(queue)
 
 	// Этот `range` итерирует по каждому элементу по мере

@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	fruits := []string{"peach", "banana", "kiwi"}
+	fruits := []string{"персик", "банан", "киви"}
 
 	// Реализуем функцию сравнения для длин строк.
 	// Для этого удобно использовать `cmp.Compare`.

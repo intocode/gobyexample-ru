@@ -38,7 +38,7 @@
 
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/_6WUmXBha0t"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/VfGL5pP3U7j"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -172,7 +172,7 @@
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">buflog</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;hello&#34;</span><span class="p">)</span></span></span></code></pre>
+          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">buflog</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;привет&#34;</span><span class="p">)</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -198,7 +198,7 @@
             
           <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">jsonHandler</span> <span class="o">:=</span> <span class="nx">slog</span><span class="p">.</span><span class="nf">NewJSONHandler</span><span class="p">(</span><span class="nx">os</span><span class="p">.</span><span class="nx">Stderr</span><span class="p">,</span> <span class="kc">nil</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">myslog</span> <span class="o">:=</span> <span class="nx">slog</span><span class="p">.</span><span class="nf">New</span><span class="p">(</span><span class="nx">jsonHandler</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">    <span class="nx">myslog</span><span class="p">.</span><span class="nf">Info</span><span class="p">(</span><span class="s">&#34;hi there&#34;</span><span class="p">)</span></span></span></code></pre>
+</span></span><span class="line"><span class="cl">    <span class="nx">myslog</span><span class="p">.</span><span class="nf">Info</span><span class="p">(</span><span class="s">&#34;привет&#34;</span><span class="p">)</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -210,7 +210,7 @@
           </td>
           <td class="code">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">myslog</span><span class="p">.</span><span class="nf">Info</span><span class="p">(</span><span class="s">&#34;hello again&#34;</span><span class="p">,</span> <span class="s">&#34;key&#34;</span><span class="p">,</span> <span class="s">&#34;val&#34;</span><span class="p">,</span> <span class="s">&#34;age&#34;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">myslog</span><span class="p">.</span><span class="nf">Info</span><span class="p">(</span><span class="s">&#34;снова привет&#34;</span><span class="p">,</span> <span class="s">&#34;key&#34;</span><span class="p">,</span> <span class="s">&#34;val&#34;</span><span class="p">,</span> <span class="s">&#34;age&#34;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre>
           </td>
         </tr>
@@ -233,7 +233,7 @@
 </span></span></span><span class="line"><span class="cl"><span class="go">2023/08/22 10:45:16 logging.go:40: with file/line
 </span></span></span><span class="line"><span class="cl"><span class="go">my:2023/08/22 10:45:16 from mylog
 </span></span></span><span class="line"><span class="cl"><span class="go">ohmy:2023/08/22 10:45:16 from mylog
-</span></span></span><span class="line"><span class="cl"><span class="go">from buflog:buf:2023/08/22 10:45:16 hello</span></span></span></code></pre>
+</span></span></span><span class="line"><span class="cl"><span class="go">from buflog:buf:2023/08/22 10:45:16 привет</span></span></span></code></pre>
           </td>
         </tr>
         
@@ -246,9 +246,9 @@
           <td class="code">
             
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="go">{&#34;time&#34;:&#34;2023-08-22T10:45:16.904166391-07:00&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="go"> &#34;level&#34;:&#34;INFO&#34;,&#34;msg&#34;:&#34;hi there&#34;}
+</span></span></span><span class="line"><span class="cl"><span class="go"> &#34;level&#34;:&#34;INFO&#34;,&#34;msg&#34;:&#34;привет&#34;}
 </span></span></span><span class="line"><span class="cl"><span class="go">{&#34;time&#34;:&#34;2023-08-22T10:45:16.904178985-07:00&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="go">    &#34;level&#34;:&#34;INFO&#34;,&#34;msg&#34;:&#34;hello again&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="go">    &#34;level&#34;:&#34;INFO&#34;,&#34;msg&#34;:&#34;снова привет&#34;,
 </span></span></span><span class="line"><span class="cl"><span class="go">    &#34;key&#34;:&#34;val&#34;,&#34;age&#34;:25}</span></span></span></code></pre>
           </td>
         </tr>
@@ -268,7 +268,7 @@
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"bytes\"\u000A    \"fmt\"\u000A    \"log\"\u000A    \"os\"\u000A');codeLines.push('    \"log/slog\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    log.Println(\"standard logger\")\u000A');codeLines.push('    log.SetFlags(log.LstdFlags | log.Lmicroseconds)\u000A    log.Println(\"with micro\")\u000A');codeLines.push('    log.SetFlags(log.LstdFlags | log.Lshortfile)\u000A    log.Println(\"with file/line\")\u000A');codeLines.push('    mylog :\u003D log.New(os.Stdout, \"my:\", log.LstdFlags)\u000A    mylog.Println(\"from mylog\")\u000A');codeLines.push('    mylog.SetPrefix(\"ohmy:\")\u000A    mylog.Println(\"from mylog\")\u000A');codeLines.push('    var buf bytes.Buffer\u000A    buflog :\u003D log.New(\u0026buf, \"buf:\", log.LstdFlags)\u000A');codeLines.push('    buflog.Println(\"hello\")\u000A');codeLines.push('    fmt.Print(\"from buflog:\", buf.String())\u000A');codeLines.push('    jsonHandler :\u003D slog.NewJSONHandler(os.Stderr, nil)\u000A    myslog :\u003D slog.New(jsonHandler)\u000A    myslog.Info(\"hi there\")\u000A');codeLines.push('    myslog.Info(\"hello again\", \"key\", \"val\", \"age\", 25)\u000A}\u000A');codeLines.push('');codeLines.push('');
+      codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"bytes\"\u000A    \"fmt\"\u000A    \"log\"\u000A    \"os\"\u000A');codeLines.push('    \"log/slog\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    log.Println(\"standard logger\")\u000A');codeLines.push('    log.SetFlags(log.LstdFlags | log.Lmicroseconds)\u000A    log.Println(\"with micro\")\u000A');codeLines.push('    log.SetFlags(log.LstdFlags | log.Lshortfile)\u000A    log.Println(\"with file/line\")\u000A');codeLines.push('    mylog :\u003D log.New(os.Stdout, \"my:\", log.LstdFlags)\u000A    mylog.Println(\"from mylog\")\u000A');codeLines.push('    mylog.SetPrefix(\"ohmy:\")\u000A    mylog.Println(\"from mylog\")\u000A');codeLines.push('    var buf bytes.Buffer\u000A    buflog :\u003D log.New(\u0026buf, \"buf:\", log.LstdFlags)\u000A');codeLines.push('    buflog.Println(\"привет\")\u000A');codeLines.push('    fmt.Print(\"from buflog:\", buf.String())\u000A');codeLines.push('    jsonHandler :\u003D slog.NewJSONHandler(os.Stderr, nil)\u000A    myslog :\u003D slog.New(jsonHandler)\u000A    myslog.Info(\"привет\")\u000A');codeLines.push('    myslog.Info(\"снова привет\", \"key\", \"val\", \"age\", 25)\u000A}\u000A');codeLines.push('');codeLines.push('');
     </script>
     <script src="site.js?v=c8c5e616" async></script>
   </body>

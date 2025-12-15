@@ -45,7 +45,7 @@
             
           </td>
           <td class="code leading">
-            <a href="https://go.dev/play/p/IGE1ySCYdKR"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
+            <a href="https://go.dev/play/p/vGRyEPFDsxE"><img title="Run code" src="play.png" class="run" /></a><img title="Copy code" src="clipboard.png" class="copy" />
           <pre class="chroma"><code><span class="line"><span class="cl"><span class="kn">package</span> <span class="nx">main</span></span></span></code></pre>
           </td>
         </tr>
@@ -200,7 +200,7 @@
           </td>
           <td class="code leading">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">n</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&#34;foo&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#34;bar&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">n</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&#34;один&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#34;два&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;map:&#34;</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span></span></span></code></pre>
           </td>
         </tr>
@@ -213,7 +213,7 @@
           </td>
           <td class="code">
             
-          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">n2</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&#34;foo&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#34;bar&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+          <pre class="chroma"><code><span class="line"><span class="cl">    <span class="nx">n2</span> <span class="o">:=</span> <span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">int</span><span class="p">{</span><span class="s">&#34;один&#34;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&#34;два&#34;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 </span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="nx">maps</span><span class="p">.</span><span class="nf">Equal</span><span class="p">(</span><span class="nx">n</span><span class="p">,</span> <span class="nx">n2</span><span class="p">)</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;n == n2&#34;</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="p">}</span>
@@ -241,7 +241,7 @@ map отображаются в формате <code>map[k:v k:v]</code>.</p>
 </span></span></span><span class="line"><span class="cl"><span class="go">map: map[k1:7]
 </span></span></span><span class="line"><span class="cl"><span class="go">map: map[]
 </span></span></span><span class="line"><span class="cl"><span class="go">prs: false
-</span></span></span><span class="line"><span class="cl"><span class="go">map: map[bar:2 foo:1]
+</span></span></span><span class="line"><span class="cl"><span class="go">map: map[два:2 один:1]
 </span></span></span><span class="line"><span class="cl"><span class="go">n == n2</span></span></span></code></pre>
           </td>
         </tr>
@@ -261,7 +261,7 @@ map отображаются в формате <code>map[k:v k:v]</code>.</p>
     </div>
     <script>
       var codeLines = [];
-      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"maps\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    m :\u003D make(map[string]int)\u000A');codeLines.push('    m[\"k1\"] \u003D 7\u000A    m[\"k2\"] \u003D 13\u000A');codeLines.push('    fmt.Println(\"map:\", m)\u000A');codeLines.push('    v1 :\u003D m[\"k1\"]\u000A    fmt.Println(\"v1:\", v1)\u000A');codeLines.push('    v3 :\u003D m[\"k3\"]\u000A    fmt.Println(\"v3:\", v3)\u000A');codeLines.push('    fmt.Println(\"len:\", len(m))\u000A');codeLines.push('    delete(m, \"k2\")\u000A    fmt.Println(\"map:\", m)\u000A');codeLines.push('    clear(m)\u000A    fmt.Println(\"map:\", m)\u000A');codeLines.push('    _, prs :\u003D m[\"k2\"]\u000A    fmt.Println(\"prs:\", prs)\u000A');codeLines.push('    n :\u003D map[string]int{\"foo\": 1, \"bar\": 2}\u000A    fmt.Println(\"map:\", n)\u000A');codeLines.push('    n2 :\u003D map[string]int{\"foo\": 1, \"bar\": 2}\u000A    if maps.Equal(n, n2) {\u000A        fmt.Println(\"n \u003D\u003D n2\")\u000A    }\u000A}\u000A');codeLines.push('');
+      codeLines.push('');codeLines.push('package main\u000A');codeLines.push('import (\u000A    \"fmt\"\u000A    \"maps\"\u000A)\u000A');codeLines.push('func main() {\u000A');codeLines.push('    m :\u003D make(map[string]int)\u000A');codeLines.push('    m[\"k1\"] \u003D 7\u000A    m[\"k2\"] \u003D 13\u000A');codeLines.push('    fmt.Println(\"map:\", m)\u000A');codeLines.push('    v1 :\u003D m[\"k1\"]\u000A    fmt.Println(\"v1:\", v1)\u000A');codeLines.push('    v3 :\u003D m[\"k3\"]\u000A    fmt.Println(\"v3:\", v3)\u000A');codeLines.push('    fmt.Println(\"len:\", len(m))\u000A');codeLines.push('    delete(m, \"k2\")\u000A    fmt.Println(\"map:\", m)\u000A');codeLines.push('    clear(m)\u000A    fmt.Println(\"map:\", m)\u000A');codeLines.push('    _, prs :\u003D m[\"k2\"]\u000A    fmt.Println(\"prs:\", prs)\u000A');codeLines.push('    n :\u003D map[string]int{\"один\": 1, \"два\": 2}\u000A    fmt.Println(\"map:\", n)\u000A');codeLines.push('    n2 :\u003D map[string]int{\"один\": 1, \"два\": 2}\u000A    if maps.Equal(n, n2) {\u000A        fmt.Println(\"n \u003D\u003D n2\")\u000A    }\u000A}\u000A');codeLines.push('');
     </script>
     <script src="site.js?v=c8c5e616" async></script>
   </body>

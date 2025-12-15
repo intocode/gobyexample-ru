@@ -20,11 +20,11 @@ func main() {
 	// выполняющиеся в конкурентных горутинах.
 	go func() {
 		time.Sleep(1 * time.Second)
-		c1 <- "one"
+		c1 <- "один"
 	}()
 	go func() {
 		time.Sleep(2 * time.Second)
-		c2 <- "two"
+		c2 <- "два"
 	}()
 
 	// Используем `select`, чтобы одновременно ожидать
@@ -32,9 +32,9 @@ func main() {
 	for range 2 {
 		select {
 		case msg1 := <-c1:
-			fmt.Println("received", msg1)
+			fmt.Println("получено", msg1)
 		case msg2 := <-c2:
-			fmt.Println("received", msg2)
+			fmt.Println("получено", msg2)
 		}
 	}
 }

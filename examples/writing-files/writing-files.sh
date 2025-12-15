@@ -1,12 +1,12 @@
 # Попробуй запустить код записи файлов.
-$ go run writing-files.go 
-wrote 5 bytes
-wrote 7 bytes
-wrote 9 bytes
+$ go run writing-files.go
+записано 5 байт
+записано 7 байт
+записано 9 байт
 
 # Затем проверь содержимое записанных файлов.
 $ cat /tmp/dat1
-hello
+привет
 go
 $ cat /tmp/dat2
 some
